@@ -13,6 +13,7 @@ export const alignersData = {
       "title": "STEP 1 - DENTAL VISIT",
       "description": "A licensed partner dentist near you will assess your smile, discuss your case and take full diagnostics — including x-rays, intra-oral photos, a suitability assessment and a 3D digital scan of your teeth and bite. These professional-grade scans are far more accurate than at-home impression kits, which means better-fitting aligners and more predictable results. Your dentist will also confirm whether your teeth and gums are healthy enough to start treatment.",
       "localVideo": "/assets/videos/progress-step-1.mp4",
+      "poster": "/assets/images/progress-step-1-poster.jpg",
       "vimeoUrl": "https://player.vimeo.com/video/879353876?muted=1&controls=0"
     },
     {
@@ -20,6 +21,7 @@ export const alignersData = {
       "title": "STEP 2 - SMILE DESIGN",
       "description": "Our orthodontics team uses your scans to design a bespoke treatment plan, mapping out exactly how each tooth will move and in what sequence. You’ll receive a 3D simulation of your smile transformation that you can review and approve before any aligners are made — so you know exactly what to expect. Your treatment plan is typically ready within 3–5 business days, and you’ll get access to the Linea app to track your progress throughout treatment.",
       "localVideo": "/assets/videos/progress-step-2.mp4",
+      "poster": "/assets/images/progress-step-2-poster.jpg",
       "vimeoUrl": "https://player.vimeo.com/video/879354565?muted=1&controls=0"
     },
     {
@@ -27,6 +29,7 @@ export const alignersData = {
       "title": "STEP 3 - FITTING & TRACKING",
       "description": "Your partner dentist will fit the aligners to your teeth and perform any procedures your plan requires, such as attachments (small tooth-colored grips that help move specific teeth) or IPR (gentle reshaping between teeth to create space for movement). From there, you’ll upload progress photos monthly through the Linea app, and Linea’s clinical team reviews them to make sure everything is tracking to plan. Local Support is available 7 days a week.",
       "localVideo": "/assets/videos/progress-step-3.mp4",
+      "poster": "/assets/images/progress-step-3-poster.jpg",
       "vimeoUrl": "https://player.vimeo.com/video/879355877?muted=1&controls=0"
     }
   ],
@@ -636,19 +639,19 @@ export const alignersData = {
       "id": "socials2",
       "vimeoUrl": "https://player.vimeo.com/video/879364340?controls=0",
       "localVideo": "/assets/videos/socials-2.mp4",
-      "poster": null
+      "poster": "/assets/images/socials-2-poster.jpg"
     },
     {
       "id": "socials3",
       "vimeoUrl": "https://player.vimeo.com/video/879366717?controls=0",
       "localVideo": "/assets/videos/socials-3.mp4",
-      "poster": null
+      "poster": "/assets/images/socials-3-poster.jpg"
     },
     {
       "id": "socials4",
       "vimeoUrl": "https://player.vimeo.com/video/879363031?controls=0",
       "localVideo": "/assets/videos/socials-4.mp4",
-      "poster": null
+      "poster": "/assets/images/socials-4-poster.jpg"
     }
   ],
   "faqs": [

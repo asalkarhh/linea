@@ -61,18 +61,23 @@ All interactive UI behaviors are implemented purely in the browser without any b
 
 ---
 
-## Original Assets & Documented Differences
+## Original Assets & Dedicated Video Audit
 
-- **Asset Inventory**: See [`ASSET_INVENTORY.md`](./ASSET_INVENTORY.md) for URLs, dimensions, byte sizes, and page mappings of all 153 downloaded original images, icons, videos, and webfonts under `public/assets/`.
+- **Asset Inventory**: See [`ASSET_INVENTORY.md`](./ASSET_INVENTORY.md) for URLs, dimensions, byte sizes, and page mappings of all 160 original images, posters, icons, videos, and webfonts under `public/assets/`.
+- **Dedicated Video Audit & Fixes**:
+  - **Hero Background Video (`HeroVideoBg`)**: Responsive source switching (`Linea_Wide_Website_Hero_Comp.mp4` on desktop `>= 700px`, `Linea_Vertical__Website_Hero_Comp.mp4` on mobile `< 700px`) with guaranteed browser autoplay via enforced `muted = true` / `defaultMuted = true` DOM properties, `playsInline`, `webkit-playsinline`, and automatic scroll pause/resume.
+  - **Module 3 Process Step Videos (`ProcessVideoPlayer`)**: Features faithful scroll-based autoplay matching the original site (`process1` plays when entering `#mod-3`, pauses when scrolling down to `process2`, and `process3` plays on reaching Step 3), with click-to-toggle play overlays and high-resolution posters (`progress-step-1..3-poster.jpg`).
+  - **Module 6 Showcase Video (`VimeoShowcasePlayer`)**: Direct embed of Vimeo showcase stream `https://player.vimeo.com/video/878905076?controls=0` within `.mod-6-video-wrap`, accompanied by the reference feather play overlay.
+  - **Module 10 Socials Carousel (`SocialsVideoPlayer`)**: 4 vertical reels with custom feather play controls, loop, and crisp video poster frames (`socials-1..4-poster.jpg`).
+  - **Module 2 Guarantee Block (`GuaranteeVideoBlock`)**: Dentist supervision visual with click-to-play option for the reference guarantee video (`https://player.vimeo.com/video/724683619`).
 - **`PanamaRegular.woff` (`HTTP 403 Forbidden`)**: The `https://linea-official-us.s3.amazonaws.com/static/fonts/PanamaRegular.woff` font file returned HTTP 403 from S3 and was omitted from `@font-face`; `--font-serif` in `src/styles/variables.css` uses `'Panama', Georgia, 'Times New Roman', serif` while `LaNord-Light.woff` and `LaNord-Regular.woff` load from `/assets/fonts/`.
-- **Videos**: Hero and process/social videos play directly from downloaded original S3 `.mp4` assets under `/assets/videos/` with poster frames; Module 6 (`878905076`) offers click-to-play preview over `video-still.jpeg`.
 - **Excluded Routes**: Routes disallowed by `robots.txt` (`/admin/`, `/staff/`, `/dashboard/`, `/dentists/`, `/payment/`, `/suppliers/`, `/c/`), regional `.com.au` pages, and inactive US routes returning 404 on the live site (`/veneers/`, `/whitening/`, `/aligners/retainers/`) are excluded.
 
 ---
 
 ## Build & Verification Status
 
-- `npm run build`: Built cleanly via Vite (`vite build`) producing `dist/index.html`, `dist/assets/index-CFA-NKWa.css`, and `dist/assets/index-lLJKOMxe.js` with 0 errors.
-- Static Reference Audit: Verified all 142 `/assets/...` references resolve to non-empty files in `public/assets/`, 0 remaining external `s3.amazonaws.com` URLs in `src/` or `index.html`, and 0 dead internal `<Link to="...">` targets.
-- Vite Preview Verification (`npx vite preview --host 127.0.0.1 --port 4173`): Verified HTTP 200 across all 20 tested routes and sample image/video/font/icon assets.
+- `npm run build`: Built cleanly via Vite (`vite build`) producing `dist/index.html`, `dist/assets/index-BPLPrWzy.css` (52.58 kB), and `dist/assets/index-DxP4C1wi.js` (1,102.20 kB) with 0 errors.
+- Static Reference Audit: Verified all `/assets/...` references resolve to non-empty files in `public/assets/`, 0 remaining external `s3.amazonaws.com` URLs in `src/` or `index.html`, and 0 dead internal `<Link to="...">` targets.
+- Vite Preview Verification (`npx vite preview --host 127.0.0.1 --port 4173`): Verified HTTP 200 across all tested routes and sample image/video/font/icon assets.
 

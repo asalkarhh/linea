@@ -5,8 +5,10 @@ import { alignersData } from '../data/alignersData';
 import { useModals } from '../context/ModalContext';
 import {
   HeroVideoBg,
-  LocalPlayableVideo,
+  ProcessVideoPlayer,
   VimeoShowcasePlayer,
+  SocialsVideoPlayer,
+  GuaranteeVideoBlock,
 } from '../components/VideoSection/VideoPlayers';
 import SlideCarousel from '../components/Carousel/SlideCarousel';
 import FaqAccordion from '../components/Accordion/FaqAccordion';
@@ -18,6 +20,7 @@ export default function Aligners() {
   const { openBookNow, openReviewModal, openLightbox, setDarkHeader, setHeaderOpacity } = useModals();
   const [activeMod2, setActiveMod2] = useState(1);
   const [showBottomBar, setShowBottomBar] = useState(false);
+  const [activeProcessStep, setActiveProcessStep] = useState(null);
 
   const mod3Ref = useRef(null);
   const pricingRef = useRef(null);
@@ -59,6 +62,27 @@ export default function Aligners() {
           y > socialsTop;
 
         setDarkHeader(isDark);
+
+        // Process step autoplay on scroll matching reference
+        const mod3El = mod3Ref.current;
+        if (mod3El) {
+          const rect = mod3El.getBoundingClientRect();
+          const topInView = rect.top;
+          const totalH = rect.height;
+          if (topInView < window.innerHeight * 0.75 && topInView + totalH > 100) {
+            const relY = Math.max(0, -topInView + 100);
+            const ratio = relY / totalH;
+            if (ratio < 0.35) {
+              setActiveProcessStep(1);
+            } else if (ratio < 0.7) {
+              setActiveProcessStep(2);
+            } else {
+              setActiveProcessStep(3);
+            }
+          } else {
+            setActiveProcessStep(null);
+          }
+        }
       }
     };
 
@@ -200,17 +224,7 @@ export default function Aligners() {
       {/* Module 2: Guided by local dentists / Aligner Technology switcher */}
       <section className="block mod-2-row std-y-pad">
         <div className="half" id="square-mod-2-left">
-          <div className="mod-2-video-wrap">
-            <img
-              alt="Dentist performing Linea Clear Aligner fitting"
-              id="guarantee-video"
-              src="/assets/images/dentist.jpg"
-              style={{
-                opacity: activeMod2 === 1 ? 1 : 0,
-                objectFit: 'cover',
-              }}
-            />
-          </div>
+          <GuaranteeVideoBlock activeMod2={activeMod2} />
         </div>
 
         <div
@@ -309,13 +323,15 @@ export default function Aligners() {
         <div className="block row" style={{ justifyContent: 'space-between' }}>
           {alignersData.processSteps.map((step) => (
             <div key={step.step} className="process-block">
-              <div className="process-video-wrap">
-                <LocalPlayableVideo
-                  id={`process${step.step}`}
-                  src={step.localVideo}
-                  ariaLabel={`Play ${step.title} video`}
-                />
-              </div>
+              <ProcessVideoPlayer
+                id={`process${step.step}`}
+                stepNumber={step.step}
+                src={step.localVideo}
+                poster={step.poster}
+                vimeoUrl={step.vimeoUrl}
+                isActive={activeProcessStep === step.step}
+                title={step.title}
+              />
               <div className="process-details">
                 <h3>{step.title}</h3>
                 <div
@@ -708,14 +724,13 @@ export default function Aligners() {
           mobileVisible={1}
           renderSlide={(vid, idx) => (
             <div key={vid.id + idx} className="slide">
-              <div className="socials-video-wrap" style={{ borderRadius: '10px', overflow: 'hidden' }}>
-                <LocalPlayableVideo
-                  id={vid.id}
-                  src={vid.localVideo}
-                  poster={vid.poster}
-                  ariaLabel={`Play Linea social reel ${idx + 1}`}
-                />
-              </div>
+              <SocialsVideoPlayer
+                id={vid.id}
+                src={vid.localVideo}
+                poster={vid.poster}
+                vimeoUrl={vid.vimeoUrl}
+                ariaLabel={`Play Linea social video ${idx + 1}`}
+              />
             </div>
           )}
         />
