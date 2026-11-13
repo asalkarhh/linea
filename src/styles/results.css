@@ -1,0 +1,226 @@
+/* Page CSS extracted from aligners_results.html */
+.page-results .slide-wrap {
+		position: relative;
+		width: 100%;
+		overflow: hidden;
+	}
+	.page-results .slide-row {
+		position: relative;
+		white-space: nowrap;
+		left: 0;
+		transition: left 0.2s;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+	}
+	.page-results .slide {
+		display:inline-block;
+		vertical-align:top;
+		min-width: calc(100vw - 70px);
+		padding: 5px;
+		padding-top: 25px;
+	}
+	.page-results .slide-25 {
+		display:inline-block;
+		vertical-align:top;
+		min-width: calc(100vw - 20px);
+		padding: 10px;
+		position: relative;
+	}
+	.page-results .slide-25-img {
+		position: relative;
+		height: 111vw;
+		background-size: cover;
+		background-position: top center;
+		background-repeat: no-repeat;
+		border-radius: 5px;
+	}
+	.page-results .slide-25-overlay {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-color: rgba(0,0,0,0.2);
+		border-radius: 5px;
+	}
+	.page-results .name-overlay {
+		position: absolute;
+		top: 0px;
+		left: 0;
+		width: auto;
+		padding: 10px;
+		color: white;
+	}
+	.page-results .case-overlay {
+		position: absolute;
+		bottom: 6px;
+		right: 0px;
+		width: auto;
+		padding: 10px;
+		color: white;
+	}
+	.page-results .arrow {
+		position: absolute;
+		transform:translateY(-50%);
+		background-color: #000;
+		color: #fff;
+		padding:15px;
+		cursor:pointer;
+		transition: left 0.2s, right 0.2s;
+		user-select: none;
+		-webkit-user-select: none;
+		touch-action: manipulation;
+		width: 40px;
+		text-align:center;
+	}
+	.page-results #trustpilot-reviews .arrow {
+		top: calc(25% + 170px);;
+	}
+	.page-results #google-reviews .arrow {
+		top: calc(25% + 170px);;
+	}
+	.page-results #results .arrow {
+		top: calc(55.5vw + 20px);
+	}
+	.page-results .arrow-left {
+		left: -60px;
+	}
+	.page-results .arrow-right {
+		right: -60px;
+	}
+	.page-results .slide-img {
+		position: relative;
+		height: 50px;
+		width: 50px;
+		border-radius: 50%;
+		overflow:hidden;
+		box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+		margin-top: -20px;
+		background-color: #f6f5e9;
+	}
+	.page-results .slide-block {
+		border: 1px solid #221f20;
+		border-radius: 5px;
+		padding: 10px;
+		padding-top: 0px;
+		height: 100%;
+	}
+	.page-results .slide-description {
+		white-space: initial;
+		line-height: 1em;
+		font-size: 14px;
+	}
+	.page-results .progress-bar-wrap {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: center;
+		align-items: center;
+		padding: 0px;
+	}
+	.page-results .progress-bar-step {
+		height: 0px;
+		width: 0px;
+		border-radius: 50%;
+		margin-left: 10px;
+		margin-right: 10px;
+		background-color: transparent;
+		transition: all 0.2s;
+	}
+	.page-results .four-step {
+		display:none;
+	}
+	.page-results .three-step {
+		display:none;
+	}
+	.page-results .bar-active {
+		background-color: transparent;
+	}
+	.page-results .slide-description {
+		white-space: initial;
+	}
+	.page-results .slide-info {
+		display: none;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		padding: 0px 10px;
+		background-color:rgb(232, 228, 217);
+		white-space: initial;
+		width: calc(100% - 40px);
+		font-size: 12px;
+		border: 1px solid #221f20;
+		font-family:Nord;
+	}
+	.page-results #results {
+		user-select: none;
+		-webkit-user-select: none;
+	}
+	.page-results #google-reviews {
+		padding-left: 35px;
+		padding-right: 35px;
+	}
+	.page-results #trustpilot-reviews {
+		padding-left: 35px;
+		padding-right: 35px;
+	}
+	@media screen and (min-width: 700px) {
+
+		.page-results .slide {
+			min-width: 50%;
+		}
+		.page-results .slide-25 {
+			min-width: 50%;
+		}
+		.page-results .slide-25-img {
+			height: 55.5vw;
+		}
+		.page-results .five-step {
+			display:none;
+		}
+		.page-results .four-step {
+			display:flex;
+		}
+		.page-results .three-step {
+			display:none;
+		}
+		.page-results #results .arrow {
+			top: calc(27.7vw + 20px);
+		}
+	
+}
+	@media screen and (min-width: 940px) {
+
+		.page-results .arrow {
+			width: 60px;
+		}
+		.page-results .slide {
+			min-width: 33.3%;
+		}
+		.page-results .slide-25 {
+			min-width: 25%;
+		}
+		.page-results .slide-25-img {
+			height: 27.7vw;
+		}
+		.page-results .four-step {
+			display: none;
+		}
+		.page-results .three-step {
+			display: flex;
+		}
+		.page-results #results .arrow {
+			top: calc(13.8vw + 20px);
+		}
+		.page-results #google-reviews {
+			padding-left: 75px;
+			padding-right: 75px;
+		}
+		.page-results #trustpilot-reviews {
+			padding-left: 75px;
+			padding-right: 75px;
+		}
+	
+}

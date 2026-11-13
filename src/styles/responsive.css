@@ -1,0 +1,156 @@
+.mobile-hide {
+  display: none;
+}
+
+.desktop-hide {
+  display: block;
+}
+
+@media screen and (min-width: 700px) {
+  .top-cover {
+    height: 50vw;
+  }
+
+  .cta-block {
+    background-image: url(/assets/images/cta-bg.jpg);
+    background-position: top center;
+    min-height: 25vw;
+  }
+
+  .menu-start-here {
+    display: none;
+  }
+
+  .home-cover-half {
+    width: 50%;
+    float: left;
+  }
+
+  .mobile-hide {
+    display: block;
+  }
+
+  .desktop-hide {
+    display: none;
+  }
+
+  .location-select {
+    width: 200px;
+  }
+
+  .location-options {
+    width: 200px;
+  }
+}
+
+@media screen and (min-width: 940px) {
+  .left {
+    padding-left: 75px;
+  }
+
+  .right {
+    padding-right: 60px;
+  }
+
+  .main {
+    min-height: calc(100vh - 300px);
+  }
+
+  .menu {
+    display: block;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  .column {
+    flex-basis: 25%;
+  }
+
+  .wide {
+    flex-basis: 50%;
+  }
+
+  .half {
+    width: 50%;
+    float: left;
+  }
+
+  .third {
+    width: 33.3%;
+    float: left;
+  }
+
+  .section .column.third {
+    flex-basis: 33.3%;
+  }
+
+  .two-thirds {
+    width: 66.7%;
+    float: left;
+  }
+
+  .section .column.two-thirds {
+    flex-basis: 66.7%;
+  }
+
+  .forty {
+    width: 43%;
+    float: left;
+  }
+
+  .sixty {
+    width: 57%;
+    float: left;
+  }
+
+  .square-35vw {
+    height: 33.5vw;
+  }
+
+  .square-30vw {
+    height: 30vw;
+  }
+
+  .cta-block .half {
+    padding: 80px;
+  }
+
+  .cover-text {
+    padding: 0 80px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .std-x-pad {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+
+  .footer-pad {
+    padding-left: 80px;
+    padding-right: 70px;
+  }
+
+  #model-button {
+    width: 70%;
+  }
+}
+
+@media screen and (min-width: 1140px) {
+  .top-cover {
+    height: 35vw;
+  }
+}
+
+@media screen and (min-height: 760px) {
+  .large-menu {
+    justify-content: center;
+    padding-top: 0;
+  }
+}
+

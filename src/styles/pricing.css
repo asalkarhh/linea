@@ -1,0 +1,342 @@
+/* Page CSS extracted from aligners_pricing.html */
+.page-pricing .timeline-block {
+		clear: both;
+		padding-left: 40px;
+		border-left: 1px solid #221f20;
+		position: relative;
+		overflow: visible;
+	}
+	.page-pricing .timeline-block:last-child {
+		border: 0px;
+	}
+	.page-pricing .timeline-title {
+		text-align: left;
+		width: 100%;
+		float: none;
+		margin-bottom: 20px;
+		padding: 0px;
+	}
+	.page-pricing .timeline-title::after {
+		content: '';
+		position: absolute;
+		width: 10px;
+		height: 10px;
+		background-color: #221f20;
+		border-radius: 50%;
+		left: -5px;
+		top:  0px;
+	}
+	.page-pricing .timeline-text {
+		width: 100%;
+		float: none;
+		padding: 0px;
+		padding-bottom: 40px;
+	}
+	.page-pricing .control {
+		position:absolute;
+		right: 0px;
+		top: 10px;
+		font-weight:500;
+		font-size:18px;
+	}
+	.page-pricing .question-block {
+		max-height:0px;
+		transition: max-height 0.2s;
+		overflow: hidden;
+	}
+	.page-pricing .question-wrap {
+		position: relative;
+		padding: 10px 0px;
+		cursor:pointer;
+	}
+	.page-pricing .question-wrap p {
+		margin: 0;
+		padding: 0;
+		width: calc(100% - 15px);
+	}
+	.page-pricing .question-answer {
+		max-height: 0px;
+		transition: max-height 0.2s;
+		overflow: hidden;
+		border-bottom: 1px solid #9b9a9d;
+	}
+	.page-pricing .bar-right {
+		border-right:  0px;
+	}
+	.page-pricing .slide-wrap {
+		position: relative;
+		width: 100%;
+		overflow: hidden;
+	}
+	.page-pricing .slide-row {
+		position: relative;
+		white-space: nowrap;
+		left: 0;
+		transition: left 0.2s;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+	}
+	.page-pricing .slide {
+		display:inline-block;
+		vertical-align:top;
+		min-width: calc(100vw - 70px);
+		padding: 5px;
+		padding-top: 25px;
+	}
+	.page-pricing .arrow {
+		position: absolute;
+		top: calc(25% + 160px);
+		transform:translateY(-50%);
+		background-color: #000;
+		color: #fff;
+		padding:15px;
+		cursor:pointer;
+		transition: left 0.2s, right 0.2s;
+		user-select: none;
+		-webkit-user-select: none;
+		touch-action: manipulation;
+		width: 60px;
+		text-align:center;
+	}
+	.page-pricing .arrow-left {
+		left: -60px;
+	}
+	.page-pricing .arrow-right {
+		right: -60px;
+	}
+	.page-pricing .slide-img {
+		position: relative;
+		height: 50px;
+		width: 50px;
+		border-radius: 50%;
+		overflow:hidden;
+		box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+		margin-top: -20px;
+		background-color: #f6f5e9;
+	}
+	.page-pricing .slide-block {
+		border: 1px solid #221f20;
+		border-radius: 5px;
+		padding: 10px;
+		padding-top: 0px;
+		height: 100%;
+	}
+	.page-pricing .slide-description {
+		white-space: initial;
+		line-height: 1em;
+		font-size: 14px;
+	}
+	.page-pricing .progress-bar-wrap {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: center;
+		align-items: center;
+		padding: 0px;
+	}
+	.page-pricing .progress-bar-step {
+		height: 10px;
+		width: 10px;
+		border-radius: 50%;
+		margin-left: 10px;
+		margin-right: 10px;
+		background-color: transparent;
+		transition: all 0.2s;
+	}
+	.page-pricing .four-step {
+		display:none;
+	}
+	.page-pricing .three-step {
+		display:none;
+	}
+	.page-pricing .bar-active {
+		background-color: transparent;
+	}
+	.page-pricing .slide-description {
+		white-space: initial;
+	}
+	.page-pricing .slide-info {
+		display: none;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		padding: 0px 10px;
+		background-color:rgb(232, 228, 217);
+		white-space: initial;
+		width: calc(100% - 40px);
+		font-size: 12px;
+		border: 1px solid #221f20;
+		font-family:Nord;
+	}
+	.page-pricing #google-reviews {
+		padding-left: 35px;
+		padding-right: 35px;
+	}
+	.page-pricing .hover-wrap {
+		position: relative;
+		display:inline-block;
+	}
+	.page-pricing .fa-info-circle {
+		color: #999999;
+		cursor:pointer;
+	}
+	.page-pricing .hover-block {
+		position:absolute;
+		display:none;
+		height:190px;
+		width:280px;
+		max-width:calc(100vw - 120px);
+		font-size:12px;
+		background-color: white;
+		bottom: calc(100% + 10px);
+		right: -5px;
+		border:1px solid #999999;
+		border-radius:5px;
+	}
+	.page-pricing .hover-block:after {
+		content: '';
+		border-left:10px solid transparent;
+		border-top:10px solid #999999;
+		border-right:10px solid transparent;
+		position:absolute;
+		top:100%;
+		right:2.5px;
+	}
+	.page-pricing .hover-wrap:hover .hover-block {
+		display: block;
+	}
+	.page-pricing .flex {
+		display:flex;
+		flex-wrap:wrap;
+	}
+	.page-pricing .flex-third {
+		width:100%;
+		overflow:auto;
+		white-space:normal;
+		word-wrap:keep-all;
+	}
+	.page-pricing .cell {
+		padding:10px 20px;
+		border-left:1px solid #9b9a9d;
+		border-bottom:1px solid #9b9a9d;
+		border-right:1px solid #9b9a9d;
+		background-color:#fff;
+	}
+	.page-pricing .cell:nth-child(1) {
+		border-top:1px solid #9b9a9d;
+	}
+	.page-pricing .cell:hover {
+		box-shadow:inset 0px 0px 10px 0px #9b9a9d;
+	}
+	.page-pricing .mobile-hide {
+		display:none;
+	}
+	.page-pricing .desktop-hide {
+		display:block;
+	}
+	@media screen and (min-width: 700px) {
+
+		.page-pricing .timeline-block {
+			padding-left: 0px;
+			border-left: 0px;
+			max-width: 900px;
+			margin: auto;
+		}
+		.page-pricing .timeline-title {
+			text-align: right;
+			width: 50%;
+			float: left;
+			padding-right: 40px;
+		}
+		.page-pricing .timeline-title::after {
+			content: '';
+			position: absolute;
+			width: 10px;
+			height: 10px;
+			background-color: #221f20;
+			border-radius: 50%;
+			left: calc(50% - 5px);
+			top:  0px;
+		}
+		.page-pricing .timeline-text {
+			width: 50%;
+			float: left;
+			padding-left: 40px;
+			border-left: 1px solid #221f20;
+		}
+		.page-pricing .timeline-block:last-child .timeline-text {
+			border: 0px;
+		}
+		.page-pricing .slide {
+			min-width: 50%;
+		}
+		.page-pricing .five-step {
+			display:none;
+		}
+		.page-pricing .four-step {
+			display:flex;
+		}
+		.page-pricing .three-step {
+			display:none;
+		}
+		.page-pricing .flex-third {
+			width:33.3%;
+		}
+		.page-pricing .cell {
+			border-top:1px solid #9b9a9d;
+			border-bottom:1px solid #9b9a9d;
+			border-right:1px solid #9b9a9d;
+			border-left:0px solid #9b9a9d;
+		}
+		.page-pricing .cell:nth-child(1) {
+			border-left:1px solid #9b9a9d;
+		}
+		.page-pricing .tile {
+			 height:calc(50vw * 1.5);
+		}
+		.page-pricing .mobile-hide {
+			display:flex;
+		}
+		.page-pricing .desktop-hide {
+			display:none;
+		}
+		.page-pricing .hover-block {
+			max-width: calc((100vw - 80px)/3 - 40px);
+		}
+	
+}
+	@media screen and (min-width: 940px) {
+
+		.page-pricing .bar-right {
+			border-right: 1px solid #9b9a9d;
+		}
+		.page-pricing .slide {
+			min-width: 33.3%;
+		}
+		.page-pricing .four-step {
+			display: none;
+		}
+		.page-pricing .three-step {
+			display: flex;
+		}
+		.page-pricing #google-reviews {
+			padding-left: 75px;
+			padding-right: 75px;
+		}
+		.page-pricing .flex {
+			display:flex;
+			flex-wrap:nowrap;
+		}
+		.page-pricing .flex-third {
+			width:25%;
+		}
+		.page-pricing .tile {
+			 height:calc(25vw * 1.5);
+		}
+		.page-pricing .hover-block {
+			max-width: calc((100vw - 80px)/4 - 40px);
+		}
+	
+}

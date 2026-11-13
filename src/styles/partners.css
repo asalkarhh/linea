@@ -1,0 +1,97 @@
+/* Page CSS extracted from partners.html */
+.page-partners .flex {
+		display:flex;
+		flex-wrap:wrap;
+	}
+	.page-partners .flex-quarter {
+		width:100%;
+		overflow:auto;
+		white-space:normal;
+		word-wrap:keep-all;
+	}
+	.page-partners .tile {
+		padding: 20px 40px;
+		height:150vw;
+		background-position:center;
+		background-size:cover;
+		background-repeat:no-repeat;
+	}
+	.page-partners .tile h2 {
+		color:#fff;
+		text-shadow: #000 1px 0 10px;
+	}
+	.page-partners .shadow-box {
+		padding: 40px;
+		box-shadow:0px 0px 10px 0px #9b9a9d;
+		text-align:center;
+		background-color:#fff;
+		margin: 10px 0px;
+	}
+	.page-partners .shadow-circle {
+		box-shadow:0px 0px 10px 0px #9b9a9d;
+		width:100%;
+		height:calc(100vw - 160px);
+		border-radius:50%;
+		overflow:hidden;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+	.page-partners .control {
+		position:absolute;
+		right: 0px;
+		top: 10px;
+		font-weight:500;
+		font-size:18px;
+	}
+	.page-partners .question-block {
+		max-height:0px;
+		transition: max-height 0.2s;
+		overflow: hidden;
+	}
+	.page-partners .question-wrap {
+		position: relative;
+		padding: 10px 0px;
+		cursor:pointer;
+	}
+	.page-partners .question-wrap p {
+		margin: 0;
+		padding: 0;
+		width: calc(100% - 15px);
+	}
+	.page-partners .question-answer {
+		max-height: 0px;
+		transition: max-height 0.2s;
+		overflow: hidden;
+		border-bottom: 1px solid #9b9a9d;
+	}
+	.page-partners #partner-form-wrap input {
+		max-width:100%;
+	}
+	@media screen and (min-width: 700px) {
+
+		.page-partners .flex-quarter {
+			width:33.3%;
+		}
+		.page-partners .tile {
+			 height:calc(33.3vw * 1.5);
+		}
+	
+}
+	@media screen and (min-width: 940px) {
+
+		.page-partners .flex {
+			display:flex;
+			flex-wrap:nowrap;
+		}
+		.page-partners .flex-quarter {
+			width:25%;
+		}
+		.page-partners .tile {
+			 height:calc(25vw * 1.5);
+		}
+		.page-partners .shadow-circle {
+			height:calc(50vw - 240px);
+		}
+	
+}
