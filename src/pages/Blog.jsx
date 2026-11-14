@@ -10,7 +10,7 @@ export default function Blog() {
   const sentinelRef = useRef(null);
 
   useEffect(() => {
-    document.title = 'Blog — Linea Official';
+    document.title = 'Blog — Alignaa Official';
   }, []);
 
   const hasMore = visibleCount < blogPosts.length;
@@ -54,7 +54,7 @@ export default function Blog() {
         >
           <div className="half cover-text">
             <h1 style={{ marginTop: 0, fontSize: '40px', color: 'white', textAlign: 'center' }}>
-              The Linea Blog
+              The Alignaa Blog
             </h1>
           </div>
         </div>

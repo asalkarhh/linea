@@ -9,7 +9,7 @@ export default function Footer() {
             <div className="column" style={{ flexBasis: '25%', paddingLeft: 0 }}>
               <img
                 src="/assets/icons/marque-white.png"
-                alt="Linea marque"
+                alt="Alignaa marque"
                 style={{ width: '80%' }}
               />
             </div>
@@ -140,7 +140,7 @@ export default function Footer() {
         }}
       >
         <div className="block" style={{ width: '50%', float: 'left', padding: '10px 0' }}>
-          <p style={{ margin: 0, padding: 0 }}>LINEA &copy; 2026</p>
+          <p style={{ margin: 0, padding: 0 }}>Alignaa &copy; 2026</p>
         </div>
         <div className="block" style={{ width: '50%', float: 'right', padding: '10px 0' }}>
           <div style={{ float: 'right', textAlign: 'right' }}>

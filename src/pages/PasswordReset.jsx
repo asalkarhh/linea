@@ -8,7 +8,7 @@ export default function PasswordReset() {
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
-    document.title = 'Set or Reset Password — Linea Official';
+    document.title = 'Set or Reset Password — Alignaa Official';
   }, []);
 
   const handleSubmit = (e) => {

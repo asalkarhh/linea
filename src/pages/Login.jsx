@@ -9,7 +9,7 @@ export default function Login() {
   const [statusMessage, setStatusMessage] = useState('');
 
   useEffect(() => {
-    document.title = 'Log In — Linea Official';
+    document.title = 'Log In — Alignaa Official';
   }, []);
 
   const handleSubmit = (e) => {
@@ -24,7 +24,7 @@ export default function Login() {
       return;
     }
     setStatusMessage(
-      'This static frontend clone does not connect to Linea’s live patient portal or authentication servers. Existing patients can reset access via the official portal.'
+      'This static frontend clone does not connect to Alignaa’s live patient portal or authentication servers. Existing patients can reset access via the official portal.'
     );
   };
 
@@ -49,7 +49,7 @@ export default function Login() {
           }}
         >
           <form onSubmit={handleSubmit}>
-            <h3 style={{ marginBottom: '40px' }}>Log in to your Linea Account</h3>
+            <h3 style={{ marginBottom: '40px' }}>Log in to your Alignaa Account</h3>
             <p>
               <label htmlFor="id_username">Email:</label>
               <input

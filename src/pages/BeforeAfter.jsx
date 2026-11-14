@@ -13,7 +13,7 @@ export default function BeforeAfter() {
   const [selectedCase, setSelectedCase] = useState('All');
 
   useEffect(() => {
-    document.title = 'Before & After Transformations — Linea Official';
+    document.title = 'Before & After Transformations — Alignaa Official';
   }, []);
 
   const caseFilters = useMemo(() => {
@@ -202,7 +202,7 @@ export default function BeforeAfter() {
       </section>
 
       <CtaBlock
-        title="Is Linea right for you?"
+        title="Is Alignaa right for you?"
         description="Take the free 30 second assessment to find out."
         buttonLabel="Start Here"
         buttonTo="/aligners/quiz/"

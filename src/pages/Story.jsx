@@ -6,7 +6,7 @@ import '../styles/about.css';
 
 export default function Story() {
   useEffect(() => {
-    document.title = 'Our Story — Linea Official';
+    document.title = 'Our Story — Alignaa Official';
   }, []);
 
   return (
@@ -85,7 +85,7 @@ export default function Story() {
             About
           </h1>
           <p style={{ fontSize: '14px' }}>
-            Linea is a premium clear aligner label founded in Melbourne, Australia by dentists, with an ambition to combine the efficiency and cost-effectiveness of direct-to-consumer aligners whilst still maintaining the same level of safety, dentist involvement and oversight as dentist-directed aligners.
+            Alignaa is a premium clear aligner label founded in Melbourne, Australia by dentists, with an ambition to combine the efficiency and cost-effectiveness of direct-to-consumer aligners whilst still maintaining the same level of safety, dentist involvement and oversight as dentist-directed aligners.
           </p>
           <p style={{ fontSize: '14px' }}>
             When we decided to explore an invisible aligner brand, we wanted to do it in a very different way. We wanted to do more than just straighten people&rsquo;s teeth, we wanted to transform lives. We wanted to inspire self-confidence and empower people to truly express themselves. For us, each smile is unique, each smile tells a story and we wanted to play a part in shaping that. To do this we had to create a brand that was universally accessible, yet didn&rsquo;t sacrifice integrity.
@@ -106,10 +106,10 @@ export default function Story() {
         />
         <div className="half std-x-pad std-y-pad">
           <p style={{ fontSize: '14px' }}>
-            Linea&rsquo;s renewed approach to teeth straightening is reinventing the world of aligners, where patients are partnered with approved dentists to ensure that they have access to a thorough examination of teeth and gums, as well as important procedures like IPR and attachments that are crucial to treatment success.
+            Alignaa&rsquo;s renewed approach to teeth straightening is reinventing the world of aligners, where patients are partnered with approved dentists to ensure that they have access to a thorough examination of teeth and gums, as well as important procedures like IPR and attachments that are crucial to treatment success.
           </p>
           <p style={{ fontSize: '14px' }}>
-            Linea aligners are conceived using the highest quality BPA-free materials, and contemporary designs that are effortlessly moulded to the shape of your own unique smile. We truly believe that through creativity, integrity and self-expression we can create a timeless brand that has an inspiring impact on people and their lives.
+            Alignaa aligners are conceived using the highest quality BPA-free materials, and contemporary designs that are effortlessly moulded to the shape of your own unique smile. We truly believe that through creativity, integrity and self-expression we can create a timeless brand that has an inspiring impact on people and their lives.
           </p>
         </div>
       </section>
@@ -183,7 +183,7 @@ export default function Story() {
 
       <CtaBlock
         title="Get Started Today"
-        description="Take the free 30 second assessment to see if you’re a candidate for Linea."
+        description="Take the free 30 second assessment to see if you’re a candidate for Alignaa."
         buttonLabel="Start Here"
         buttonTo="/aligners/quiz/"
       />

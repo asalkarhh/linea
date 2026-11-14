@@ -8,7 +8,7 @@ export default function FAQ() {
   const [openCategories, setOpenCategories] = useState({});
 
   useEffect(() => {
-    document.title = 'Frequently Asked Questions — Linea Official';
+    document.title = 'Frequently Asked Questions — Alignaa Official';
   }, []);
 
   const query = searchTerm.trim().toLowerCase();
@@ -114,7 +114,7 @@ export default function FAQ() {
       </section>
 
       <CtaBlock
-        title="Is Linea right for you?"
+        title="Is Alignaa right for you?"
         description="Take the free 30 second assessment to find out."
         buttonLabel="Get Started"
         buttonTo="/aligners/quiz/"

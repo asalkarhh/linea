@@ -13,9 +13,9 @@ export default function BlogPost() {
 
   useEffect(() => {
     if (post) {
-      document.title = `${post.title} — Linea Official Blog`;
+      document.title = `${post.title} — Alignaa Official Blog`;
     } else {
-      document.title = 'Article Not Found — Linea Official';
+      document.title = 'Article Not Found — Alignaa Official';
     }
   }, [post]);
 
@@ -107,7 +107,7 @@ export default function BlogPost() {
       </div>
 
       <CtaBlock
-        title="Is Linea right for you?"
+        title="Is Alignaa right for you?"
         description="Take the free 30 second assessment to find out."
         buttonLabel="Get Started"
         buttonTo="/aligners/quiz/"

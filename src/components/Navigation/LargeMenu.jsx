@@ -39,7 +39,7 @@ export default function LargeMenu({ open, onClose }) {
 
   return (
     <nav
-      id="linea-large-menu"
+      id="Linea-large-menu"
       aria-label="Primary drawer navigation"
       className={`large-menu ${open ? 'open' : ''}`}
       aria-hidden={!open}
@@ -54,7 +54,7 @@ export default function LargeMenu({ open, onClose }) {
       </Link>
       <div className="sub-menu">
         <Link to="/aligners/why/" onClick={handleLinkClick} tabIndex={open ? 0 : -1}>
-          Why Linea
+          Why Alignaa
         </Link>
         <Link to="/aligners/results/" onClick={handleLinkClick} tabIndex={open ? 0 : -1}>
           Results
@@ -80,7 +80,7 @@ export default function LargeMenu({ open, onClose }) {
         style={{ marginBottom: '40px' }}
         tabIndex={open ? 0 : -1}
       >
-        About Linea
+        About Alignaa
       </Link>
       <Link to="/login/" onClick={handleLinkClick} tabIndex={open ? 0 : -1}>
         Login
@@ -130,8 +130,8 @@ export function LocationSelector({ open, onDismiss }) {
 
   return (
     <div className="location-selector-wrap std-x-pad" style={{ display: 'flex' }} ref={wrapRef}>
-      <p className="mobile-hide">Learn more about Linea Clear Aligners in:</p>
-      <p className="desktop-hide">View Linea in:</p>
+      <p className="mobile-hide">Learn more about Alignaa Clear Aligners in:</p>
+      <p className="desktop-hide">View Alignaa in:</p>
       <div
         className="location-select"
         role="button"

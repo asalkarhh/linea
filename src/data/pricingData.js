@@ -147,7 +147,7 @@ export const pricingData = {
     {
       "heading": "Online Quiz",
       "subtitle": "FREE",
-      "description": "Take 30 seconds to fill out our preliminary assessment. Our in-house dentists or orthodontists will review your case to see if you're a good fit for Linea aligners."
+      "description": "Take 30 seconds to fill out our preliminary assessment. Our in-house dentists or orthodontists will review your case to see if you're a good fit for Alignaa aligners."
     },
     {
       "heading": "See a licensed partner Dentist",
@@ -160,7 +160,7 @@ export const pricingData = {
       "description": "Our team of smile designers will work closely with your dentist to design a customized treatment plan to create your perfect smile. You’ll also get to interact with a 3D simulation of your smile transformation, so that you can see a preview of what your smile will look like before you even start your journey."
     },
     {
-      "heading": "Linea aligner package",
+      "heading": "Alignaa aligner package",
       "subtitle": "$1,995 for Tier 1, $2,995 for Tier 2, $3,995 for Tier 3",
       "description": "Purchase your clear aligner treatment in 2 simple ways. Pay upfront, or choose a convenient payment plan."
     },
@@ -192,20 +192,20 @@ export const pricingData = {
   ],
   "faqs": [
     {
-      "question": "1. How much does Linea clear aligner treatment cost?",
-      "answerHtml": "<p>The cost of Linea clear aligners is $1,995 for Tier 1 treatment, $2,995 for Tier 2 treatment, or $3,995 for Tier 3 treatment.</p>"
+      "question": "1. How much does Alignaa clear aligner treatment cost?",
+      "answerHtml": "<p>The cost of Alignaa clear aligners is $1,995 for Tier 1 treatment, $2,995 for Tier 2 treatment, or $3,995 for Tier 3 treatment.</p>"
     },
     {
-      "question": "2. How does Linea’s price compare to traditional braces?",
+      "question": "2. How does Alignaa’s price compare to traditional braces?",
       "answerHtml": "<p>Traditional braces can cost up to $10,000 in major US cities, with the national average around $6,000. However, for the majority of people with mild to moderate teeth alignment issues, this is unaffordable — and they've had to accept their crooked smile. This is where we can help!</p>"
     },
     {
-      "question": "3. Why is Linea so much cheaper versus other brands?",
+      "question": "3. Why is Alignaa so much cheaper versus other brands?",
       "answerHtml": "<p>With recent advancements in technology, like 3D scanning and 3D printing, we are able to bring the cost down significantly – and we pass on these savings to our customers. We believe in providing quality products at an affordable price, because we believe everyone deserves a beautiful smile.</p>"
     },
     {
-      "question": "4. What payment options are available for my Linea clear alignment treatment?",
-      "answerHtml": "<p>Linea offers a one-off payment, or a convenient payment plan.</p>"
+      "question": "4. What payment options are available for my Alignaa clear alignment treatment?",
+      "answerHtml": "<p>Alignaa offers a one-off payment, or a convenient payment plan.</p>"
     }
   ],
   "googleReviews": [
@@ -213,7 +213,7 @@ export const pricingData = {
       "avatar": "",
       "name": "Michael",
       "timeAgo": "",
-      "body": "Linea has a very thought out and painless process. Everything is explained up front and you are able to see your 3D plan and ask plenty of questions before you start. From my initial consultation to my aligners being ready was no longer than 3 weeks."
+      "body": "Alignaa has a very thought out and painless process. Everything is explained up front and you are able to see your 3D plan and ask plenty of questions before you start. From my initial consultation to my aligners being ready was no longer than 3 weeks."
     },
     {
       "avatar": "",
@@ -225,13 +225,13 @@ export const pricingData = {
       "avatar": "",
       "name": "Angelina Tsou",
       "timeAgo": "",
-      "body": "Thoroughly enjoyed the whole process! I used to be a little self conscious with one of my front tooth that stuck out and I’ve been wanting to get it fixed. However I was always afraid of how complicated and costly the procedure could be. But the Linea team was very attentive to what desired result I was looking for and made the whole process very easy. Thank you Linea! Loving the result I got!"
+      "body": "Thoroughly enjoyed the whole process! I used to be a little self conscious with one of my front tooth that stuck out and I’ve been wanting to get it fixed. However I was always afraid of how complicated and costly the procedure could be. But the Alignaa team was very attentive to what desired result I was looking for and made the whole process very easy. Thank you Alignaa! Loving the result I got!"
     },
     {
       "avatar": "",
       "name": "Samuel Schepis",
       "timeAgo": "",
-      "body": "Finally fixed my smile! The process with Linea was seamless. From the initial consultation through to the regular check ups with Dr Darren. Whenever I had questions they were answered, and the process is 100% worth it. My teeth look amazing, and I am stoked with the outcome! I wish I did it sooner, but Im glad I chose Linea!"
+      "body": "Finally fixed my smile! The process with Alignaa was seamless. From the initial consultation through to the regular check ups with Dr Darren. Whenever I had questions they were answered, and the process is 100% worth it. My teeth look amazing, and I am stoked with the outcome! I wish I did it sooner, but Im glad I chose Alignaa!"
     }
   ]
 };

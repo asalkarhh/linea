@@ -16,7 +16,7 @@ export default function ForDentists() {
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
-    document.title = 'For Dentists — Linea Official Partners';
+    document.title = 'For Dentists — Alignaa Official Partners';
   }, []);
 
   const handleSubmit = (e) => {
@@ -87,7 +87,7 @@ export default function ForDentists() {
           <div className="half std-x-pad std-y-pad">
             <img
               src="/assets/images/fullscreen-model.jpg"
-              alt="Linea aligner partner showcase"
+              alt="Alignaa aligner partner showcase"
               style={{ width: '100%', maxWidth: '500px', borderRadius: '10px' }}
             />
           </div>
@@ -97,16 +97,16 @@ export default function ForDentists() {
       {/* Fit Checklist & Revenue Beyond Aligners */}
       <section className="block std-y-pad" style={{ backgroundColor: '#fff' }}>
         <div className="block std-x-pad" style={{ maxWidth: '1200px', margin: 'auto' }}>
-          <h2 style={{ fontSize: '2em' }}>Is Linea Right for Your Practice?</h2>
+          <h2 style={{ fontSize: '2em' }}>Is Alignaa Right for Your Practice?</h2>
           <p>
-            Linea is built for practices that want more patients in the chair without more marketing on the desk. You&apos;re likely a good fit if:
+            Alignaa is built for practices that want more patients in the chair without more marketing on the desk. You&apos;re likely a good fit if:
           </p>
           <ul style={{ lineHeight: '1.5em' }}>
             <li>You have capacity to fill — whether it&apos;s a new practice, extra chair time, or an associate building their book.</li>
             <li>You&apos;d rather not run your own marketing — we handle acquisition, qualification, deposits, and day-to-day patient communication. No fees to your practice.</li>
             <li>You have 3D scanning capability — iTero, 3Shape, Medit, and other major brands are all supported.</li>
-            <li>You want to do more aligner cases — or start — Linea is additive to your existing workflow, and our ortho-led clinical team supports you across a range of cases.</li>
-            <li>Your practice offers adjacent dental services — Linea patients typically need cleanings, fillings, extractions, composite bonding, whitening, and retainers. That work is yours to bill directly.</li>
+            <li>You want to do more aligner cases — or start — Alignaa is additive to your existing workflow, and our ortho-led clinical team supports you across a range of cases.</li>
+            <li>Your practice offers adjacent dental services — Alignaa patients typically need cleanings, fillings, extractions, composite bonding, whitening, and retainers. That work is yours to bill directly.</li>
           </ul>
 
           <div className="std-y-pad">
@@ -310,7 +310,7 @@ export default function ForDentists() {
           <div className="half std-x-pad std-y-pad">
             <h2 style={{ fontSize: '2em' }}>We Care About the Same Things You Do</h2>
             <p>
-              We&apos;re dentists too. We started Linea because we think patients deserve quality aligner treatment at a fair price.
+              We&apos;re dentists too. We started Alignaa because we think patients deserve quality aligner treatment at a fair price.
             </p>
             <h4>Your patients, your clinical judgment</h4>
             <p>
@@ -395,7 +395,7 @@ export default function ForDentists() {
               },
               {
                 quote:
-                  '"I completed my aligner treatment with Linea and I\'m honestly so impressed with the results. My teeth look amazing."',
+                  '"I completed my aligner treatment with Alignaa and I\'m honestly so impressed with the results. My teeth look amazing."',
                 author: '— Marcelien',
               },
               {
@@ -569,7 +569,7 @@ export default function ForDentists() {
               {submitting ? 'Submitting...' : 'Get Started'}
             </button>
             <p style={{ color: '#9b9a9d', fontSize: '12px' }}>
-              By clicking &ldquo;Get Started&rdquo; you agree to be contacted by Linea by phone or WhatsApp.
+              By clicking &ldquo;Get Started&rdquo; you agree to be contacted by Alignaa by phone or WhatsApp.
             </p>
           </form>
         )}

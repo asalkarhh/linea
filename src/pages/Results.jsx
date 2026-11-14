@@ -11,7 +11,7 @@ export default function Results() {
   const { openLightbox } = useModals();
 
   useEffect(() => {
-    document.title = 'Real Smile Results & Reviews — Linea Official';
+    document.title = 'Real Smile Results & Reviews — Alignaa Official';
   }, []);
 
   return (
@@ -225,7 +225,7 @@ export default function Results() {
       </div>
 
       <CtaBlock
-        title="Is Linea right for you?"
+        title="Is Alignaa right for you?"
         description="Take the free 30 second assessment to find out."
         buttonLabel="Start Here"
         buttonTo="/aligners/quiz/"

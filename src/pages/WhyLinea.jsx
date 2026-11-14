@@ -10,7 +10,7 @@ const WHY_BLOCKS = [
     imagePos: 'center center',
     reverseDesktop: false,
     paragraphs: [
-      'Why compromise on the road to your perfect smile? By involving trained professionals in your treatment, Linea clear teeth aligners are more likely to deliver the results you need, while ensuring your safety.',
+      'Why compromise on the road to your perfect smile? By involving trained professionals in your treatment, Alignaa clear teeth aligners are more likely to deliver the results you need, while ensuring your safety.',
       'Our extensive dental network means every case is thoroughly reviewed by a licensed dentist or orthodontist. A partner dentist near you will also properly assess the health of your teeth and gums and perform any procedures crucial to your treatment success, like IPR and attachments.',
     ],
   },
@@ -31,7 +31,7 @@ const WHY_BLOCKS = [
     reverseDesktop: false,
     paragraphs: [
       'Whether you need to consult a dentist or ask questions, our local team is available 7 days a week.',
-      'As a Linea patient, you will also have access to our Patient Account Center, where you can view your treatment timeline, receive reminders and upload monthly tracking photos. This allows us to monitor your progress every step of the way, to ensure you achieve the smile of your dreams.',
+      'As an Alignaa patient, you will also have access to our Patient Account Center, where you can view your treatment timeline, receive reminders and upload monthly tracking photos. This allows us to monitor your progress every step of the way, to ensure you achieve the smile of your dreams.',
     ],
   },
   {
@@ -41,14 +41,14 @@ const WHY_BLOCKS = [
     reverseDesktop: true,
     paragraphs: [
       'Retainers are crucial to ensure your teeth remain straight after treatment, and don’t revert to their original position.',
-      'All Linea treatment kits come with a complimentary set of retainers. Wear them at night to keep your smile just the way you like it.',
+      'All Alignaa treatment kits come with a complimentary set of retainers. Wear them at night to keep your smile just the way you like it.',
     ],
   },
 ];
 
 export default function WhyLinea() {
   useEffect(() => {
-    document.title = 'Why Linea — Clear Aligners';
+    document.title = 'Why Alignaa — Clear Aligners';
   }, []);
 
   return (
@@ -76,7 +76,7 @@ export default function WhyLinea() {
           <div className="half cover-text">
             <h1 style={{ marginTop: 0, color: 'white' }}>A New Era in Smile Design</h1>
             <p style={{ fontSize: '18px', color: 'white' }}>
-              Comprehensive dentist involvement, doctor-prescribed treatment plans, Premium Zendura aligner technology, remote tracking and 7-day access to local customer care. Linea is the future of teeth straightening.
+              Comprehensive dentist involvement, doctor-prescribed treatment plans, Premium Zendura aligner technology, remote tracking and 7-day access to local customer care. Alignaa is the future of teeth straightening.
             </p>
             <button
               id="model-button"
@@ -139,7 +139,7 @@ export default function WhyLinea() {
       ))}
 
       <CtaBlock
-        title="Is Linea right for you?"
+        title="Is Alignaa right for you?"
         description="Take the free 30 second assessment to find out."
         buttonLabel="Am I a candidate?"
         buttonTo="/aligners/quiz/"

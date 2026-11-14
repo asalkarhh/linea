@@ -439,7 +439,7 @@ export default function BookNowModal() {
                     </div>
 
                     <p style={{ color: '#9b9a9d', fontSize: '14px', lineHeight: '1em' }}>
-                      By submitting, Linea may call or email you to deliver your quiz results and schedule a consultation.{' '}
+                      By submitting, Alignaa may call or email you to deliver your quiz results and schedule a consultation.{' '}
                       <Link
                         to="/terms/"
                         target="_blank"
@@ -495,10 +495,10 @@ export default function BookNowModal() {
                           lineHeight: '1.3em',
                         }}
                       >
-                        <b>Text me Linea&apos;s offers and promotions</b>
+                        <b>Text me Alignaa&apos;s offers and promotions</b>
                         <br />
                         <span style={{ fontSize: '12px', color: '#9b9a9d' }}>
-                          I agree to receive recurring marketing texts from Linea at 888-546-3206. Frequency varies. Consent is not a condition of any purchase or service. Reply STOP to opt out, HELP for help. Msg &amp; data rates may apply.{' '}
+                          I agree to receive recurring marketing texts from Alignaa at 888-546-3206. Frequency varies. Consent is not a condition of any purchase or service. Reply STOP to opt out, HELP for help. Msg &amp; data rates may apply.{' '}
                           <Link
                             to="/terms/"
                             target="_blank"

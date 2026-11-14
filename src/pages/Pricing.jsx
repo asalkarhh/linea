@@ -11,7 +11,7 @@ export default function Pricing() {
   const [openTooltipKey, setOpenTooltipKey] = useState(null);
 
   useEffect(() => {
-    document.title = 'Clear Aligner Pricing — Linea Official';
+    document.title = 'Clear Aligner Pricing — Alignaa Official';
   }, []);
 
   return (
@@ -30,7 +30,7 @@ export default function Pricing() {
         className="block std-x-pad"
         style={{ backgroundColor: '#fff', paddingTop: '60px', paddingBottom: '20px' }}
       >
-        <h1>Linea Aligner Pricing</h1>
+        <h1>Alignaa Aligner Pricing</h1>
       </div>
 
       {/* Pricing Comparison Tiers Grid */}
@@ -223,7 +223,7 @@ export default function Pricing() {
 
       <CtaBlock
         title="Get Started Today"
-        description="Take 30 seconds to answer a few questions and see if you're a good fit for Linea aligners."
+        description="Take 30 seconds to answer a few questions and see if you're a good fit for Alignaa aligners."
         buttonLabel="Start Here"
         buttonTo="/aligners/quiz/"
       />

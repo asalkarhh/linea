@@ -17,7 +17,7 @@ export default function Contact() {
   const [sent, setSent] = useState(false);
 
   useEffect(() => {
-    document.title = 'Contact Us — Linea Official';
+    document.title = 'Contact Us — Alignaa Official';
   }, []);
 
   useEffect(() => {
@@ -170,7 +170,7 @@ export default function Contact() {
 
       <CtaBlock
         title="Get Started Today"
-        description="Take the free 30 second assessment to see if you’re a candidate for Linea."
+        description="Take the free 30 second assessment to see if you’re a candidate for Alignaa."
         buttonLabel="Start Here"
         buttonTo="/aligners/quiz/"
       />

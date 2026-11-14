@@ -4,7 +4,7 @@ import '../styles/home.css';
 
 export default function Home() {
   useEffect(() => {
-    document.title = 'Linea Official — Clear Aligners';
+    document.title = 'Alignaa Official — Clear Aligners';
   }, []);
 
   return (

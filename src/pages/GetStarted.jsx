@@ -21,7 +21,7 @@ export default function GetStarted() {
   const zipInputRef = useRef(null);
 
   useEffect(() => {
-    document.title = 'Am I a Candidate? Smile Quiz — Linea Official';
+    document.title = 'Am I a Candidate? Smile Quiz — Alignaa Official';
   }, []);
 
   const progressPct = result
@@ -181,7 +181,7 @@ export default function GetStarted() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', margin: '24px 0' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                   <div className="quiz-cta-step-number">1</div>
-                  <span>Schedule a free 15-minute phone consultation with a Linea Smile Specialist.</span>
+                  <span>Schedule a free 15-minute phone consultation with an Alignaa Smile Specialist.</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                   <div className="quiz-cta-step-number">2</div>
@@ -251,7 +251,7 @@ export default function GetStarted() {
                       <div className="offer-wrap">
                         <h2 style={{ marginTop: 0 }}>
                           Special Offer: $150 OFF
-                          <span className="offer-mobile-hide"> Your Linea Treatment</span>
+                          <span className="offer-mobile-hide"> Your Alignaa Treatment</span>
                         </h2>
                         <p>
                           <span className="offer-mobile-hide">
@@ -397,7 +397,7 @@ export default function GetStarted() {
                       <div className="question-wrap">
                         <h4>What&apos;s your zip code?</h4>
                         <p>
-                          We&apos;ll make sure there is a Linea partner dental practice in your area
+                          We&apos;ll make sure there is an Alignaa partner dental practice in your area
                         </p>
                         <div className="answers-wrap">
                           <input
@@ -498,7 +498,7 @@ export default function GetStarted() {
                           lineHeight: '1.25em',
                         }}
                       >
-                        By submitting, you agree to receive an automated text message from Linea with your smile quiz results and information about scheduling a call to discuss your results. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help.{' '}
+                        By submitting, you agree to receive an automated text message from Alignaa with your smile quiz results and information about scheduling a call to discuss your results. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help.{' '}
                         <Link
                           to="/terms/"
                           target="_blank"
@@ -522,7 +522,7 @@ export default function GetStarted() {
                           lineHeight: '1.25em',
                         }}
                       >
-                        Our team may also email you about your results, Linea treatment, and scheduling a consultation.
+                        Our team may also email you about your results, Alignaa treatment, and scheduling a consultation.
                       </p>
 
                       <button

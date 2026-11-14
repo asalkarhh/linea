@@ -106,7 +106,7 @@ export default function GlobalModals() {
                 }}
               >
                 <p style={{ marginTop: 0 }}>
-                  Call a Linea Smile Expert now, for any specific questions on pricing, locations or booking in for your consultation.
+                  Call an Alignaa Smile Expert now, for any specific questions on pricing, locations or booking in for your consultation.
                 </p>
                 <a
                   href="tel:+18885463206"

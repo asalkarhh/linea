@@ -58,7 +58,7 @@ export function HeroVideoBg({ onVisibilityCheck }) {
       webkit-playsinline="true"
       poster={posterSrc}
       className="video-element jquery-background-video cover-video"
-      aria-label="Linea Clear Aligners hero background video"
+      aria-label="Alignaa Clear Aligners hero background video"
       style={{ objectFit: 'cover' }}
     >
       <source src={videoSrc} type="video/mp4" />
@@ -119,7 +119,7 @@ export function ProcessVideoPlayer({
         <iframe
           id={id}
           src={vimeoUrl}
-          title={title || `Linea Process Step ${stepNumber}`}
+          title={title || `Alignaa Process Step ${stepNumber}`}
           frameBorder="0"
           allow="autoplay; fullscreen; picture-in-picture"
           allowFullScreen
@@ -184,7 +184,7 @@ export function ProcessVideoPlayer({
 export function VimeoShowcasePlayer({
   src = 'https://player.vimeo.com/video/878905076?controls=0',
   id = 'mod-6-video',
-  title = 'Linea Clear Aligners AI Monitoring & 3D Simulation',
+  title = 'Alignaa Clear Aligners AI Monitoring & 3D Simulation',
 }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [loadError, setLoadError] = useState(false);
@@ -278,7 +278,7 @@ export function SocialsVideoPlayer({
   src,
   poster,
   vimeoUrl,
-  ariaLabel = 'Play Linea social video',
+  ariaLabel = 'Play Alignaa social video',
 }) {
   const videoRef = useRef(null);
   const [playing, setPlaying] = useState(false);
@@ -378,13 +378,13 @@ export function GuaranteeVideoBlock({ activeMod2 }) {
           allow="autoplay; fullscreen; picture-in-picture"
           allowFullScreen
           id="guarantee-video"
-          title="Linea Dentist Guarantee"
+          title="Alignaa Dentist Guarantee"
           style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 }}
         />
       ) : (
         <>
           <img
-            alt="Dentist performing Linea Clear Aligner fitting"
+            alt="Dentist performing Alignaa Clear Aligner fitting"
             id="guarantee-video"
             src="/assets/images/dentist.jpg"
             style={{ width: '100%', display: 'block', borderRadius: '5px' }}
@@ -393,7 +393,7 @@ export function GuaranteeVideoBlock({ activeMod2 }) {
             type="button"
             className="play"
             onClick={() => setPlayingVideo(true)}
-            aria-label="Play Linea Dentist Guarantee Video"
+            aria-label="Play Alignaa Dentist Guarantee Video"
             style={{ border: 0, borderRadius: 0 }}
           >
             <svg

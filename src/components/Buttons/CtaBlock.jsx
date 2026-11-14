@@ -3,7 +3,7 @@ import { ChevronRight } from 'lucide-react';
 
 export default function CtaBlock({
   title = 'Get Started Today',
-  description = "Take the free 30 second assessment to see if you're a candidate for Linea.",
+  description = "Take the free 30 second assessment to see if you're a candidate for Alignaa.",
   buttonLabel = 'Start Here',
   buttonTo = '/aligners/quiz/',
   showChevron = true,

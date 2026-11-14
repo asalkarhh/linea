@@ -19,7 +19,7 @@ export const alignersData = {
     {
       "step": 2,
       "title": "STEP 2 - SMILE DESIGN",
-      "description": "Our orthodontics team uses your scans to design a bespoke treatment plan, mapping out exactly how each tooth will move and in what sequence. You’ll receive a 3D simulation of your smile transformation that you can review and approve before any aligners are made — so you know exactly what to expect. Your treatment plan is typically ready within 3–5 business days, and you’ll get access to the Linea app to track your progress throughout treatment.",
+      "description": "Our orthodontics team uses your scans to design a bespoke treatment plan, mapping out exactly how each tooth will move and in what sequence. You’ll receive a 3D simulation of your smile transformation that you can review and approve before any aligners are made — so you know exactly what to expect. Your treatment plan is typically ready within 3–5 business days, and you’ll get access to the Alignaa app to track your progress throughout treatment.",
       "localVideo": "/assets/videos/progress-step-2.mp4",
       "poster": "/assets/images/progress-step-2-poster.jpg",
       "vimeoUrl": "https://player.vimeo.com/video/879354565?muted=1&controls=0"
@@ -27,7 +27,7 @@ export const alignersData = {
     {
       "step": 3,
       "title": "STEP 3 - FITTING & TRACKING",
-      "description": "Your partner dentist will fit the aligners to your teeth and perform any procedures your plan requires, such as attachments (small tooth-colored grips that help move specific teeth) or IPR (gentle reshaping between teeth to create space for movement). From there, you’ll upload progress photos monthly through the Linea app, and Linea’s clinical team reviews them to make sure everything is tracking to plan. Local Support is available 7 days a week.",
+      "description": "Your partner dentist will fit the aligners to your teeth and perform any procedures your plan requires, such as attachments (small tooth-colored grips that help move specific teeth) or IPR (gentle reshaping between teeth to create space for movement). From there, you’ll upload progress photos monthly through the Alignaa app, and Alignaa’s clinical team reviews them to make sure everything is tracking to plan. Local Support is available 7 days a week.",
       "localVideo": "/assets/videos/progress-step-3.mp4",
       "poster": "/assets/images/progress-step-3-poster.jpg",
       "vimeoUrl": "https://player.vimeo.com/video/879355877?muted=1&controls=0"
@@ -112,66 +112,77 @@ export const alignersData = {
   "comparisonRows": [
     {
       "feature": "Expert dentist involvement",
+      "alignaa": true,
       "linea": true,
       "braces": true,
       "atHome": false
     },
     {
       "feature": "Premium aligner material",
+      "alignaa": true,
       "linea": true,
       "braces": false,
       "atHome": false
     },
     {
       "feature": "Bespoke orthodontist-led plans",
+      "alignaa": true,
       "linea": true,
       "braces": true,
       "atHome": false
     },
     {
       "feature": "Professional 3D intraoral scans",
+      "alignaa": true,
       "linea": true,
       "braces": false,
       "atHome": false
     },
     {
       "feature": "AI-powered progress tracking",
+      "alignaa": true,
       "linea": true,
       "braces": false,
       "atHome": true
     },
     {
       "feature": "7-day local customer care",
+      "alignaa": true,
       "linea": true,
       "braces": false,
       "atHome": false
     },
     {
       "feature": "6-month est. treatment time",
+      "alignaa": true,
       "linea": true,
       "braces": false,
       "atHome": true
     },
     {
       "feature": "Retainer included for free",
+      "alignaa": true,
       "linea": true,
       "braces": false,
       "atHome": false
     },
     {
-      "feature": "Access to the Linea app",
+      "feature": "Access to the Alignaa app",
+      "alignaa": true,
       "linea": true,
       "braces": false,
       "atHome": false
     },
     {
       "feature": "Founded by dentists",
+      "alignaa": true,
       "linea": true,
       "braces": true,
       "atHome": false
     },
     {
       "feature": "Teeth whitening included for free",
+      "alignaa": true,
       "linea": true,
       "braces": false,
       "atHome": false
@@ -229,9 +240,9 @@ export const alignersData = {
       "avatarImage": null,
       "avatarBg": "rgb(159, 246, 211)",
       "title": "I wish I had done it sooner!",
-      "excerpt": "I had a great experience with Linea! I was looking for a cheaper alternative to Invisalign but didn’t want to go for at-home straightening kits. The process was really easy - they booked my appointments, sent me reminders at the end of each month to upload my progress and checked in with me regularly to see how I was doing. They replied to my ques…",
+      "excerpt": "I had a great experience with Alignaa! I was looking for a cheaper alternative to Invisalign but didn’t want to go for at-home straightening kits. The process was really easy - they booked my appointments, sent me reminders at the end of each month to upload my progress and checked in with me regularly to see how I was doing. They replied to my ques…",
       "hasSeeMore": true,
-      "fullBody": "I had a great experience with Linea! I was looking for a cheaper alternative to Invisalign but didn’t want to go for at-home straightening kits. The process was really easy - they booked my appointments, sent me reminders at the end of each month to upload my progress and checked in with me regularly to see how I was doing. They replied to my questions very promptly too! Dr Shaun was very patient and kind and took time to listen to my concerns. He explained the process thoroughly and gave me lots of advice. I’m super happy with the end results!"
+      "fullBody": "I had a great experience with Alignaa! I was looking for a cheaper alternative to Invisalign but didn’t want to go for at-home straightening kits. The process was really easy - they booked my appointments, sent me reminders at the end of each month to upload my progress and checked in with me regularly to see how I was doing. They replied to my questions very promptly too! Dr Shaun was very patient and kind and took time to listen to my concerns. He explained the process thoroughly and gave me lots of advice. I’m super happy with the end results!"
     },
     {
       "index": 1,
@@ -240,9 +251,9 @@ export const alignersData = {
       "avatarImage": null,
       "avatarBg": "#fddce5",
       "title": "Thrilled with the whole experience",
-      "excerpt": "Amazing professional service and care for patients. The orthodontists linked to the Linea company were fabulous and it was reassuring to have an expert check in with your progress to make sure all was on track, rather than using companies who send out DIY at home kits. I’ve talked to people who have had Invisalign and from what I can tell there is…",
+      "excerpt": "Amazing professional service and care for patients. The orthodontists linked to the Alignaa company were fabulous and it was reassuring to have an expert check in with your progress to make sure all was on track, rather than using companies who send out DIY at home kits. I’ve talked to people who have had Invisalign and from what I can tell there is…",
       "hasSeeMore": true,
-      "fullBody": "Amazing professional service and care for patients. The orthodontists linked to the Linea company were fabulous and it was reassuring to have an expert check in with your progress to make sure all was on track, rather than using companies who send out DIY at home kits. I’ve talked to people who have had Invisalign and from what I can tell there is very little difference in the processes carried out - but it’s a third of the cost. Thrilled with the results and would highly recommended linea to anyone who is considering!"
+      "fullBody": "Amazing professional service and care for patients. The orthodontists linked to the Alignaa company were fabulous and it was reassuring to have an expert check in with your progress to make sure all was on track, rather than using companies who send out DIY at home kits. I’ve talked to people who have had Invisalign and from what I can tell there is very little difference in the processes carried out - but it’s a third of the cost. Thrilled with the results and would highly recommended Alignaa to anyone who is considering!"
     },
     {
       "index": 2,
@@ -251,9 +262,9 @@ export const alignersData = {
       "avatarImage": null,
       "avatarBg": "#ffeff7",
       "title": "Easy process and great results!",
-      "excerpt": "I recently finished up Linea and I cannot recommend them enough! The whole process from start to finish was incredibly easy and straightforward. The aligners were comfortable to wear and didn't interfere with my day-to-day activities! The customer service I received from Linea was top-notch. They were always available to help me with any issues t…",
+      "excerpt": "I recently finished up Alignaa and I cannot recommend them enough! The whole process from start to finish was incredibly easy and straightforward. The aligners were comfortable to wear and didn't interfere with my day-to-day activities! The customer service I received from Alignaa was top-notch. They were always available to help me with any issues t…",
       "hasSeeMore": true,
-      "fullBody": "I recently finished up Linea and I cannot recommend them enough! The whole process from start to finish was incredibly easy and straightforward. The aligners were comfortable to wear and didn't interfere with my day-to-day activities!\n\nThe customer service I received from Linea was top-notch. They were always available to help me with any issues that came up and were quick to respond to any inquiries I had. They made the entire process feel seamless and stress-free, which made me really comfortable. And finally, the results! I am over the moon with how my teeth look now. I feel so confident in my smile and overall appearance. I would highly recommend Linea to anyone considering clear aligners! Thank you Linea"
+      "fullBody": "I recently finished up Alignaa and I cannot recommend them enough! The whole process from start to finish was incredibly easy and straightforward. The aligners were comfortable to wear and didn't interfere with my day-to-day activities!\n\nThe customer service I received from Alignaa was top-notch. They were always available to help me with any issues that came up and were quick to respond to any inquiries I had. They made the entire process feel seamless and stress-free, which made me really comfortable. And finally, the results! I am over the moon with how my teeth look now. I feel so confident in my smile and overall appearance. I would highly recommend Alignaa to anyone considering clear aligners! Thank you Alignaa"
     },
     {
       "index": 3,
@@ -262,9 +273,9 @@ export const alignersData = {
       "avatarImage": null,
       "avatarBg": "rgb(159, 246, 211)",
       "title": "The way to go for invisible aligners",
-      "excerpt": "Linea has a very thought out and painless process. Everything is explained up front and you are able to see your 3D plan and ask plenty of questions before you start. From my initial consultation to my aligners being ready was no longer than 3 weeks. Having the face to face with a real dentist made Linea stand out from other brands. I had the com…",
+      "excerpt": "Alignaa has a very thought out and painless process. Everything is explained up front and you are able to see your 3D plan and ask plenty of questions before you start. From my initial consultation to my aligners being ready was no longer than 3 weeks. Having the face to face with a real dentist made Alignaa stand out from other brands. I had the com…",
       "hasSeeMore": true,
-      "fullBody": "Linea has a very thought out and painless process. Everything is explained up front and you are able to see your 3D plan and ask plenty of questions before you start. From my initial consultation to my aligners being ready was no longer than 3 weeks.\n\nHaving the face to face with a real dentist made Linea stand out from other brands. I had the comfort of having a dentist consult along the way without overspending on a orthodontist which really isn’t necessary for this type of treatment. The dentist was very informative and made me feel comfortable about the product. Linea customer service was excellent, they are always available, make the process as smooth and efficient as possible and check in regularly on progress. I certainly recommend Linea to friends and family. If you want good results, quickly, under dentist supervision without forking out unnecessarily for an orthodontist, Linea is the way to go."
+      "fullBody": "Alignaa has a very thought out and painless process. Everything is explained up front and you are able to see your 3D plan and ask plenty of questions before you start. From my initial consultation to my aligners being ready was no longer than 3 weeks.\n\nHaving the face to face with a real dentist made Alignaa stand out from other brands. I had the comfort of having a dentist consult along the way without overspending on a orthodontist which really isn’t necessary for this type of treatment. The dentist was very informative and made me feel comfortable about the product. Alignaa customer service was excellent, they are always available, make the process as smooth and efficient as possible and check in regularly on progress. I certainly recommend Alignaa to friends and family. If you want good results, quickly, under dentist supervision without forking out unnecessarily for an orthodontist, Alignaa is the way to go."
     },
     {
       "index": 4,
@@ -272,10 +283,10 @@ export const alignersData = {
       "abbrev": "MA",
       "avatarImage": null,
       "avatarBg": "rgb(255, 201, 153)",
-      "title": "Really happy with my results from Linea...",
-      "excerpt": "Really happy with my results from Linea and the change in such a short period is really impressive. Process was great, being all online made it easy to complete in my own time. The Dentist was great and super helpful. Having the scans completed and the aligners checked by the dentist gave me piece of mind that the aligners were the correct fit and…",
+      "title": "Really happy with my results from Alignaa...",
+      "excerpt": "Really happy with my results from Alignaa and the change in such a short period is really impressive. Process was great, being all online made it easy to complete in my own time. The Dentist was great and super helpful. Having the scans completed and the aligners checked by the dentist gave me piece of mind that the aligners were the correct fit and…",
       "hasSeeMore": true,
-      "fullBody": "Really happy with my results from Linea and the change in such a short period is really impressive. Process was great, being all online made it easy to complete in my own time. The Dentist was great and super helpful. Having the scans completed and the aligners checked by the dentist gave me piece of mind that the aligners were the correct fit and the end result was correct. The Linea team were really helpful, communication was great, they checked in frequently and were quick to respond to any questions that I had along the way. I have recommended Linea to my friends."
+      "fullBody": "Really happy with my results from Alignaa and the change in such a short period is really impressive. Process was great, being all online made it easy to complete in my own time. The Dentist was great and super helpful. Having the scans completed and the aligners checked by the dentist gave me piece of mind that the aligners were the correct fit and the end result was correct. The Alignaa team were really helpful, communication was great, they checked in frequently and were quick to respond to any questions that I had along the way. I have recommended Alignaa to my friends."
     },
     {
       "index": 5,
@@ -283,10 +294,10 @@ export const alignersData = {
       "abbrev": "",
       "avatarImage": "/assets/images/trustpilot-customer.png",
       "avatarBg": "",
-      "title": "Linea is by far the best option for clear aligners",
-      "excerpt": "If you are choosing a clear aligner treatment ... CHOOSE LINEA. You'll be buying from an Australian company, that has a hybrid support model including a full dental assessment and 3D scan. You'll get in person and online support through your treatment so you won't risk shoddy otcomes i.e. cracked teeth due to a poor treatment plan. The customer su…",
+      "title": "Alignaa is by far the best option for clear aligners",
+      "excerpt": "If you are choosing a clear aligner treatment ... CHOOSE Alignaa. You'll be buying from an Australian company, that has a hybrid support model including a full dental assessment and 3D scan. You'll get in person and online support through your treatment so you won't risk shoddy otcomes i.e. cracked teeth due to a poor treatment plan. The customer su…",
       "hasSeeMore": true,
-      "fullBody": "If you are choosing a clear aligner treatment ... CHOOSE LINEA. You'll be buying from an Australian company, that has a hybrid support model including a full dental assessment and 3D scan. You'll get in person and online support through your treatment so you won't risk shoddy otcomes i.e. cracked teeth due to a poor treatment plan. The customer support is incredible (all local). Linea are a tiny bit more expensive than the some other options, but in overall quality, outcomes and service they are by far the best value."
+      "fullBody": "If you are choosing a clear aligner treatment ... CHOOSE Alignaa. You'll be buying from an Australian company, that has a hybrid support model including a full dental assessment and 3D scan. You'll get in person and online support through your treatment so you won't risk shoddy otcomes i.e. cracked teeth due to a poor treatment plan. The customer support is incredible (all local). Alignaa are a tiny bit more expensive than the some other options, but in overall quality, outcomes and service they are by far the best value."
     },
     {
       "index": 6,
@@ -295,9 +306,9 @@ export const alignersData = {
       "avatarImage": null,
       "avatarBg": "#fffbd6",
       "title": "Fantastic experience",
-      "excerpt": "Fantastic experience from start to finish. It was great having a local dentist linked into the service that I could discuss the process with in person and also handy to have the Linea customer service readily accessible if needed. I saw the results I was looking for in just 6 months and couldn’t be happier with the outcome. Would definitely recomm…",
+      "excerpt": "Fantastic experience from start to finish. It was great having a local dentist linked into the service that I could discuss the process with in person and also handy to have the Alignaa customer service readily accessible if needed. I saw the results I was looking for in just 6 months and couldn’t be happier with the outcome. Would definitely recomm…",
       "hasSeeMore": true,
-      "fullBody": "Fantastic experience from start to finish. It was great having a local dentist linked into the service that I could discuss the process with in person and also handy to have the Linea customer service readily accessible if needed. I saw the results I was looking for in just 6 months and couldn’t be happier with the outcome. Would definitely recommend to a friend or family looking to do the same!"
+      "fullBody": "Fantastic experience from start to finish. It was great having a local dentist linked into the service that I could discuss the process with in person and also handy to have the Alignaa customer service readily accessible if needed. I saw the results I was looking for in just 6 months and couldn’t be happier with the outcome. Would definitely recommend to a friend or family looking to do the same!"
     },
     {
       "index": 7,
@@ -306,9 +317,9 @@ export const alignersData = {
       "avatarImage": null,
       "avatarBg": "#fffbd6",
       "title": "highly recommend",
-      "excerpt": "I had a great experience with Linea. The process is straightforward.. you get contacted by a rep, they go through the details, fees etc over the phone and then they help book you in to see a dentist for your consult. I had a lovely dentist named Michelle at Syndal dentistry. Throughout the treatment, I received support and monthly check ins via …",
+      "excerpt": "I had a great experience with Alignaa. The process is straightforward.. you get contacted by a rep, they go through the details, fees etc over the phone and then they help book you in to see a dentist for your consult. I had a lovely dentist named Michelle at Syndal dentistry. Throughout the treatment, I received support and monthly check ins via …",
       "hasSeeMore": true,
-      "fullBody": "I had a great experience with Linea. The process is straightforward.. you get contacted by a rep, they go through the details, fees etc over the phone and then they help book you in to see a dentist for your consult.\n\nI had a lovely dentist named Michelle at Syndal dentistry.\n\nThroughout the treatment, I received support and monthly check ins via WhatsApp from a Linea rep. This is a nice touch as the lines of communication are always open if needed\n\nI have had Invisalign in the past and have to say that there was no difference in the treatment compared with Linea which is at a much more affordable price point.\n\nI am happy with the results and would recommend to anyone needing teeth alignment"
+      "fullBody": "I had a great experience with Alignaa. The process is straightforward.. you get contacted by a rep, they go through the details, fees etc over the phone and then they help book you in to see a dentist for your consult.\n\nI had a lovely dentist named Michelle at Syndal dentistry.\n\nThroughout the treatment, I received support and monthly check ins via WhatsApp from a Alignaa rep. This is a nice touch as the lines of communication are always open if needed\n\nI have had Invisalign in the past and have to say that there was no difference in the treatment compared with Alignaa which is at a much more affordable price point.\n\nI am happy with the results and would recommend to anyone needing teeth alignment"
     },
     {
       "index": 8,
@@ -327,10 +338,10 @@ export const alignersData = {
       "abbrev": "PC",
       "avatarImage": null,
       "avatarBg": "#d1f9ea",
-      "title": "Best Descision going with Linea and Syndal Dentistry.",
-      "excerpt": "Best thing i ever did was go with Linea, the process was easy, the Linea team were always there for me / one msg or call away with monthly check ins. Definately a 10/10 for customer service and you almost make friends with them, theyre that friendly. The dentist(Shaun Wang) at Syndal Dentistry is absolutely amazing. Very professional, friendly an…",
+      "title": "Best Descision going with Alignaa and Syndal Dentistry.",
+      "excerpt": "Best thing i ever did was go with Alignaa, the process was easy, the Alignaa team were always there for me / one msg or call away with monthly check ins. Definately a 10/10 for customer service and you almost make friends with them, theyre that friendly. The dentist(Shaun Wang) at Syndal Dentistry is absolutely amazing. Very professional, friendly an…",
       "hasSeeMore": true,
-      "fullBody": "Best thing i ever did was go with Linea, the process was easy, the Linea team were always there for me / one msg or call away with monthly check ins. Definately a 10/10 for customer service and you almost make friends with them, theyre that friendly.\n\nThe dentist(Shaun Wang) at Syndal Dentistry is absolutely amazing. Very professional, friendly and in the best hands possible.\n\nMy results are alot better then i imagined.. i cant stop smiling now, like a goof ball haha.\n\nLinea + Syndal Dentistry, thank you both for making me become a whole new person.\n\nThanks, Phil"
+      "fullBody": "Best thing i ever did was go with Alignaa, the process was easy, the Alignaa team were always there for me / one msg or call away with monthly check ins. Definately a 10/10 for customer service and you almost make friends with them, theyre that friendly.\n\nThe dentist(Shaun Wang) at Syndal Dentistry is absolutely amazing. Very professional, friendly and in the best hands possible.\n\nMy results are alot better then i imagined.. i cant stop smiling now, like a goof ball haha.\n\nAlignaa + Syndal Dentistry, thank you both for making me become a whole new person.\n\nThanks, Phil"
     },
     {
       "index": 10,
@@ -339,9 +350,9 @@ export const alignersData = {
       "avatarImage": null,
       "avatarBg": "#d1f9ea",
       "title": "Brilliant customer service every step…",
-      "excerpt": "Brilliant customer service every step of the way. The dentists I visited were lovely and professional. Whenever I needed tiny adjustments, the Linea team was more than happy to work with me to suggest a workable solution. Super responsive and helpful. The aligner trays themselves were tiny and barely visible! Each adjustment was subtle and never c…",
+      "excerpt": "Brilliant customer service every step of the way. The dentists I visited were lovely and professional. Whenever I needed tiny adjustments, the Alignaa team was more than happy to work with me to suggest a workable solution. Super responsive and helpful. The aligner trays themselves were tiny and barely visible! Each adjustment was subtle and never c…",
       "hasSeeMore": true,
-      "fullBody": "Brilliant customer service every step of the way. The dentists I visited were lovely and professional. Whenever I needed tiny adjustments, the Linea team was more than happy to work with me to suggest a workable solution. Super responsive and helpful. The aligner trays themselves were tiny and barely visible! Each adjustment was subtle and never caused pain or discomfort. Also - I adore Linea’s marketing. Sublime! I am obsessed with my new teeth. And such a reasonable price too. Thank you soooo much!"
+      "fullBody": "Brilliant customer service every step of the way. The dentists I visited were lovely and professional. Whenever I needed tiny adjustments, the Alignaa team was more than happy to work with me to suggest a workable solution. Super responsive and helpful. The aligner trays themselves were tiny and barely visible! Each adjustment was subtle and never caused pain or discomfort. Also - I adore Alignaa’s marketing. Sublime! I am obsessed with my new teeth. And such a reasonable price too. Thank you soooo much!"
     },
     {
       "index": 11,
@@ -350,9 +361,9 @@ export const alignersData = {
       "avatarImage": null,
       "avatarBg": "#fffbd6",
       "title": "Gave me much more confidence!",
-      "excerpt": "I have always been self-conscious about how my two front teeth were uneven but when I came across Linea, I was ecstatic to learn that I was able to fix this within a few months. I would like to thank Dr. Michelle, who was so understanding and accommodating to my wishes and Nick from the Linea team, who answered any queries I had straight away, eve…",
+      "excerpt": "I have always been self-conscious about how my two front teeth were uneven but when I came across Alignaa, I was ecstatic to learn that I was able to fix this within a few months. I would like to thank Dr. Michelle, who was so understanding and accommodating to my wishes and Nick from the Alignaa team, who answered any queries I had straight away, eve…",
       "hasSeeMore": true,
-      "fullBody": "I have always been self-conscious about how my two front teeth were uneven but when I came across Linea, I was ecstatic to learn that I was able to fix this within a few months. I would like to thank Dr. Michelle, who was so understanding and accommodating to my wishes and Nick from the Linea team, who answered any queries I had straight away, even on weekends! Thank you to the Linea team for giving me the confidence I never had!"
+      "fullBody": "I have always been self-conscious about how my two front teeth were uneven but when I came across Alignaa, I was ecstatic to learn that I was able to fix this within a few months. I would like to thank Dr. Michelle, who was so understanding and accommodating to my wishes and Nick from the Alignaa team, who answered any queries I had straight away, even on weekends! Thank you to the Alignaa team for giving me the confidence I never had!"
     },
     {
       "index": 12,
@@ -360,10 +371,10 @@ export const alignersData = {
       "abbrev": "JE",
       "avatarImage": null,
       "avatarBg": "#fffbd6",
-      "title": "Would highly recommend Linea",
-      "excerpt": "I had an amazing experience with Linea! The aligner process was hassle-free and effective, delivering fantastic results. The customer service was impeccable, always going the extra mile to make me feel valued and informed. My smile has been transformed, and I couldn't be happier with the outcome. Linea exceeded all my expectations, and I wholehear…",
+      "title": "Would highly recommend Alignaa",
+      "excerpt": "I had an amazing experience with Alignaa! The aligner process was hassle-free and effective, delivering fantastic results. The customer service was impeccable, always going the extra mile to make me feel valued and informed. My smile has been transformed, and I couldn't be happier with the outcome. Alignaa exceeded all my expectations, and I wholehear…",
       "hasSeeMore": true,
-      "fullBody": "I had an amazing experience with Linea! The aligner process was hassle-free and effective, delivering fantastic results. The customer service was impeccable, always going the extra mile to make me feel valued and informed. My smile has been transformed, and I couldn't be happier with the outcome. Linea exceeded all my expectations, and I wholeheartedly recommend them to anyone seeking to straighten their teeth."
+      "fullBody": "I had an amazing experience with Alignaa! The aligner process was hassle-free and effective, delivering fantastic results. The customer service was impeccable, always going the extra mile to make me feel valued and informed. My smile has been transformed, and I couldn't be happier with the outcome. Alignaa exceeded all my expectations, and I wholeheartedly recommend them to anyone seeking to straighten their teeth."
     },
     {
       "index": 13,
@@ -383,9 +394,9 @@ export const alignersData = {
       "avatarImage": null,
       "avatarBg": "#d1f9ea",
       "title": "Teeth alignment",
-      "excerpt": "a. The process/experience with Linea was exceptional from start to finish. Their streamlined procedures and attention to detail made everything smooth and hassle-free. b. Dentist Michelle at Linea was truly outstanding. Her expertise, gentle approach, and clear communication instilled confidence throughout the entire dental procedure. c. The cus…",
+      "excerpt": "a. The process/experience with Alignaa was exceptional from start to finish. Their streamlined procedures and attention to detail made everything smooth and hassle-free. b. Dentist Michelle at Alignaa was truly outstanding. Her expertise, gentle approach, and clear communication instilled confidence throughout the entire dental procedure. c. The cus…",
       "hasSeeMore": true,
-      "fullBody": "a. The process/experience with Linea was exceptional from start to finish. Their streamlined procedures and attention to detail made everything smooth and hassle-free.\n\nb. Dentist Michelle at Linea was truly outstanding. Her expertise, gentle approach, and clear communication instilled confidence throughout the entire dental procedure.\n\nc. The customer service provided by Linea was good. Follow up was on time.\n\nd. The results of my dental treatment at Linea exceeded my expectations. I was extremely satisfied with the outcome, which showcased their commitment to delivering high-quality, remarkable results."
+      "fullBody": "a. The process/experience with Alignaa was exceptional from start to finish. Their streamlined procedures and attention to detail made everything smooth and hassle-free.\n\nb. Dentist Michelle at Alignaa was truly outstanding. Her expertise, gentle approach, and clear communication instilled confidence throughout the entire dental procedure.\n\nc. The customer service provided by Alignaa was good. Follow up was on time.\n\nd. The results of my dental treatment at Alignaa exceeded my expectations. I was extremely satisfied with the outcome, which showcased their commitment to delivering high-quality, remarkable results."
     },
     {
       "index": 15,
@@ -394,9 +405,9 @@ export const alignersData = {
       "avatarImage": null,
       "avatarBg": "rgb(159, 246, 211)",
       "title": "",
-      "excerpt": "I did a fair bit of research before choosing to go with Linea. For me, Invisalign is too expensive, Byte, SmileDirectClub and a few others were priced well but unable and/or unwilling to deal with my particular needs (open bite, crowding top and bottom), and at 26 I wasn't willing to go with traditional braces. Furthermore, heaps of at home aligne…",
+      "excerpt": "I did a fair bit of research before choosing to go with Alignaa. For me, Invisalign is too expensive, Byte, SmileDirectClub and a few others were priced well but unable and/or unwilling to deal with my particular needs (open bite, crowding top and bottom), and at 26 I wasn't willing to go with traditional braces. Furthermore, heaps of at home aligne…",
       "hasSeeMore": true,
-      "fullBody": "I did a fair bit of research before choosing to go with Linea. For me, Invisalign is too expensive, Byte, SmileDirectClub and a few others were priced well but unable and/or unwilling to deal with my particular needs (open bite, crowding top and bottom), and at 26 I wasn't willing to go with traditional braces. Furthermore, heaps of at home aligner treatments have too little dentist supervision which although rare, can lead to complications which you can find reviews on reddit and google for these other brands.\n\nOverall, for the price I paid (I think around $2700 or $2800, can't remember exactly), Linea are a fantastic option."
+      "fullBody": "I did a fair bit of research before choosing to go with Alignaa. For me, Invisalign is too expensive, Byte, SmileDirectClub and a few others were priced well but unable and/or unwilling to deal with my particular needs (open bite, crowding top and bottom), and at 26 I wasn't willing to go with traditional braces. Furthermore, heaps of at home aligner treatments have too little dentist supervision which although rare, can lead to complications which you can find reviews on reddit and google for these other brands.\n\nOverall, for the price I paid (I think around $2700 or $2800, can't remember exactly), Alignaa are a fantastic option."
     },
     {
       "index": 16,
@@ -405,9 +416,9 @@ export const alignersData = {
       "avatarImage": null,
       "avatarBg": "rgb(255, 197, 213)",
       "title": "",
-      "excerpt": "I have just finished my treatment process, all up was about 6 months. Very quick and worked very well. I did some shopping around originally and glad I went with Linea! The team were always very professional and made the whole process simple",
+      "excerpt": "I have just finished my treatment process, all up was about 6 months. Very quick and worked very well. I did some shopping around originally and glad I went with Alignaa! The team were always very professional and made the whole process simple",
       "hasSeeMore": false,
-      "fullBody": "I have just finished my treatment process, all up was about 6 months. Very quick and worked very well. I did some shopping around originally and glad I went with Linea!\n\nThe team were always very professional and made the whole process simple."
+      "fullBody": "I have just finished my treatment process, all up was about 6 months. Very quick and worked very well. I did some shopping around originally and glad I went with Alignaa!\n\nThe team were always very professional and made the whole process simple."
     },
     {
       "index": 17,
@@ -416,9 +427,9 @@ export const alignersData = {
       "avatarImage": "/assets/images/samuel.png",
       "avatarBg": "",
       "title": "",
-      "excerpt": "Finally fixed my teeth and smile! The process with Linea was seamless. From the initial consultation through to the regular check ups with Dr Darren. Whenever I had questions they were answered, and the process is 100% worth it. My teeth look amazing, and I am stoked with the outcome! I wish I did it sooner, but Im glad I chose Linea!",
+      "excerpt": "Finally fixed my teeth and smile! The process with Alignaa was seamless. From the initial consultation through to the regular check ups with Dr Darren. Whenever I had questions they were answered, and the process is 100% worth it. My teeth look amazing, and I am stoked with the outcome! I wish I did it sooner, but Im glad I chose Alignaa!",
       "hasSeeMore": false,
-      "fullBody": "Finally fixed my teeth and smile! The process with Linea was seamless. From the initial consultation through to the regular check ups with Dr Darren. Whenever I had questions they were answered, and the process is 100% worth it. My teeth look amazing, and I am stoked with the outcome! I wish I did it sooner, but Im glad I chose Linea!"
+      "fullBody": "Finally fixed my teeth and smile! The process with Alignaa was seamless. From the initial consultation through to the regular check ups with Dr Darren. Whenever I had questions they were answered, and the process is 100% worth it. My teeth look amazing, and I am stoked with the outcome! I wish I did it sooner, but Im glad I chose Alignaa!"
     },
     {
       "index": 18,
@@ -427,9 +438,9 @@ export const alignersData = {
       "avatarImage": null,
       "avatarBg": "#ffeff7",
       "title": "",
-      "excerpt": "A lovely experience that wasn’t overly complicated. Linea was very attentive to what I wanted to achieve and loved how easy the whole process was",
+      "excerpt": "A lovely experience that wasn’t overly complicated. Alignaa was very attentive to what I wanted to achieve and loved how easy the whole process was",
       "hasSeeMore": false,
-      "fullBody": "A lovely experience that wasn’t overly complicated. Linea was very attentive to what I wanted to achieve and loved how easy the whole process was."
+      "fullBody": "A lovely experience that wasn’t overly complicated. Alignaa was very attentive to what I wanted to achieve and loved how easy the whole process was."
     },
     {
       "index": 19,
@@ -438,9 +449,9 @@ export const alignersData = {
       "avatarImage": null,
       "avatarBg": "#ffeff7",
       "title": "",
-      "excerpt": "I chose Linea to straighten my teeth because I liked the fact that they work together with a dentist throughout. I was initially a bit nervous, but the process turned out to be pretty easy and straightforward. Linea suggested I see Dr. Darren at Holistic Dental Donvale for a check up before having my aligners made up. The process for scanning my …",
+      "excerpt": "I chose Alignaa to straighten my teeth because I liked the fact that they work together with a dentist throughout. I was initially a bit nervous, but the process turned out to be pretty easy and straightforward. Alignaa suggested I see Dr. Darren at Holistic Dental Donvale for a check up before having my aligners made up. The process for scanning my …",
       "hasSeeMore": true,
-      "fullBody": "I chose Linea to straighten my teeth because I liked the fact that they work together with a dentist throughout.\n\nI was initially a bit nervous, but the process turned out to be pretty easy and straightforward. Linea suggested I see Dr. Darren at Holistic Dental Donvale for a check up before having my aligners made up. The process for scanning my teeth took about 10 to 15 minutes all up, with Dr. Darren taking the time to explain each step of the process."
+      "fullBody": "I chose Alignaa to straighten my teeth because I liked the fact that they work together with a dentist throughout.\n\nI was initially a bit nervous, but the process turned out to be pretty easy and straightforward. Alignaa suggested I see Dr. Darren at Holistic Dental Donvale for a check up before having my aligners made up. The process for scanning my teeth took about 10 to 15 minutes all up, with Dr. Darren taking the time to explain each step of the process."
     },
     {
       "index": 20,
@@ -457,47 +468,47 @@ export const alignersData = {
   "profileGallery": [
     {
       "image": "/assets/images/profiles/profiles-1.jpg",
-      "alt": "Before and after Linea clear aligner treatment"
+      "alt": "Before and after Alignaa clear aligner treatment"
     },
     {
       "image": "/assets/images/profiles/profiles-2.jpg",
-      "alt": "Before and after Linea clear aligner treatment"
+      "alt": "Before and after Alignaa clear aligner treatment"
     },
     {
       "image": "/assets/images/profiles/profiles-3.jpg",
-      "alt": "Before and after Linea clear aligner treatment"
+      "alt": "Before and after Alignaa clear aligner treatment"
     },
     {
       "image": "/assets/images/profiles/profiles-4.jpg",
-      "alt": "Before and after Linea clear aligner treatment"
+      "alt": "Before and after Alignaa clear aligner treatment"
     },
     {
       "image": "/assets/images/profiles/profiles-5.jpg",
-      "alt": "Before and after Linea clear aligner treatment"
+      "alt": "Before and after Alignaa clear aligner treatment"
     },
     {
       "image": "/assets/images/profiles/profiles-6.jpg",
-      "alt": "Before and after Linea clear aligner treatment"
+      "alt": "Before and after Alignaa clear aligner treatment"
     },
     {
       "image": "/assets/images/profiles/profiles-7.jpg",
-      "alt": "Before and after Linea clear aligner treatment"
+      "alt": "Before and after Alignaa clear aligner treatment"
     },
     {
       "image": "/assets/images/profiles/profiles-9.jpg",
-      "alt": "Before and after Linea clear aligner treatment"
+      "alt": "Before and after Alignaa clear aligner treatment"
     },
     {
       "image": "/assets/images/profiles/profiles-10.jpg",
-      "alt": "Before and after Linea clear aligner treatment"
+      "alt": "Before and after Alignaa clear aligner treatment"
     },
     {
       "image": "/assets/images/featured-5.jpg",
-      "alt": "Before and after Linea clear aligner treatment"
+      "alt": "Before and after Alignaa clear aligner treatment"
     },
     {
       "image": "/assets/images/profiles/profiles-11.jpg",
-      "alt": "Before and after Linea clear aligner treatment"
+      "alt": "Before and after Alignaa clear aligner treatment"
     }
   ],
   "intraoralGallery": [
@@ -656,24 +667,24 @@ export const alignersData = {
   ],
   "faqs": [
     {
-      "question": "1. How much does Linea clear aligner treatment cost?",
-      "answerHtml": "<p itemprop=\"text\">Linea has three flat-rate pricing tiers: $1,995 for mild cases (Tier 1), $2,995 for standard cases (Tier 2), and $3,995 for complex cases (Tier 3). Around 90% of patients fall into Tier 2. Each tier includes your full set of aligners, 3D treatment plan, clinical fitting, attachments, IPR, midway scans, refinements, 7-day local support, access to the Linea app, AI-powered progress tracking, retainers and dental-grade teeth whitening.</p>"
+      "question": "1. How much does Alignaa clear aligner treatment cost?",
+      "answerHtml": "<p itemprop=\"text\">Alignaa has three flat-rate pricing tiers: $1,995 for mild cases (Tier 1), $2,995 for standard cases (Tier 2), and $3,995 for complex cases (Tier 3). Around 90% of patients fall into Tier 2. Each tier includes your full set of aligners, 3D treatment plan, clinical fitting, attachments, IPR, midway scans, refinements, 7-day local support, access to the Alignaa app, AI-powered progress tracking, retainers and dental-grade teeth whitening.</p>"
     },
     {
       "question": "2. Am I a candidate for clear aligners?",
-      "answerHtml": "<p itemprop=\"text\">Clear aligners can treat a wide range of alignment issues including crowding, spacing, front gaps, over jets, buck teeth, cross bites and open bites. The best way to find out is to complete a free smile quiz and attend a consultation with a Linea partner dentist, who will assess your teeth and oral health to confirm whether aligners are right for you.</p>"
+      "answerHtml": "<p itemprop=\"text\">Clear aligners can treat a wide range of alignment issues including crowding, spacing, front gaps, over jets, buck teeth, cross bites and open bites. The best way to find out is to complete a free smile quiz and attend a consultation with a Alignaa partner dentist, who will assess your teeth and oral health to confirm whether aligners are right for you.</p>"
     },
     {
       "question": "3. How long does clear aligner treatment take?",
-      "answerHtml": "<p itemprop=\"text\">Most Linea treatments take between 6 and 12 months, though mild cases can be shorter. Treatment length depends on the complexity of your case and how consistently you wear your aligners. You'll typically start seeing visible changes after around 3 months.</p>"
+      "answerHtml": "<p itemprop=\"text\">Most Alignaa treatments take between 6 and 12 months, though mild cases can be shorter. Treatment length depends on the complexity of your case and how consistently you wear your aligners. You'll typically start seeing visible changes after around 3 months.</p>"
     },
     {
-      "question": "4. How is Linea different from at-home aligners?",
-      "answerHtml": "<p itemprop=\"text\">Linea treatment starts with an in-person dental exam, professional 3D scans and x-rays — not a self-taken impression kit. A licensed dentist, who you'll meet in person, is responsible for prescribing, performing and monitoring your treatment. They will fit your aligners and handle any clinical procedures. Between visits, Linea's clinical team monitors your progress remotely via the Linea app, with 7-day-a-week local support. This treatment method is far safer and more accurate that at-home treatments.</p>"
+      "question": "4. How is Alignaa different from at-home aligners?",
+      "answerHtml": "<p itemprop=\"text\">Alignaa treatment starts with an in-person dental exam, professional 3D scans and x-rays — not a self-taken impression kit. A licensed dentist, who you'll meet in person, is responsible for prescribing, performing and monitoring your treatment. They will fit your aligners and handle any clinical procedures. Between visits, Alignaa's clinical team monitors your progress remotely via the Alignaa app, with 7-day-a-week local support. This treatment method is far safer and more accurate that at-home treatments.</p>"
     },
     {
       "question": "5. Can I use my insurance for clear aligners?",
-      "answerHtml": "<p itemprop=\"text\">Because Linea treatment is administered in-person through a licensed dental practice, it's eligible for coverage under most dental insurance plans with orthodontic benefits. The amount you can claim depends on your plan. You can also typically pay using HSA or FSA funds</p>"
+      "answerHtml": "<p itemprop=\"text\">Because Alignaa treatment is administered in-person through a licensed dental practice, it's eligible for coverage under most dental insurance plans with orthodontic benefits. The amount you can claim depends on your plan. You can also typically pay using HSA or FSA funds</p>"
     },
     {
       "question": "6. What are attachments and IPR?",

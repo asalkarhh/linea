@@ -12,7 +12,7 @@ export function ModalProvider({ children }) {
   const openBookNow = useCallback(() => setBookNowOpen(true), []);
   const closeBookNow = useCallback(() => setBookNowOpen(false), []);
 
-  const openLightbox = useCallback((src, alt = 'Before and after Linea treatment') => {
+  const openLightbox = useCallback((src, alt = 'Before and after Alignaa treatment') => {
     setLightbox({ open: true, src, alt });
   }, []);
   const closeLightbox = useCallback(() => {

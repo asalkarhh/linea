@@ -6,7 +6,7 @@ export default function Privacy() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    document.title = 'Privacy Policy — Linea Official';
+    document.title = 'Privacy Policy — Alignaa Official';
   }, []);
 
   const handleContentClick = (e) => {

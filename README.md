@@ -1,6 +1,6 @@
 # Linea Official Website — React.js Frontend Clone
 
-A React.js + Vite frontend clone of [https://www.lineaofficial.com/](https://www.lineaofficial.com/) built exclusively with frontend web technologies (React, React Router DOM, Framer Motion, Lucide React, HTML5, CSS3, JavaScript).
+A React.js + Vite frontend clone of [https://www.Lineaofficial.com/](https://www.Lineaofficial.com/) built exclusively with frontend web technologies (React, React Router DOM, Framer Motion, Lucide React, HTML5, CSS3, JavaScript).
 
 ---
 
@@ -70,7 +70,7 @@ All interactive UI behaviors are implemented purely in the browser without any b
   - **Module 6 Showcase Video (`VimeoShowcasePlayer`)**: Direct embed of Vimeo showcase stream `https://player.vimeo.com/video/878905076?controls=0` within `.mod-6-video-wrap`, accompanied by the reference feather play overlay.
   - **Module 10 Socials Carousel (`SocialsVideoPlayer`)**: 4 vertical reels with custom feather play controls, loop, and crisp video poster frames (`socials-1..4-poster.jpg`).
   - **Module 2 Guarantee Block (`GuaranteeVideoBlock`)**: Dentist supervision visual with click-to-play option for the reference guarantee video (`https://player.vimeo.com/video/724683619`).
-- **`PanamaRegular.woff` (`HTTP 403 Forbidden`)**: The `https://linea-official-us.s3.amazonaws.com/static/fonts/PanamaRegular.woff` font file returned HTTP 403 from S3 and was omitted from `@font-face`; `--font-serif` in `src/styles/variables.css` uses `'Panama', Georgia, 'Times New Roman', serif` while `LaNord-Light.woff` and `LaNord-Regular.woff` load from `/assets/fonts/`.
+- **`PanamaRegular.woff` (`HTTP 403 Forbidden`)**: The `https://Linea-official-us.s3.amazonaws.com/static/fonts/PanamaRegular.woff` font file returned HTTP 403 from S3 and was omitted from `@font-face`; `--font-serif` in `src/styles/variables.css` uses `'Panama', Georgia, 'Times New Roman', serif` while `LaNord-Light.woff` and `LaNord-Regular.woff` load from `/assets/fonts/`.
 - **Excluded Routes**: Routes disallowed by `robots.txt` (`/admin/`, `/staff/`, `/dashboard/`, `/dentists/`, `/payment/`, `/suppliers/`, `/c/`), regional `.com.au` pages, and inactive US routes returning 404 on the live site (`/veneers/`, `/whitening/`, `/aligners/retainers/`) are excluded.
 
 ---

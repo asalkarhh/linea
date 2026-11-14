@@ -31,7 +31,7 @@ export default function Aligners() {
   const socialsRef = useRef(null);
 
   useEffect(() => {
-    document.title = 'Clear Aligners — Linea Official';
+    document.title = 'Clear Aligners — Alignaa Official';
   }, []);
 
   useEffect(() => {
@@ -119,7 +119,7 @@ export default function Aligners() {
             <h1 className="hero-title" style={{ position: 'static' }}>
               STRAIGHT TEETH
               <br />
-              WITH LINEA<sup>&reg;</sup>
+              WITH ALIGNAA<sup>&reg;</sup>
               <br />
               CLEAR ALIGNERS
             </h1>
@@ -165,7 +165,7 @@ export default function Aligners() {
             </h2>
             <ScrollReveal>
               <p className="variable-text-size">
-                Linea offers tailored orthodontic solutions with AI-powered treatment tracking and 7-day local customer support.
+                Alignaa offers tailored orthodontic solutions with AI-powered treatment tracking and 7-day local customer support.
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.08}>
@@ -215,7 +215,7 @@ export default function Aligners() {
         renderSlide={(imgSrc, idx) => (
           <div key={imgSrc + idx} className="slide">
             <div className="slide-block">
-              <img src={imgSrc} alt="Before and after Linea Clear Aligners" loading="lazy" />
+              <img src={imgSrc} alt="Before and after Alignaa Clear Aligners" loading="lazy" />
             </div>
           </div>
         )}
@@ -251,7 +251,7 @@ export default function Aligners() {
                   Guided by local dentists
                 </h2>
                 <p style={{ fontSize: '14px' }}>
-                  Your teeth are an important asset - don&rsquo;t compromise on their care. With Linea, a licensed dentist or orthodontist in your local area oversees your treatment, meaning your future smile is guaranteed by an expert.
+                  Your teeth are an important asset - don&rsquo;t compromise on their care. With Alignaa, a licensed dentist or orthodontist in your local area oversees your treatment, meaning your future smile is guaranteed by an expert.
                 </p>
               </ScrollReveal>
             </div>
@@ -367,7 +367,7 @@ export default function Aligners() {
       <section className="block row dark-module" style={{ overflow: 'visible' }}>
         <div className="highlight-images-left std-y-pad">
           <img
-            alt="Model holding Linea clear aligner and carrying case"
+            alt="Model holding Alignaa clear aligner and carrying case"
             src="/assets/images/fullscreen-model.jpg"
             style={{ width: '100%' }}
             loading="lazy"
@@ -468,7 +468,7 @@ export default function Aligners() {
             <thead>
               <tr>
                 <th>Perks</th>
-                <th>Linea</th>
+                <th>Alignaa</th>
                 <th>Braces</th>
                 <th>At-Home Aligners</th>
               </tr>
@@ -478,7 +478,7 @@ export default function Aligners() {
                 <tr key={row.feature}>
                   <td>{row.feature}</td>
                   <td className="center cell-highlight">
-                    {row.linea ? <Check size={23} /> : <X size={23} />}
+                    {row.alignaa ?? row.linea ?? row.Linea ? <Check size={23} /> : <X size={23} />}
                   </td>
                   <td className="center">
                     {row.braces ? <Check size={23} /> : <X size={23} />}
@@ -555,7 +555,7 @@ export default function Aligners() {
           <VimeoShowcasePlayer
             id="mod-6-video"
             src="https://player.vimeo.com/video/878905076?controls=0"
-            title="Linea Clear Aligners Story Video"
+            title="Alignaa Clear Aligners Story Video"
           />
         </div>
       </section>
@@ -665,7 +665,7 @@ export default function Aligners() {
               <div className="slide-block">
                 <img
                   src={item.image}
-                  alt={item.alt || 'Before and after Linea clear aligner treatment'}
+                  alt={item.alt || 'Before and after Alignaa clear aligner treatment'}
                   loading="lazy"
                 />
               </div>
@@ -729,7 +729,7 @@ export default function Aligners() {
                 src={vid.localVideo}
                 poster={vid.poster}
                 vimeoUrl={vid.vimeoUrl}
-                ariaLabel={`Play Linea social video ${idx + 1}`}
+                ariaLabel={`Play Alignaa social video ${idx + 1}`}
               />
             </div>
           )}
@@ -751,7 +751,7 @@ export default function Aligners() {
 
       {/* Bottom CTA Block */}
       <CtaBlock
-        title="Is Linea right for you?"
+        title="Is Alignaa right for you?"
         description="Take 30 seconds to answer a few questions and find out."
         buttonLabel="Get Started"
         buttonTo="/aligners/quiz/"

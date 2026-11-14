@@ -7,7 +7,7 @@ import '../styles/pricing.css';
 
 export default function Timeline() {
   useEffect(() => {
-    document.title = 'Treatment Timeline — Linea Official';
+    document.title = 'Treatment Timeline — Alignaa Official';
   }, []);
 
   return (
@@ -90,7 +90,7 @@ export default function Timeline() {
       </section>
 
       <CtaBlock
-        title="Ready to begin your Linea journey?"
+        title="Ready to begin your Alignaa journey?"
         description="See pricing options and find out which aligner tier fits your smile goals."
         buttonLabel="View Pricing"
         buttonTo="/aligners/pricing/"

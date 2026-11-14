@@ -6,7 +6,7 @@ export default function Terms() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    document.title = 'Website Usage Terms and Conditions — Linea Official';
+    document.title = 'Website Usage Terms and Conditions — Alignaa Official';
   }, []);
 
   const handleContentClick = (e) => {
