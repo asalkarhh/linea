@@ -554,7 +554,8 @@ export default function Aligners() {
         <div className="mod-6-video-wrap">
           <VimeoShowcasePlayer
             id="mod-6-video"
-            src="https://player.vimeo.com/video/878905076?controls=0"
+            src="/assets/videos/aligna video.mp4"
+            poster="/assets/images/aligna-video-poster.jpg"
             title="Alignaa Clear Aligners Story Video"
           />
         </div>

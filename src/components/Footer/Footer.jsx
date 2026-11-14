@@ -8,7 +8,7 @@ export default function Footer() {
           <div className="row">
             <div className="column" style={{ flexBasis: '25%', paddingLeft: 0 }}>
               <img
-                src="/assets/icons/marque-white.png"
+                src="/assets/images/whitelogo.png"
                 alt="Alignaa marque"
                 style={{ width: '80%' }}
               />

@@ -180,17 +180,36 @@ export function ProcessVideoPlayer({
   );
 }
 
-// Module 6 Showcase Video Player embedding original Vimeo iframe with controls & poster fallback
+// Module 6 Showcase Video Player supporting local MP4 video or fallback Vimeo embed
 export function VimeoShowcasePlayer({
-  src = 'https://player.vimeo.com/video/878905076?controls=0',
+  src = '/assets/videos/aligna video.mp4',
   id = 'mod-6-video',
   title = 'Alignaa Clear Aligners AI Monitoring & 3D Simulation',
+  poster = '/assets/images/aligna-video-poster.jpg',
 }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [loadError, setLoadError] = useState(false);
+  const videoRef = useRef(null);
   const iframeRef = useRef(null);
 
+  const isLocalVideo = Boolean(
+    src && (src.endsWith('.mp4') || src.startsWith('/') || !src.includes('vimeo.com'))
+  );
+
   const handlePlayClick = () => {
+    if (isLocalVideo && videoRef.current) {
+      if (videoRef.current.paused) {
+        videoRef.current
+          .play()
+          .then(() => setIsPlaying(true))
+          .catch(() => {});
+      } else {
+        videoRef.current.pause();
+        setIsPlaying(false);
+      }
+      return;
+    }
+
     setIsPlaying(true);
     // Send play postMessage to Vimeo player iframe
     if (iframeRef.current && iframeRef.current.contentWindow) {
@@ -213,7 +232,31 @@ export function VimeoShowcasePlayer({
         overflow: 'hidden',
       }}
     >
-      {!loadError ? (
+      {isLocalVideo ? (
+        <video
+          ref={videoRef}
+          id={id}
+          src={src}
+          poster={poster}
+          playsInline
+          webkit-playsinline="true"
+          loop
+          muted={false}
+          controls={isPlaying}
+          preload="metadata"
+          onPlay={() => setIsPlaying(true)}
+          onPause={() => setIsPlaying(false)}
+          onClick={handlePlayClick}
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            display: 'block',
+            borderRadius: 'inherit',
+            cursor: 'pointer',
+          }}
+        />
+      ) : !loadError ? (
         <iframe
           ref={iframeRef}
           id={id}
@@ -232,7 +275,7 @@ export function VimeoShowcasePlayer({
         />
       ) : (
         <img
-          src="/assets/images/video-still.jpeg"
+          src={poster || '/assets/images/video-still.jpeg'}
           alt={title}
           style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
         />
