@@ -1,4 +1,4 @@
-// Extracted faithfully from https://www.lineaofficial.com/aligners/quiz/
+// Alignaa quiz data
 export const quizSteps = [
   {
     "idx": 0,
@@ -147,12 +147,12 @@ export const quizSteps = [
         "answers": [
           {
             "label": "Yes",
-            "image": "",
+            "image": "/assets/images/quiz/braces.png",
             "jt": null
           },
           {
             "label": "No",
-            "image": "",
+            "image": "/assets/images/quiz/braces.png",
             "jt": null
           }
         ],
@@ -176,12 +176,12 @@ export const quizSteps = [
         "answers": [
           {
             "label": "Yes",
-            "image": "",
+            "image": "/assets/images/quiz/wisdom.png",
             "jt": null
           },
           {
             "label": "No",
-            "image": "",
+            "image": "/assets/images/quiz/wisdom.png",
             "jt": null
           }
         ],
@@ -205,12 +205,12 @@ export const quizSteps = [
         "answers": [
           {
             "label": "Yes",
-            "image": "",
+            "image": "/assets/images/quiz/implants.png",
             "jt": null
           },
           {
             "label": "No",
-            "image": "",
+            "image": "/assets/images/quiz/implants.png",
             "jt": null
           }
         ],
@@ -230,7 +230,7 @@ export const quizSteps = [
     "questions": [
       {
         "type": "pc",
-        "title": "What's your zip code?",
+        "title": "What's your Pin code?",
         "answers": [],
         "input": {
           "type": "text",

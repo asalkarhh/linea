@@ -39,7 +39,7 @@ export default function LargeMenu({ open, onClose }) {
 
   return (
     <nav
-      id="Linea-large-menu"
+      id="Alignaa-large-menu"
       aria-label="Primary drawer navigation"
       className={`large-menu ${open ? 'open' : ''}`}
       aria-hidden={!open}
@@ -82,9 +82,13 @@ export default function LargeMenu({ open, onClose }) {
       >
         About Alignaa
       </Link>
-      <Link to="/login/" onClick={handleLinkClick} tabIndex={open ? 0 : -1}>
+      <a
+        href="https://alignaa-portal.com/en/login"
+        onClick={handleLinkClick}
+        tabIndex={open ? 0 : -1}
+      >
         Login
-      </Link>
+      </a>
 
       {showMobileStartHere && (
         <button className="start-here menu-start-here" type="button" tabIndex={open ? 0 : -1}>
@@ -158,7 +162,7 @@ export function LocationSelector({ open, onDismiss }) {
         )}
       </div>
       {selected === 'Australia' ? (
-        <a href="https://www.lineaofficial.com.au/" rel="noopener noreferrer">
+        <a href="#dismiss" onClick={(e) => { e.preventDefault(); onDismiss(); }}>
           <button type="button">Go</button>
         </a>
       ) : (

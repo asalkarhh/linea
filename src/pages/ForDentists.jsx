@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { CheckCircle2 } from 'lucide-react';
 import { pagesData } from '../data/pagesData';
 import { useModals } from '../context/ModalContext';
 import FaqAccordion from '../components/Accordion/FaqAccordion';
+import SEO from '../components/SEO/SEO';
 import '../styles/partners.css';
 
 export default function ForDentists() {
@@ -14,10 +15,6 @@ export default function ForDentists() {
   const [practiceUrl, setPracticeUrl] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-
-  useEffect(() => {
-    document.title = 'For Dentists — Alignaa Official Partners';
-  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -49,6 +46,16 @@ export default function ForDentists() {
 
   return (
     <div className="page-partners">
+      <SEO
+        title="Partner with Alignaa — Clear Aligner Systems for Dental Clinics"
+        description="Join over 12,000 dental practitioners worldwide. Offer high-precision, FDA-cleared Zendura clear aligners to your patients with free 3D simulations."
+        keywords="partner with alignaa, dental clinic clear aligners, orthodontist aligner system, clear aligners for dentists, alignaa in"
+        canonical="/for-dentists"
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'For Dentists', url: '/for-dentists' },
+        ]}
+      />
       {/* Top Hero Cover */}
       <div className="block top-cover" style={{ height: 'auto', backgroundColor: 'var(--primary-bg-color)' }}>
         <div className="flex vertical-center" style={{ maxWidth: '1200px', margin: 'auto' }}>
@@ -431,7 +438,7 @@ export default function ForDentists() {
           </div>
 
           <a
-            href="https://au.trustpilot.com/review/lineaofficial.com.au"
+            href="https://www.trustpilot.com/"
             target="_blank"
             rel="noopener noreferrer"
           >

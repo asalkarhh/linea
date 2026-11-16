@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 98 24" height="24">
+  <g transform="translate(0, 0)">
+    <!-- PhonePe Circle Icon -->
+    <circle cx="12" cy="12" r="11" fill="#6739b7"/>
+    <!-- Hindi 'Pe' (पे) character in white -->
+    <path d="M12.5 5.5v2.8c1.6.4 2.8 1.8 2.8 3.5 0 2-1.6 3.7-3.7 3.7h-1.2v3.5H8.8V6.8h4.5c1.2 0 2.2-.4 2.9-1.3H12.5zm-2.1 4.2v4.4h1.4c1.1 0 2-.9 2-2s-.9-2-2-2h-1.4v-.4z" fill="#ffffff"/>
+    <path d="M16.5 5.5c-.8.8-1.8 1.3-3 1.3H8.8V5.5h7.7z" fill="#ffffff"/>
+    <!-- PhonePe Wordmark in white -->
+    <text x="28" y="16.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-weight="700" font-size="14" fill="#ffffff">Phone<tspan fill="#00baf2">Pe</tspan></text>
+  </g>
+</svg>

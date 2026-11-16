@@ -12,21 +12,11 @@ import {
 import { useModals } from '../../context/ModalContext';
 
 const TIMEZONES = [
-  'US/Eastern',
-  'US/Central',
-  'US/Mountain',
-  'US/Pacific',
-  'US/Alaska',
-  'US/Hawaii',
+  'Asia/Kolkata (IST)',
+  'Asia/Dubai',
+  'Asia/Singapore',
+  'Europe/London',
   'America/New_York',
-  'America/Chicago',
-  'America/Denver',
-  'America/Los_Angeles',
-  'Australia/Sydney',
-  'Australia/Melbourne',
-  'Australia/Brisbane',
-  'Australia/Perth',
-  'Australia/Adelaide',
 ];
 
 const SLOTS_BY_WEEKDAY = [
@@ -62,7 +52,7 @@ export default function BookNowModal() {
   const [month, setMonth] = useState(today.getMonth()); // 0-indexed
   const [selectedDay, setSelectedDay] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
-  const [timezone, setTimezone] = useState('US/Eastern');
+  const [timezone, setTimezone] = useState('Asia/Kolkata');
   const [tzModalOpen, setTzModalOpen] = useState(false);
   const [tzFilter, setTzFilter] = useState('');
 
@@ -179,8 +169,13 @@ export default function BookNowModal() {
       openAlertModal('Invalid Phone', 'Please enter a valid mobile number of 10 digits.');
       return;
     }
-    if (!zipCode.trim()) {
-      openAlertModal('Required Field', 'Please enter your zip code.');
+    const cleanPin = zipCode.trim();
+    if (!cleanPin) {
+      openAlertModal('Required Field', 'Please enter your pin code.');
+      return;
+    }
+    if (!/^[1-9][0-9]{5}$/.test(cleanPin)) {
+      openAlertModal('Invalid Pin Code', 'Please enter a valid 6-digit Pin code.');
       return;
     }
 
@@ -238,11 +233,10 @@ export default function BookNowModal() {
                   Thanks, <strong>{confirmed.firstName}</strong>! Your 15-minute smile consultation call is confirmed for:
                 </p>
                 <p style={{ background: '#e8e4d9', padding: '12px', borderRadius: '5px' }}>
-                  <strong>{confirmed.dateLabel}</strong> at <strong>{confirmed.time}</strong> ({confirmed.timezone})
+                  <strong>{confirmed.dateLabel}</strong> at <strong>{confirmed.time}</strong>
                 </p>
                 <p style={{ fontSize: '14px', color: '#555' }}>
-                  A confirmation summary has been recorded for <strong>{confirmed.email}</strong> (ZIP {confirmed.zipCode}).
-                  Remember: booking an in-clinic consultation within 7 days locks in your <strong>$150 off</strong> treatment credit.
+                  A confirmation summary has been recorded for <strong>{confirmed.email}</strong>{confirmed.zipCode ? ` (PIN ${confirmed.zipCode})` : ''}.
                 </p>
                 <p style={{ fontSize: '12px', color: '#9b9a9d', fontStyle: 'italic' }}>
                   Demo frontend preview: no live backend booking request is sent.
@@ -272,9 +266,9 @@ export default function BookNowModal() {
                     <p>
                       During this free consultation, our smile specialist will discuss your case with you, answer any questions you have and help locate a partner dentist nearest to you.
                     </p>
-                    <p>
+                    {/* <p>
                       *Book an initial consultation within 7 days of the call and receive $150 off your treatment* T&amp;Cs apply.
-                    </p>
+                    </p> */}
                     <h3>Select a date:</h3>
                     <div className="schedule-calendar-wrap">
                       <div className="schedule-header">
@@ -388,11 +382,15 @@ export default function BookNowModal() {
                     />
                     <input
                       type="text"
+                      inputMode="numeric"
+                      pattern="[0-9]*"
                       id="book_zip_code"
-                      maxLength={10}
-                      placeholder="Zip Code"
+                      maxLength={6}
+                      placeholder="6-digit Pin Code"
                       value={zipCode}
-                      onChange={(e) => setZipCode(e.target.value)}
+                      onChange={(e) =>
+                        setZipCode(e.target.value.replace(/\D/g, '').slice(0, 6))
+                      }
                     />
                     <input
                       type="email"
@@ -415,7 +413,7 @@ export default function BookNowModal() {
                         type="text"
                         maxLength={20}
                         id="book_phone"
-                        placeholder="555 123 4567"
+                        placeholder="91 5123 4567"
                         style={{ padding: 0, margin: 0, border: 0 }}
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
@@ -457,7 +455,7 @@ export default function BookNowModal() {
                       </Link>
                     </p>
 
-                    <div
+                    {/* <div
                       style={{
                         borderTop: '1px solid var(--primary-line-color)',
                         paddingTop: '16px',
@@ -468,7 +466,7 @@ export default function BookNowModal() {
                       <div style={{ margin: '8px 0' }}>
                         <b>Save $150</b> when you book a consultation in our offer window.
                       </div>
-                    </div>
+                    </div> */}
 
                     <div
                       className="flex"
@@ -529,7 +527,7 @@ export default function BookNowModal() {
                   </form>
                 )}
 
-                <div className="flex" style={{ alignItems: 'center', gap: '5px', marginTop: '12px' }}>
+                {/* <div className="flex" style={{ alignItems: 'center', gap: '5px', marginTop: '12px' }}>
                   <p style={{ fontSize: '14px', textAlign: 'right' }}>
                     Timezone: <span id="timezone">{timezone}</span>
                   </p>
@@ -546,7 +544,7 @@ export default function BookNowModal() {
                   >
                     <Edit2 size={14} />
                   </button>
-                </div>
+                </div> */}
                 <div className="block" style={{ height: '60px' }} />
               </>
             )}

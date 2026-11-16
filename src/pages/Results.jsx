@@ -5,17 +5,25 @@ import { resultsData } from '../data/resultsData';
 import { useModals } from '../context/ModalContext';
 import SlideCarousel from '../components/Carousel/SlideCarousel';
 import CtaBlock from '../components/Buttons/CtaBlock';
+import SEO from '../components/SEO/SEO';
 import '../styles/results.css';
 
 export default function Results() {
   const { openLightbox } = useModals();
 
-  useEffect(() => {
-    document.title = 'Real Smile Results & Reviews — Alignaa Official';
-  }, []);
-
   return (
     <div className="page-results">
+      <SEO
+        title="Real Clear Aligner Before & After Results & Reviews | Alignaa"
+        description="See real smile transformations treated with Alignaa clear aligners. Real patient before-and-after photos for crowding, spacing, protrusion, and deep bites."
+        keywords="clear aligners results, aligners before and after, invisible braces results, crowding before after, teeth straightening review, smile transformation"
+        canonical="/aligners/results"
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Clear Aligners', url: '/aligners' },
+          { name: 'Results', url: '/aligners/results' },
+        ]}
+      />
       <div
         className="block top-cover cover-results"
         style={{
@@ -154,7 +162,7 @@ export default function Results() {
                   {!rev.avatarImage && rev.abbrev}
                 </div>
                 <a
-                  href="https://au.trustpilot.com/review/lineaofficial.com.au"
+                  href="https://www.trustpilot.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{ float: 'right' }}
@@ -188,37 +196,42 @@ export default function Results() {
       <div style={{ paddingTop: '60px', paddingBottom: '80px', backgroundColor: '#fff' }}>
         <SlideCarousel
           id="results"
-          variant="overlay"
+          variant="aligners"
           heading="Results"
           headingTag="h2"
-          sectionClassName="block std-x-pad"
+          sectionClassName="block has-slides"
           items={resultsData.resultsGallery}
-          desktopVisible={4}
+          desktopVisible={3}
           tabletVisible={2}
           mobileVisible={1}
+          showArrows={false}
           renderSlide={(item, idx) => (
-            <div key={item.image + idx} className="slide slide-25">
-              <button
-                type="button"
-                className="slide-25-img"
-                onClick={() => openLightbox(item.image, `${item.name} — ${item.caseInfo}`)}
-                aria-label={`View ${item.name} before and after result`}
-                style={{
-                  backgroundImage: `url(${item.image})`,
-                  width: '100%',
-                  border: 0,
-                  padding: 0,
-                }}
-              >
-                <div className="slide-25-overlay">
-                  <div className="name-overlay">{item.name}</div>
-                  <div
-                    className="case-overlay"
-                    style={{ textAlign: 'right' }}
-                    dangerouslySetInnerHTML={{ __html: item.caseHtml }}
-                  />
-                </div>
-              </button>
+            <div key={item.image + idx} className="slide">
+              <div className="slide-block">
+                <button
+                  type="button"
+                  className="slide-25-img"
+                  onClick={() => openLightbox(item.image, item.name ? `${item.name} — ${item.caseInfo}` : item.caseInfo || 'Alignaa smile result')}
+                  aria-label={`View before and after result ${idx + 1}`}
+                  style={{
+                    backgroundImage: `url(${item.image})`,
+                    border: 0,
+                    padding: 0,
+                    borderRadius: '5px',
+                  }}
+                >
+                  <div className="slide-25-overlay">
+                    {item.name && <div className="name-overlay">{item.name}</div>}
+                    {item.caseHtml && (
+                      <div
+                        className="case-overlay"
+                        style={{ textAlign: 'right' }}
+                        dangerouslySetInnerHTML={{ __html: item.caseHtml }}
+                      />
+                    )}
+                  </div>
+                </button>
+              </div>
             </div>
           )}
         />

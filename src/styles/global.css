@@ -584,6 +584,37 @@ select:focus {
   padding: 0;
 }
 
+.top-start-here {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.header-book-mobile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  padding: 4px;
+}
+
+.header-book-desktop {
+  display: none;
+}
+
+@media screen and (min-width: 700px) {
+  .header-book-mobile {
+    display: none !important;
+  }
+
+  .header-book-desktop {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
 .menu-start-here {
   display: block;
   margin: 0 auto;

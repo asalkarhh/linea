@@ -42,7 +42,7 @@ export default function Header({ menuOpen, onToggleMenu, selectorOpen }) {
           onClick={onToggleMenu}
           aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
           aria-expanded={menuOpen}
-          aria-controls="Linea-large-menu"
+          aria-controls="Alignaa-large-menu"
           style={{
             background: 'transparent',
             border: 0,
@@ -61,9 +61,13 @@ export default function Header({ menuOpen, onToggleMenu, selectorOpen }) {
         <ul style={{ position: 'relative' }}>
           {isHome && (
             <li>
-              <Link to="/login/" aria-label="Account login" style={{ color: barColor }}>
+              <a
+                href="https://alignaa-portal.com/en/login"
+                aria-label="Account login"
+                style={{ color: barColor }}
+              >
                 <User size={24} strokeWidth={2} />
-              </Link>
+              </a>
             </li>
           )}
 
@@ -72,25 +76,32 @@ export default function Header({ menuOpen, onToggleMenu, selectorOpen }) {
               <div className="start-here top-start-here">
                 <button
                   type="button"
-                  className="desktop-hide"
+                  className="header-book-mobile"
                   onClick={openBookNow}
                   aria-label="Book consultation"
                   style={{
                     background: 'transparent',
+                    border: 'none',
                     color: barColor,
                     padding: '4px',
-                    display: 'inline-flex',
+                    cursor: 'pointer',
                   }}
                 >
                   <Calendar size={24} strokeWidth={2} />
                 </button>
                 <button
                   type="button"
-                  className="mobile-hide"
+                  className="header-book-desktop"
                   onClick={openBookNow}
-                  style={{ fontSize: '14px', padding: '5px 10px' }}
+                  style={{
+                    fontSize: '14px',
+                    padding: '6px 14px',
+                    whiteSpace: 'nowrap',
+                    cursor: 'pointer',
+                    lineHeight: '1.2',
+                  }}
                 >
-                  Book Now
+                  Book your free consultation now
                 </button>
               </div>
             </li>

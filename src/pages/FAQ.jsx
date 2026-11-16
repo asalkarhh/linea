@@ -1,15 +1,27 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { faqCategories } from '../data/faqData';
 import FaqAccordion from '../components/Accordion/FaqAccordion';
 import CtaBlock from '../components/Buttons/CtaBlock';
+import SEO from '../components/SEO/SEO';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqCategories.flatMap((cat) =>
+    cat.items.slice(0, 10).map((item) => ({
+      '@type': 'Question',
+      name: item.question.replace(/^\d+\.\s*/, ''),
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.plainText.replace(/^\d+\.\s*.*?\?\s*/, ''),
+      },
+    }))
+  ),
+};
 
 export default function FAQ() {
   const [searchTerm, setSearchTerm] = useState('');
   const [openCategories, setOpenCategories] = useState({});
-
-  useEffect(() => {
-    document.title = 'Frequently Asked Questions — Alignaa Official';
-  }, []);
 
   const query = searchTerm.trim().toLowerCase();
 
@@ -35,6 +47,18 @@ export default function FAQ() {
 
   return (
     <div className="page-faq">
+      <SEO
+        title="Clear Aligners FAQ | All Your Questions Answered | Alignaa"
+        description="Got questions about clear aligners? Learn about treatment duration, cost in India, daily wear routine, cleaning aligners, and suitability with Alignaa's FAQ."
+        keywords="clear aligners FAQ, invisible braces questions, how to clean aligners, aligners eating drinking, braces vs aligners FAQ, aligners cost FAQ"
+        canonical="/aligners/faq"
+        schema={faqSchema}
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Clear Aligners', url: '/aligners' },
+          { name: 'FAQ', url: '/aligners/faq' },
+        ]}
+      />
       <div className="block" style={{ paddingTop: '120px' }}>
         <h1 style={{ textAlign: 'center' }}>Frequently Asked Questions</h1>
       </div>

@@ -3,21 +3,20 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { blogPosts } from '../data/blogPosts';
 import CtaBlock from '../components/Buttons/CtaBlock';
+import SEO from '../components/SEO/SEO';
 import '../styles/blog.css';
 
 export default function BlogPost() {
   const { slug } = useParams();
   const navigate = useNavigate();
 
-  const post = blogPosts.find((p) => p.slug === slug);
-
-  useEffect(() => {
-    if (post) {
-      document.title = `${post.title} — Alignaa Official Blog`;
-    } else {
-      document.title = 'Article Not Found — Alignaa Official';
-    }
-  }, [post]);
+  const post = blogPosts.find(
+    (p) =>
+      p.slug === slug ||
+      p.slug.toLowerCase() === slug?.toLowerCase() ||
+      p.slug.toLowerCase().replace(/alignaa/g, 'linea') === slug?.toLowerCase() ||
+      p.slug.toLowerCase().replace(/linea/g, 'alignaa') === slug?.toLowerCase()
+  );
 
   const handleContentClick = (e) => {
     const anchor = e.target.closest('a');
@@ -33,6 +32,11 @@ export default function BlogPost() {
   if (!post) {
     return (
       <div className="page-blog std-x-pad std-y-pad" style={{ paddingTop: '120px', textAlign: 'center' }}>
+        <SEO
+          title="Article Not Found | Alignaa Blog"
+          description="The requested orthodontic article could not be found."
+          canonical="/blog"
+        />
         <h1>Article Not Found</h1>
         <p>We could not find the blog post you requested.</p>
         <Link to="/blog/" style={{ textDecoration: 'underline' }}>
@@ -42,8 +46,50 @@ export default function BlogPost() {
     );
   }
 
+  const postSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.metaDescription,
+    image: post.coverImage?.startsWith('http')
+      ? post.coverImage
+      : `https://www.alignaa.co${post.coverImage}`,
+    datePublished: post.date,
+    dateModified: post.updated || post.date,
+    author: {
+      '@type': 'Organization',
+      name: 'Alignaa Clinical Team',
+      url: 'https://www.alignaa.co',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Alignaa',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://www.alignaa.co/assets/icons/favicon.png',
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://www.alignaa.co/blog/${post.slug}`,
+    },
+  };
+
   return (
     <div className="page-blog">
+      <SEO
+        title={`${post.title} | Alignaa Blog`}
+        description={post.metaDescription}
+        canonical={`/blog/${post.slug}`}
+        ogType="article"
+        ogImage={post.coverImage}
+        schema={postSchema}
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Blog', url: '/blog' },
+          { name: post.title, url: `/blog/${post.slug}` },
+        ]}
+      />
       <div
         className="block std-x-pad std-y-pad"
         style={{ backgroundColor: '#fff', paddingTop: '100px' }}
@@ -71,7 +117,7 @@ export default function BlogPost() {
             style={{ gap: '12px', margin: '20px 0 30px 0' }}
           >
             <img
-              src={post.authorImage || '/assets/icons/linea-app-icon.png'}
+              src={post.authorImage || '/assets/icons/alignaa-app-icon.png'}
               alt={post.author}
               style={{
                 width: '40px',

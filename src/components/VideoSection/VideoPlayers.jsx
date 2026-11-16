@@ -14,8 +14,8 @@ export function HeroVideoBg({ onVisibilityCheck }) {
   }, []);
 
   const videoSrc = isMobile
-    ? '/assets/videos/Linea_Vertical__Website_Hero_Comp.mp4'
-    : '/assets/videos/Linea_Wide_Website_Hero_Comp.mp4';
+    ? '/assets/videos/Alignaa_Vertical__Website_Hero_Comp.mp4'
+    : '/assets/videos/Alignaa_Wide_Website_Hero_Comp.mp4';
   const posterSrc = isMobile
     ? '/assets/images/video-still-mobile.jpeg'
     : '/assets/images/video-still.jpeg';
@@ -94,6 +94,27 @@ export function ProcessVideoPlayer({
       setPlaying(false);
     }
   }, [isActive]);
+
+  // Pause when scrolled outside viewport
+  useEffect(() => {
+    const vid = videoRef.current;
+    if (!vid || typeof IntersectionObserver === 'undefined') return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting && !vid.paused) {
+            vid.pause();
+            setPlaying(false);
+          }
+        });
+      },
+      { threshold: 0 }
+    );
+
+    observer.observe(vid);
+    return () => observer.disconnect();
+  }, []);
 
   const togglePlay = () => {
     const vid = videoRef.current;
@@ -191,6 +212,27 @@ export function VimeoShowcasePlayer({
   const [loadError, setLoadError] = useState(false);
   const videoRef = useRef(null);
   const iframeRef = useRef(null);
+
+  // Pause when scrolled outside viewport
+  useEffect(() => {
+    const vid = videoRef.current;
+    if (!vid || typeof IntersectionObserver === 'undefined') return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting && !vid.paused) {
+            vid.pause();
+            setIsPlaying(false);
+          }
+        });
+      },
+      { threshold: 0 }
+    );
+
+    observer.observe(vid);
+    return () => observer.disconnect();
+  }, []);
 
   const isLocalVideo = Boolean(
     src && (src.endsWith('.mp4') || src.startsWith('/') || !src.includes('vimeo.com'))
@@ -322,19 +364,98 @@ export function SocialsVideoPlayer({
   poster,
   vimeoUrl,
   ariaLabel = 'Play Alignaa social video',
+  isPlaying: controlledIsPlaying,
+  onTogglePlay,
 }) {
   const videoRef = useRef(null);
-  const [playing, setPlaying] = useState(false);
+  const [localPlaying, setLocalPlaying] = useState(false);
   const [useVimeo, setUseVimeo] = useState(false);
+
+  const isControlled = typeof controlledIsPlaying === 'boolean';
+  const playing = isControlled ? controlledIsPlaying : localPlaying;
+
+  useEffect(() => {
+    const vid = videoRef.current;
+    if (!vid) return;
+
+    if (isControlled) {
+      if (controlledIsPlaying) {
+        if (vid.paused) {
+          vid.muted = false;
+          vid.play().catch(() => {});
+        }
+      } else {
+        if (!vid.paused) {
+          vid.pause();
+        }
+      }
+    }
+  }, [controlledIsPlaying, isControlled]);
+
+  // Pause when scrolled outside viewport
+  useEffect(() => {
+    const vid = videoRef.current;
+    if (!vid || typeof IntersectionObserver === 'undefined') return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting && !vid.paused) {
+            vid.pause();
+            if (isControlled && onTogglePlay) {
+              onTogglePlay(false);
+            } else {
+              setLocalPlaying(false);
+            }
+          }
+        });
+      },
+      { threshold: 0 }
+    );
+
+    observer.observe(vid);
+    return () => observer.disconnect();
+  }, [isControlled, onTogglePlay]);
 
   const togglePlay = () => {
     const vid = videoRef.current;
     if (!vid) return;
     if (vid.paused) {
-      vid.play().then(() => setPlaying(true)).catch(() => {});
+      vid.muted = false;
+      vid.play().then(() => {
+        if (isControlled && onTogglePlay) {
+          onTogglePlay(true);
+        } else {
+          setLocalPlaying(true);
+        }
+      }).catch(() => {});
     } else {
       vid.pause();
-      setPlaying(false);
+      if (isControlled && onTogglePlay) {
+        onTogglePlay(false);
+      } else {
+        setLocalPlaying(false);
+      }
+    }
+  };
+
+  const handlePause = () => {
+    if (isControlled && onTogglePlay) {
+      if (controlledIsPlaying) {
+        onTogglePlay(false);
+      }
+    } else {
+      setLocalPlaying(false);
+    }
+  };
+
+  const handlePlay = () => {
+    if (isControlled && onTogglePlay) {
+      if (!controlledIsPlaying) {
+        onTogglePlay(true);
+      }
+    } else {
+      setLocalPlaying(true);
     }
   };
 
@@ -360,12 +481,12 @@ export function SocialsVideoPlayer({
           src={src}
           poster={poster || undefined}
           loop
-          muted
           playsInline
           webkit-playsinline="true"
           preload="metadata"
-          onPause={() => setPlaying(false)}
-          onPlay={() => setPlaying(true)}
+          onClick={togglePlay}
+          onPause={handlePause}
+          onPlay={handlePlay}
           onError={() => setUseVimeo(true)}
           style={{
             width: '100%',
@@ -373,6 +494,7 @@ export function SocialsVideoPlayer({
             objectFit: 'cover',
             display: 'block',
             borderRadius: '10px',
+            cursor: 'pointer',
           }}
         />
       )}
@@ -411,9 +533,29 @@ export function SocialsVideoPlayer({
 // Module 2 Dentist Guarantee block with video toggle
 export function GuaranteeVideoBlock({ activeMod2 }) {
   const [playingVideo, setPlayingVideo] = useState(false);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el || typeof IntersectionObserver === 'undefined') return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            setPlayingVideo(false);
+          }
+        });
+      },
+      { threshold: 0 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <div className="mod-2-video-wrap" style={{ position: 'relative' }}>
+    <div ref={containerRef} className="mod-2-video-wrap" style={{ position: 'relative' }}>
       {playingVideo ? (
         <iframe
           src="https://player.vimeo.com/video/724683619?autoplay=1&controls=0"

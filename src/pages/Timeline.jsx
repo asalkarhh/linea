@@ -1,17 +1,22 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
 import { pricingData } from '../data/pricingData';
 import CtaBlock from '../components/Buttons/CtaBlock';
+import SEO from '../components/SEO/SEO';
 import '../styles/pricing.css';
 
 export default function Timeline() {
-  useEffect(() => {
-    document.title = 'Treatment Timeline — Alignaa Official';
-  }, []);
-
   return (
     <div className="page-pricing">
+      <SEO
+        title="Clear Aligner Treatment Timeline & Step-by-Step Journey | Alignaa"
+        description="Understand your step-by-step clear aligner journey from initial free quiz, 3D intraoral scan, custom aligner delivery, to post-treatment retention."
+        canonical="/timeline"
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Treatment Timeline', url: '/timeline' },
+        ]}
+      />
       <div
         className="block top-cover cover-pricing"
         style={{

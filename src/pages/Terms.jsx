@@ -1,13 +1,9 @@
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { pagesData } from '../data/pagesData';
+import SEO from '../components/SEO/SEO';
 
 export default function Terms() {
   const navigate = useNavigate();
-
-  useEffect(() => {
-    document.title = 'Website Usage Terms and Conditions — Alignaa Official';
-  }, []);
 
   const handleContentClick = (e) => {
     const anchor = e.target.closest('a');
@@ -24,8 +20,14 @@ export default function Terms() {
       className="page-legal"
       style={{ backgroundColor: '#fff', minHeight: '70vh' }}
       onClick={handleContentClick}
-      dangerouslySetInnerHTML={{ __html: pagesData.termsInnerHtml }}
-    />
+    >
+      <SEO
+        title="Terms & Conditions | Alignaa Clear Aligners"
+        description="Review the terms and conditions for using Alignaa's website and orthodontic services."
+        canonical="/terms"
+      />
+      <div dangerouslySetInnerHTML={{ __html: pagesData.termsInnerHtml }} />
+    </div>
   );
 }
 

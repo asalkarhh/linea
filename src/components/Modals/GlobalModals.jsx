@@ -157,17 +157,19 @@ export default function GlobalModals() {
                 >
                   Let me re-enter it
                 </button>
-                <a
-                  href="https://www.lineaofficial.com.au/aligners/quiz/"
-                  className="block"
+                <button
+                  type="button"
                   style={{
                     padding: '10px 20px',
                     border: '1px solid var(--primary-line-color)',
                     borderRadius: '5px',
+                    background: '#fff',
+                    cursor: 'pointer',
                   }}
+                  onClick={closeInfoModal}
                 >
-                  I&apos;m in Australia - take me to the AU site
-                </a>
+                  Close
+                </button>
               </div>
             )}
 

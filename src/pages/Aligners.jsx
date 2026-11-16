@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ChevronRight, Check, X } from 'lucide-react';
 import { alignersData } from '../data/alignersData';
 import { useModals } from '../context/ModalContext';
+import SEO from '../components/SEO/SEO';
 import {
   HeroVideoBg,
   ProcessVideoPlayer,
@@ -21,6 +22,7 @@ export default function Aligners() {
   const [activeMod2, setActiveMod2] = useState(1);
   const [showBottomBar, setShowBottomBar] = useState(false);
   const [activeProcessStep, setActiveProcessStep] = useState(null);
+  const [playingSocialId, setPlayingSocialId] = useState(null);
 
   const mod3Ref = useRef(null);
   const pricingRef = useRef(null);
@@ -83,6 +85,14 @@ export default function Aligners() {
             setActiveProcessStep(null);
           }
         }
+        // Check if socials section went outside window on scroll
+        const socialsEl = socialsRef.current;
+        if (socialsEl) {
+          const sRect = socialsEl.getBoundingClientRect();
+          if (sRect.bottom < 0 || sRect.top > window.innerHeight) {
+            setPlayingSocialId((prev) => (prev !== null ? null : prev));
+          }
+        }
       }
     };
 
@@ -97,8 +107,38 @@ export default function Aligners() {
     };
   }, [setDarkHeader, setHeaderOpacity]);
 
+  // Automatically stop playing social video when section goes outside window
+  useEffect(() => {
+    const el = socialsRef.current;
+    if (!el || typeof IntersectionObserver === 'undefined') return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            setPlayingSocialId(null);
+          }
+        });
+      },
+      { threshold: 0 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="page-aligners">
+      <SEO
+        title="Invisible Clear Aligners & Teeth Straightening Treatment | Alignaa"
+        description="Discover how Alignaa clear aligners work in India. Made with medical-grade Zendura polymer, customized 3D smile planning, and complete doctor supervision from start to finish."
+        keywords="clear aligners treatment, invisible teeth straightening, how clear aligners work, zendura aligners, orthodontic aligners India, clear aligner process"
+        canonical="/aligners"
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Clear Aligners', url: '/aligners' },
+        ]}
+      />
       {/* Module 1: Fullscreen Hero Video */}
       <section
         className="block element-with-video-bg"
@@ -212,6 +252,7 @@ export default function Aligners() {
         desktopVisible={3}
         tabletVisible={2}
         mobileVisible={1}
+        showArrows={false} /* arrows commented out since only 1 featured profile is displayed */
         renderSlide={(imgSrc, idx) => (
           <div key={imgSrc + idx} className="slide">
             <div className="slide-block">
@@ -428,13 +469,17 @@ export default function Aligners() {
                 <img src={tier.image} alt={tier.alt} loading="lazy" />
                 <div className="block" style={{ padding: '0 10px 110px 10px' }}>
                   <h4>{tier.title}</h4>
-                  <p>{tier.subtitle}</p>
+                  <p style={{ fontWeight: 600, color: '#f5f5f5', marginTop: '2px', marginBottom: '14px', fontSize: '15px' }}>
+                    {tier.subtitle}
+                  </p>
                   <div style={{ display: 'flex' }}>
                     {tier.columns.map((col, ci) => (
                       <div key={ci} style={{ width: '50%' }}>
-                        <ul>
+                        <ul style={{ margin: 0, paddingLeft: '14px' }}>
                           {col.map((feat) => (
-                            <li key={feat}>{feat}</li>
+                            <li key={feat} style={{ marginBottom: '4px', lineHeight: 1.35 }}>
+                              {feat}
+                            </li>
                           ))}
                         </ul>
                       </div>
@@ -478,7 +523,7 @@ export default function Aligners() {
                 <tr key={row.feature}>
                   <td>{row.feature}</td>
                   <td className="center cell-highlight">
-                    {row.alignaa ?? row.linea ?? row.Linea ? <Check size={23} /> : <X size={23} />}
+                    {row.alignaa ? <Check size={23} /> : <X size={23} />}
                   </td>
                   <td className="center">
                     {row.braces ? <Check size={23} /> : <X size={23} />}
@@ -590,7 +635,7 @@ export default function Aligners() {
                     {!rev.avatarImage && rev.abbrev}
                   </div>
                   <a
-                    href="https://au.trustpilot.com/review/lineaofficial.com.au"
+                    href="https://www.trustpilot.com/"
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{ flexGrow: 1 }}
@@ -661,6 +706,7 @@ export default function Aligners() {
           desktopVisible={3}
           tabletVisible={2}
           mobileVisible={1}
+          showArrows={false} /* arrows commented out since only 1 profile is displayed */
           renderSlide={(item, i) => (
             <div key={item.image + i} className="slide">
               <div className="slide-block">
@@ -683,6 +729,7 @@ export default function Aligners() {
           desktopVisible={3}
           tabletVisible={2}
           mobileVisible={1}
+          showArrows={false} /* arrows commented out since only 3 images are displayed */
           renderSlide={(item, i) => (
             <div key={item.image + i} className="slide">
               <div className="slide-block">
@@ -731,6 +778,10 @@ export default function Aligners() {
                 poster={vid.poster}
                 vimeoUrl={vid.vimeoUrl}
                 ariaLabel={`Play Alignaa social video ${idx + 1}`}
+                isPlaying={playingSocialId === vid.id}
+                onTogglePlay={(shouldPlay) => {
+                  setPlayingSocialId(shouldPlay ? vid.id : null);
+                }}
               />
             </div>
           )}
@@ -767,7 +818,7 @@ export default function Aligners() {
         style={{ bottom: showBottomBar ? '0px' : '-50px' }}
       >
         <div className="bottom-bar-button">
-          <Link to="/aligners/quiz/">Take the Quiz</Link>
+          <Link to="/aligners/quiz/">Book Your free scan Now</Link>
         </div>
         <button
           type="button"
@@ -775,7 +826,7 @@ export default function Aligners() {
           onClick={openBookNow}
           style={{ border: 0, borderRadius: 0 }}
         >
-          Book Now
+          Book your free consultation now
         </button>
       </div>
     </div>

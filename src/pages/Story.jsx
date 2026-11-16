@@ -1,16 +1,21 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
 import CtaBlock from '../components/Buttons/CtaBlock';
+import SEO from '../components/SEO/SEO';
 import '../styles/about.css';
 
 export default function Story() {
-  useEffect(() => {
-    document.title = 'Our Story — Alignaa Official';
-  }, []);
-
   return (
     <div className="page-about">
+      <SEO
+        title="Our Story — Transforming Orthodontic Care | Alignaa"
+        description="Learn about Alignaa's mission: making premium, doctor-directed clear aligner treatment accessible and affordable across India with cutting-edge digital dentistry."
+        canonical="/about"
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Our Story', url: '/about' },
+        ]}
+      />
       <div
         className="block top-cover cover-about"
         style={{

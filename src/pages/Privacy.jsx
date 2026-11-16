@@ -1,13 +1,9 @@
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { pagesData } from '../data/pagesData';
+import SEO from '../components/SEO/SEO';
 
 export default function Privacy() {
   const navigate = useNavigate();
-
-  useEffect(() => {
-    document.title = 'Privacy Policy — Alignaa Official';
-  }, []);
 
   const handleContentClick = (e) => {
     const anchor = e.target.closest('a');
@@ -24,8 +20,14 @@ export default function Privacy() {
       className="page-legal"
       style={{ backgroundColor: '#fff', minHeight: '70vh' }}
       onClick={handleContentClick}
-      dangerouslySetInnerHTML={{ __html: pagesData.privacyInnerHtml }}
-    />
+    >
+      <SEO
+        title="Privacy Policy | Alignaa Clear Aligners"
+        description="Learn how Alignaa protects your personal and dental healthcare information."
+        canonical="/privacy"
+      />
+      <div dangerouslySetInnerHTML={{ __html: pagesData.privacyInnerHtml }} />
+    </div>
   );
 }
 

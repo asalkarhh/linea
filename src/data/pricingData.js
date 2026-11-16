@@ -1,50 +1,24 @@
-// Extracted faithfully from https://www.lineaofficial.com/aligners/pricing/
+// Alignaa pricing data
 export const pricingData = {
   "tiers": [
     {
-      "name": "Tier 3",
-      "price": "$3,995",
-      "caseType": "Complex Cases",
+      "name": "Tier 1",
+      "price": "Rs. 22,999",
+      "caseType": "Very Lite Cases",
       "popularBadge": null,
       "features": [
         {
-          "text": "25+ aligners",
+          "text": "1–10 aligners",
           "included": true,
           "tooltip": null
         },
         {
-          "text": "3 rounds of refinements",
+          "text": "1 round of retainers",
           "included": true,
           "tooltip": null
         },
         {
-          "text": "Retainers",
-          "included": true,
-          "tooltip": null
-        },
-        {
-          "text": "Dental-grade whitening",
-          "included": true,
-          "tooltip": null
-        },
-        {
-          "text": "IPR",
-          "included": true,
-          "tooltip": [
-            "The treating dentist will assess your smile and decide whether IPR is required for your case. IPR is common practice in aligner therapy and is performed to ensure treatment success and safety, as well as to prevent potential complications like buck teeth, gum recession, root exposure etc.",
-            "IPR: Interproximal reduction (IPR) is the technical term for lightly trimming the sides of your teeth. This is done in cases where the teeth are crowded together, to create the necessary space for your teeth to move into. The procedure is relatively pain-free and does not do any damage to the enamel."
-          ]
-        },
-        {
-          "text": "Attachments",
-          "included": true,
-          "tooltip": [
-            "The treating dentist will assess your smile and decide whether attachments are required for your case. Attachments are common practice in aligner therapy and is performed to ensure treatment success and safety, as well as to prevent potential complications like buck teeth, gum recession, root exposure etc.",
-            "Attachments are small tooth-colored buttons that are attached to your teeth. These act as handles, allowing the aligners to better “grip” the teeth for more accurate movement. Attachments are what make vertical & complex rotational movements possible."
-          ]
-        },
-        {
-          "text": "2x midway rescan",
+          "text": "IPR and Attachments",
           "included": true,
           "tooltip": null
         }
@@ -52,61 +26,12 @@ export const pricingData = {
     },
     {
       "name": "Tier 2",
-      "price": "$2,995",
+      "price": "Starting from Rs. 43,999",
       "caseType": "Standard Cases",
       "popularBadge": "Majority of Cases",
       "features": [
         {
-          "text": "9-24 aligners",
-          "included": true,
-          "tooltip": null
-        },
-        {
-          "text": "2 rounds of refinements",
-          "included": true,
-          "tooltip": null
-        },
-        {
-          "text": "Retainers",
-          "included": true,
-          "tooltip": null
-        },
-        {
-          "text": "Dental-grade whitening",
-          "included": true,
-          "tooltip": null
-        },
-        {
-          "text": "IPR",
-          "included": true,
-          "tooltip": [
-            "The treating dentist will assess your smile and decide whether IPR is required for your case. IPR is common practice in aligner therapy and is performed to ensure treatment success and safety, as well as to prevent potential complications like buck teeth, gum recession, root exposure etc.",
-            "IPR: Interproximal reduction (IPR) is the technical term for lightly trimming the sides of your teeth. This is done in cases where the teeth are crowded together, to create the necessary space for your teeth to move into. The procedure is relatively pain-free and does not do any damage to the enamel."
-          ]
-        },
-        {
-          "text": "Attachments",
-          "included": true,
-          "tooltip": [
-            "The treating dentist will assess your smile and decide whether attachments are required for your case. Attachments are common practice in aligner therapy and is performed to ensure treatment success and safety, as well as to prevent potential complications like buck teeth, gum recession, root exposure etc.",
-            "Attachments are small tooth-colored buttons that are attached to your teeth. These act as handles, allowing the aligners to better “grip” the teeth for more accurate movement. Attachments are what make vertical & complex rotational movements possible."
-          ]
-        },
-        {
-          "text": "1x midway rescan",
-          "included": true,
-          "tooltip": null
-        }
-      ]
-    },
-    {
-      "name": "Tier 1",
-      "price": "$1,995",
-      "caseType": "Light Cases",
-      "popularBadge": null,
-      "features": [
-        {
-          "text": "1-8 aligners",
+          "text": "11–24 aligners",
           "included": true,
           "tooltip": null
         },
@@ -116,27 +41,40 @@ export const pricingData = {
           "tooltip": null
         },
         {
-          "text": "Retainers",
+          "text": "Post treatment 1 round of retainers",
           "included": true,
           "tooltip": null
         },
         {
-          "text": "Dental-grade whitening",
+          "text": "IPR and Attachments",
+          "included": true,
+          "tooltip": null
+        }
+      ]
+    },
+    {
+      "name": "Tier 3",
+      "price": "Starting from Rs. 79,999",
+      "caseType": "Very Complex Cases",
+      "popularBadge": null,
+      "features": [
+        {
+          "text": "Upto 48 aligners",
           "included": true,
           "tooltip": null
         },
         {
-          "text": "-",
+          "text": "1 round of refinements",
           "included": true,
           "tooltip": null
         },
         {
-          "text": "-",
+          "text": "Post treatment 1 round of retainers",
           "included": true,
           "tooltip": null
         },
         {
-          "text": "-",
+          "text": "IPR and Attachments",
           "included": true,
           "tooltip": null
         }
@@ -151,7 +89,7 @@ export const pricingData = {
     },
     {
       "heading": "See a licensed partner Dentist",
-      "subtitle": "$0-300 (dependent on health insurance)",
+      "subtitle": "INCLUDED WITH CONSULTATION",
       "description": "We’ll book you in for an appointment at one of our partner dentists nearest to you. They will properly examine the health of your teeth and gums, take 3D scans of your teeth, x-rays and intraoral photos."
     },
     {
@@ -161,7 +99,7 @@ export const pricingData = {
     },
     {
       "heading": "Alignaa aligner package",
-      "subtitle": "$1,995 for Tier 1, $2,995 for Tier 2, $3,995 for Tier 3",
+      "subtitle": "Rs. 22,999 for Tier 1, Rs. 43,999 for Tier 2, Rs. 79,999 for Tier 3",
       "description": "Purchase your clear aligner treatment in 2 simple ways. Pay upfront, or choose a convenient payment plan."
     },
     {
@@ -193,11 +131,11 @@ export const pricingData = {
   "faqs": [
     {
       "question": "1. How much does Alignaa clear aligner treatment cost?",
-      "answerHtml": "<p>The cost of Alignaa clear aligners is $1,995 for Tier 1 treatment, $2,995 for Tier 2 treatment, or $3,995 for Tier 3 treatment.</p>"
+      "answerHtml": "<p>The cost of Alignaa clear aligners is Rs. 22,999 for Tier 1 treatment, starting from Rs. 43,999 for Tier 2 treatment, and starting from Rs. 79,999 for Tier 3 treatment.</p>"
     },
     {
       "question": "2. How does Alignaa’s price compare to traditional braces?",
-      "answerHtml": "<p>Traditional braces can cost up to $10,000 in major US cities, with the national average around $6,000. However, for the majority of people with mild to moderate teeth alignment issues, this is unaffordable — and they've had to accept their crooked smile. This is where we can help!</p>"
+      "answerHtml": "<p>Traditional metal braces can be expensive, uncomfortable, and require frequent clinic adjustments. Alignaa offers a clear, comfortable, and affordable alternative designed to fit seamlessly into your lifestyle.</p>"
     },
     {
       "question": "3. Why is Alignaa so much cheaper versus other brands?",

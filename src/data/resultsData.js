@@ -1,4 +1,4 @@
-// Extracted faithfully from https://www.lineaofficial.com/aligners/results/
+// Alignaa results data
 export const resultsData = {
   "googleReviews": [
     {
@@ -119,22 +119,23 @@ export const resultsData = {
   "resultsGallery": [
     {
       "image": "/assets/images/results-8.jpg",
-      "name": "Mark F.",
-      "caseInfo": "Case: Crowding / Duration: 9 months",
-      "caseHtml": "Case: Crowding<br/>Duration: 9 months"
+      "name": "",
+      // "caseInfo": "Case: Crowding / Duration: 9 months",
+      // "caseHtml": "Case: Crowding<br/>Duration: 9 months"
     },
     {
       "image": "/assets/images/results-3.jpg",
-      "name": "Samuel S.",
-      "caseInfo": "Case: Crowding / Duration: 6 months",
-      "caseHtml": "Case: Crowding<br/>Duration: 6 months"
+      "name": "",
+      // "caseInfo": "Case: Crowding / Duration: 6 months",
+      // "caseHtml": "Case: Crowding<br/>Duration: 6 months"
     },
     {
       "image": "/assets/images/results-4.jpg",
-      "name": "Jonathan B.",
-      "caseInfo": "Case: Protrusion / Duration: 8 months",
-      "caseHtml": "Case: Protrusion<br/>Duration: 8 months"
-    },
+      "name": "",
+      // "caseInfo": "Case: Protrusion / Duration: 8 months",
+      // "caseHtml": "Case: Protrusion<br/>Duration: 8 months"
+    }
+    /*
     {
       "image": "/assets/images/results-5.jpg",
       "name": "Madeline S.",
@@ -243,5 +244,6 @@ export const resultsData = {
       "caseInfo": "Case: Crowding / Duration: 7 months",
       "caseHtml": "Case: Crowding<br/>Duration: 7 months"
     }
+    */
   ]
 };

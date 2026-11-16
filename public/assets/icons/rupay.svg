@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 92 24" height="24">
+  <g transform="translate(0, 3)">
+    <!-- RuPay Text in white -->
+    <text x="0" y="14.5" font-family="'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-weight="900" font-style="italic" font-size="16" fill="#ffffff" letter-spacing="-0.5">RuPay</text>
+    <!-- RuPay Slashes -->
+    <path d="M57 2 L66 11 L61 15 L52 6 Z" fill="#00a0dc"/>
+    <path d="M65 2 L74 11 L69 15 L60 6 Z" fill="#f37023"/>
+    <path d="M73 2 L82 11 L77 15 L68 6 Z" fill="#00a859"/>
+  </g>
+</svg>

@@ -5,17 +5,71 @@ import { pricingData } from '../data/pricingData';
 import SlideCarousel from '../components/Carousel/SlideCarousel';
 import FaqAccordion from '../components/Accordion/FaqAccordion';
 import CtaBlock from '../components/Buttons/CtaBlock';
+import SEO from '../components/SEO/SEO';
 import '../styles/pricing.css';
+
+const pricingSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'Alignaa Clear Aligner Treatment',
+  image: 'https://www.alignaa.co/assets/images/home-veneers.jpg',
+  description: 'Doctor-directed clear aligners starting from ₹22,999 in India. High-precision 3D digital scans, custom Zendura aligners, retainers & refinements.',
+  brand: {
+    '@type': 'Brand',
+    name: 'Alignaa',
+  },
+  offers: {
+    '@type': 'AggregateOffer',
+    priceCurrency: 'INR',
+    lowPrice: '22999',
+    highPrice: '79999',
+    offerCount: '3',
+    offers: [
+      {
+        '@type': 'Offer',
+        name: 'Tier 1 - Very Lite Cases',
+        price: '22999',
+        priceCurrency: 'INR',
+        availability: 'https://schema.org/InStock',
+        url: 'https://www.alignaa.co/aligners/pricing',
+      },
+      {
+        '@type': 'Offer',
+        name: 'Tier 2 - Standard Cases',
+        price: '43999',
+        priceCurrency: 'INR',
+        availability: 'https://schema.org/InStock',
+        url: 'https://www.alignaa.co/aligners/pricing',
+      },
+      {
+        '@type': 'Offer',
+        name: 'Tier 3 - Complex Cases',
+        price: '79999',
+        priceCurrency: 'INR',
+        availability: 'https://schema.org/InStock',
+        url: 'https://www.alignaa.co/aligners/pricing',
+      },
+    ],
+  },
+};
 
 export default function Pricing() {
   const [openTooltipKey, setOpenTooltipKey] = useState(null);
 
-  useEffect(() => {
-    document.title = 'Clear Aligner Pricing — Alignaa Official';
-  }, []);
-
   return (
     <div className="page-pricing">
+      <SEO
+        title="Clear Aligners Cost & Transparent Pricing in India | Alignaa (From ₹22,999)"
+        description="Clear aligner prices in India starting at ₹22,999 with 0% interest EMI options. All packages include 3D dental scan, custom Zendura aligners, retainers, and refinements."
+        keywords="clear aligners cost, invisible braces price India, aligners price, teeth aligners EMI, cheap clear aligners India, teeth straightening cost"
+        canonical="/aligners/pricing"
+        schema={pricingSchema}
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Clear Aligners', url: '/aligners' },
+          { name: 'Pricing', url: '/aligners/pricing' },
+        ]}
+      />
       <div
         className="block top-cover cover-pricing"
         style={{
@@ -61,6 +115,7 @@ export default function Pricing() {
               <p>{tier.caseType}</p>
 
               {tier.features.map((feat, fi) => {
+                if (!feat.text || feat.text === '-') return null;
                 const key = `${tier.name}-${feat.text}-${fi}`;
                 const tipOpen = openTooltipKey === key;
 

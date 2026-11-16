@@ -39,13 +39,10 @@ export default function Footer() {
                 <Link to="/aligners/quiz/">Get Started</Link>
               </p>
               <p>
-                <Link to="/login/">Login</Link>
+                <a href="https://alignaa-portal.com/en/login">Login</a>
               </p>
               <p>
                 <Link to="/partners/">For Dentists</Link>
-              </p>
-              <p>
-                <Link to="/contact/?ctx=cp">Complaints</Link>
               </p>
             </div>
 
@@ -63,16 +60,10 @@ export default function Footer() {
                 <Link to="/about/">Our story</Link>
               </p>
               <p>
-                <Link to="/aligners/results/#results">Before &amp; Afters</Link>
-              </p>
-              <p>
                 <Link to="/blog/">Blog</Link>
               </p>
               <p>
                 <Link to="/aligners/pricing/">Pricing</Link>
-              </p>
-              <p>
-                <Link to="/aligners/pricing/#timeline">Timeline</Link>
               </p>
               <p>
                 <Link to="/aligners/results/">Results</Link>
@@ -91,40 +82,85 @@ export default function Footer() {
               </h4>
               <p>
                 <a
-                  href="https://www.instagram.com/lineaofficial__/"
+                  href="https://www.instagram.com/alignaa.co/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   Instagram
                 </a>
               </p>
-              <p>
-                <a
-                  href="https://www.facebook.com/officialinea"
-                  target="_blank"
-                  rel="noopener noreferrer"
+
+              <div style={{ marginTop: '28px' }}>
+                <h4
+                  style={{
+                    marginTop: '10px',
+                    paddingBottom: '14px',
+                    borderBottom: '1px solid white',
+                    color: '#ffffff',
+                    fontSize: '15px',
+                    fontWeight: 400,
+                    letterSpacing: '0.04em',
+                  }}
                 >
-                  Facebook
-                </a>
-              </p>
-              <p>
-                <a
-                  href="https://www.youtube.com/channel/UCWKPcdFx3tIIbLrMeZ5EFqA"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  Accepted Payments
+                </h4>
+                <div
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(3, auto)',
+                    columnGap: '18px',
+                    rowGap: '14px',
+                    alignItems: 'center',
+                    justifyContent: 'start',
+                    justifyItems: 'start',
+                    marginTop: '16px',
+                  }}
                 >
-                  YouTube
-                </a>
-              </p>
-              <p>
-                <a
-                  href="https://www.linkedin.com/company/lineaofficial"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  LinkedIn
-                </a>
-              </p>
+                  {/* Column 1: Row 1 */}
+                  <img
+                    src="/assets/icons/gpay.svg?v=3"
+                    alt="Google Pay"
+                    title="Google Pay"
+                    style={{ height: '18px', width: 'auto', display: 'block' }}
+                  />
+                  {/* Column 2: Row 1 */}
+                  <img
+                    src="/assets/icons/phonepe.svg?v=3"
+                    alt="PhonePe"
+                    title="PhonePe"
+                    style={{ height: '18px', width: 'auto', display: 'block' }}
+                  />
+                  {/* Column 3: Row 1 */}
+                  <img
+                    src="/assets/icons/upi.svg?v=3"
+                    alt="UPI"
+                    title="UPI"
+                    style={{ height: '15px', width: 'auto', display: 'block' }}
+                  />
+
+                  {/* Column 1: Row 2 */}
+                  <img
+                    src="/assets/icons/rupay.svg?v=3"
+                    alt="RuPay"
+                    title="RuPay"
+                    style={{ height: '15px', width: 'auto', display: 'block' }}
+                  />
+                  {/* Column 2: Row 2 */}
+                  <img
+                    src="/assets/icons/mastercard.png?v=3"
+                    alt="Mastercard"
+                    title="Mastercard"
+                    style={{ height: '30px', width: 'auto', display: 'block', justifySelf: 'center' }}
+                  />
+                  {/* Column 3: Row 2 */}
+                  <img
+                    src="/assets/icons/visa.png?v=3"
+                    alt="Visa"
+                    title="Visa"
+                    style={{ height: '15px', width: 'auto', display: 'block' }}
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -134,38 +170,40 @@ export default function Footer() {
         className="block small-font std-x-pad"
         style={{
           borderTop: '1px solid #9b9a9d',
-          letterSpacing: '1px',
-          marginTop: '10px',
+          letterSpacing: '0.5px',
+          marginTop: '20px',
+          paddingTop: '16px',
           paddingBottom: '40px',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          gap: '14px',
         }}
       >
-        <div className="block" style={{ width: '50%', float: 'left', padding: '10px 0' }}>
-          <p style={{ margin: 0, padding: 0 }}>Alignaa &copy; 2026</p>
+        {/* Left: Terms | Privacy Policy */}
+        <div style={{ textAlign: 'left' }}>
+          <Link to="/terms/">Terms</Link> | <Link to="/privacy/">Privacy Policy</Link>
         </div>
-        <div className="block" style={{ width: '50%', float: 'right', padding: '10px 0' }}>
-          <div style={{ float: 'right', textAlign: 'right' }}>
-            <Link to="/terms/">Terms</Link> | <Link to="/privacy/">Privacy Policy</Link>
-          </div>
+
+        {/* Center: Alignaa © 2026 */}
+        <div style={{ textAlign: 'center' }}>
+          <p style={{ margin: 0, padding: 0 }}>
+            <a href="https://www.alignaa.in/" target="_blank" rel="noopener noreferrer">
+              Alignaa
+            </a>{' '}
+            &copy; 2026
+          </p>
         </div>
-        <div
-          className="block"
-          style={{
-            clear: 'both',
-            display: 'flex',
-            justifyContent: 'flex-end',
-            alignItems: 'center',
-          }}
-        >
-          <img
-            src="/assets/icons/mastercard.png"
-            alt="Mastercard"
-            style={{ height: '40px', marginRight: '5px' }}
-          />
-          <img
-            src="/assets/icons/visa.png"
-            alt="Visa"
-            style={{ height: '20px', marginRight: '5px' }}
-          />
+
+        {/* Right: Developed by Asalkar Techworks Pvt. Ltd. */}
+        <div style={{ textAlign: 'right' }}>
+          <p style={{ margin: 0, padding: 0 }}>
+            Developed by{' '}
+            <a href="https://www.asalkar.in/" target="_blank" rel="noopener noreferrer">
+              Asalkar Techworks Pvt. Ltd.
+            </a>
+          </p>
         </div>
       </div>
     </footer>

@@ -1,14 +1,10 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Phone } from 'lucide-react';
 import { useModals } from '../context/ModalContext';
+import SEO from '../components/SEO/SEO';
 
 export default function NotFound() {
   const { openTollFreeModal } = useModals();
-
-  useEffect(() => {
-    document.title = 'Page Not Found — Alignaa Official';
-  }, []);
 
   return (
     <div
@@ -24,6 +20,10 @@ export default function NotFound() {
         paddingBottom: '80px',
       }}
     >
+      <SEO
+        title="404: Page Not Found | Alignaa"
+        description="The page you are looking for does not exist."
+      />
       <p style={{ fontSize: '14px', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#666' }}>
         404 — Page Not Found
       </p>

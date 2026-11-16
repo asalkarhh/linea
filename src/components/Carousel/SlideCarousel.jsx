@@ -15,6 +15,7 @@ export default function SlideCarousel({
   mobileVisible = 1,
   wrapInStdXPad = true,
   afterRow,
+  showArrows = true,
 }) {
   const [index, setIndex] = useState(0);
   const [translatePx, setTranslatePx] = useState(0);
@@ -111,7 +112,7 @@ export default function SlideCarousel({
           >
             {items.map((item, i) => renderSlide(item, i))}
           </div>
-          {canLeft && (
+          {showArrows && canLeft && (
             <button
               type="button"
               className="arrow arrow-left"
@@ -122,7 +123,7 @@ export default function SlideCarousel({
               <ChevronLeft size={20} />
             </button>
           )}
-          {canRight && (
+          {showArrows && canRight && (
             <button
               type="button"
               className="arrow arrow-right"
@@ -157,28 +158,31 @@ export default function SlideCarousel({
         }}
       >
         {heading && <Heading>{heading}</Heading>}
-        <div className="arrows-wrap">
-          <button
-            type="button"
-            className={`arrow ${canLeft ? 'can-swipe' : ''}`}
-            onClick={prev}
-            disabled={!canLeft}
-            aria-label={`Previous ${heading || 'slides'}`}
-            style={{ background: 'transparent', border: 0 }}
-          >
-            <ArrowLeft size={24} strokeWidth={2} />
-          </button>
-          <button
-            type="button"
-            className={`arrow ${canRight ? 'can-swipe' : ''}`}
-            onClick={next}
-            disabled={!canRight}
-            aria-label={`Next ${heading || 'slides'}`}
-            style={{ background: 'transparent', border: 0 }}
-          >
-            <ArrowRight size={24} strokeWidth={2} />
-          </button>
-        </div>
+        {/* Navigation arrows (commented out when showArrows is false or items count <= desktopVisible) */}
+        {showArrows && items.length > desktopVisible && (
+          <div className="arrows-wrap">
+            <button
+              type="button"
+              className={`arrow ${canLeft ? 'can-swipe' : ''}`}
+              onClick={prev}
+              disabled={!canLeft}
+              aria-label={`Previous ${heading || 'slides'}`}
+              style={{ background: 'transparent', border: 0 }}
+            >
+              <ArrowLeft size={24} strokeWidth={2} />
+            </button>
+            <button
+              type="button"
+              className={`arrow ${canRight ? 'can-swipe' : ''}`}
+              onClick={next}
+              disabled={!canRight}
+              aria-label={`Next ${heading || 'slides'}`}
+              style={{ background: 'transparent', border: 0 }}
+            >
+              <ArrowRight size={24} strokeWidth={2} />
+            </button>
+          </div>
+        )}
       </div>
 
       <div

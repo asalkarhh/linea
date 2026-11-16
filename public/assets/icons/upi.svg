@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 78 24" height="24">
+  <g transform="translate(0, 2)">
+    <!-- UPI Chevrons -->
+    <path d="M4 2 L13 10 L4 18 L9 18 L18 10 L9 2 Z" fill="#00a859"/>
+    <path d="M14 2 L23 10 L14 18 L19 18 L28 10 L19 2 Z" fill="#f37023"/>
+    <!-- Text UPI in white -->
+    <text x="33" y="15.5" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="16" font-style="italic" fill="#ffffff" letter-spacing="1.5">UPI</text>
+  </g>
+</svg>

@@ -1,0 +1,6 @@
+# Robots.txt for Alignaa Clear Aligners
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.alignaa.co/sitemap.xml

@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import { CheckCircle2 } from 'lucide-react';
 import { useModals } from '../context/ModalContext';
 import CtaBlock from '../components/Buttons/CtaBlock';
+import SEO from '../components/SEO/SEO';
 
 export default function Contact() {
   const [searchParams] = useSearchParams();
@@ -15,10 +16,6 @@ export default function Contact() {
   const [message, setMessage] = useState('');
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
-
-  useEffect(() => {
-    document.title = 'Contact Us — Alignaa Official';
-  }, []);
 
   useEffect(() => {
     if (searchParams.get('ctx') === 'cp') {
@@ -52,6 +49,16 @@ export default function Contact() {
 
   return (
     <div className="page-contact">
+      <SEO
+        title="Contact Alignaa | Clear Aligner Enquiry & Clinic Booking"
+        description="Have questions about clear aligners or need help finding a partner dental clinic in India? Contact Alignaa's patient care team today."
+        keywords="contact alignaa, clear aligners enquiry, book dental scan appointment, teeth aligners customer support"
+        canonical="/contact"
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Contact', url: '/contact' },
+        ]}
+      />
       <div
         className="block"
         id="messagecontainer"

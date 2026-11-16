@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
 import { resultsData } from '../data/resultsData';
@@ -6,15 +6,12 @@ import { alignersData } from '../data/alignersData';
 import { useModals } from '../context/ModalContext';
 import SlideCarousel from '../components/Carousel/SlideCarousel';
 import CtaBlock from '../components/Buttons/CtaBlock';
+import SEO from '../components/SEO/SEO';
 import '../styles/results.css';
 
 export default function BeforeAfter() {
   const { openLightbox } = useModals();
   const [selectedCase, setSelectedCase] = useState('All');
-
-  useEffect(() => {
-    document.title = 'Before & After Transformations — Alignaa Official';
-  }, []);
 
   const caseFilters = useMemo(() => {
     const set = new Set(['All']);
@@ -34,6 +31,16 @@ export default function BeforeAfter() {
 
   return (
     <div className="page-results">
+      <SEO
+        title="Before & After Teeth Straightening Gallery | Alignaa Aligners"
+        description="Explore authentic before and after clinical cases treated by licensed dentists using Alignaa clear aligners. View crowding, gaps, and bite corrections."
+        keywords="teeth straightening before after, clear aligners results, crowding correction photos, alignaa results, invisible braces transformation"
+        canonical="/before-afters"
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Before & Afters', url: '/before-afters' },
+        ]}
+      />
       <div
         className="block top-cover cover-results"
         style={{

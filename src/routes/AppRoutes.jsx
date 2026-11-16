@@ -1,9 +1,10 @@
+import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import MainLayout from '../layouts/MainLayout';
 import Home from '../pages/Home';
 import Aligners from '../pages/Aligners';
 import Pricing from '../pages/Pricing';
-import WhyLinea from '../pages/WhyLinea';
+import WhyAlignaa from '../pages/WhyAlignaa';
 import FAQ from '../pages/FAQ';
 import Results from '../pages/Results';
 import GetStarted from '../pages/GetStarted';
@@ -14,11 +15,16 @@ import Blog from '../pages/Blog';
 import BlogPost from '../pages/BlogPost';
 import Contact from '../pages/Contact';
 import ForDentists from '../pages/ForDentists';
-import Login from '../pages/Login';
-import PasswordReset from '../pages/PasswordReset';
 import Terms from '../pages/Terms';
 import Privacy from '../pages/Privacy';
 import NotFound from '../pages/NotFound';
+
+function ExternalLoginRedirect() {
+  useEffect(() => {
+    window.location.replace('https://alignaa-portal.com/en/login');
+  }, []);
+  return null;
+}
 
 export default function AppRoutes() {
   return (
@@ -27,7 +33,7 @@ export default function AppRoutes() {
         <Route path="/" element={<Home />} />
         <Route path="/aligners" element={<Aligners />} />
         <Route path="/aligners/pricing" element={<Pricing />} />
-        <Route path="/aligners/why" element={<WhyLinea />} />
+        <Route path="/aligners/why" element={<WhyAlignaa />} />
         <Route path="/aligners/faq" element={<FAQ />} />
         <Route path="/aligners/results" element={<Results />} />
         <Route path="/aligners/quiz" element={<GetStarted />} />
@@ -41,8 +47,8 @@ export default function AppRoutes() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/partners" element={<ForDentists />} />
         <Route path="/for-dentists" element={<ForDentists />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/password_reset" element={<PasswordReset />} />
+        <Route path="/login" element={<ExternalLoginRedirect />} />
+        <Route path="/password_reset" element={<ExternalLoginRedirect />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="*" element={<NotFound />} />

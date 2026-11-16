@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { blogPosts } from '../data/blogPosts';
+import SEO from '../components/SEO/SEO';
 import '../styles/blog.css';
 
 const PAGE_SIZE = 12;
@@ -8,10 +9,6 @@ const PAGE_SIZE = 12;
 export default function Blog() {
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const sentinelRef = useRef(null);
-
-  useEffect(() => {
-    document.title = 'Blog — Alignaa Official';
-  }, []);
 
   const hasMore = visibleCount < blogPosts.length;
 
@@ -33,6 +30,16 @@ export default function Blog() {
 
   return (
     <div className="page-blog">
+      <SEO
+        title="Clear Aligner & Orthodontic Blog — Expert Dental Guides | Alignaa"
+        description="Read expert orthodontic articles on teeth straightening, clear aligner comparisons, costs, oral hygiene tips, and Invisalign alternatives from Alignaa."
+        keywords="orthodontic blog, clear aligners guide, invisalign vs alignaa, clear aligners advice, teeth care tips, dental alignment blog"
+        canonical="/blog"
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Blog', url: '/blog' },
+        ]}
+      />
       <div
         className="block top-cover cover-blog"
         style={{

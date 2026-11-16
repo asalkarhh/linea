@@ -1,11 +1,14 @@
-// Extracted faithfully from https://www.lineaofficial.com/aligners/
+// Alignaa aligners page data
 export const alignersData = {
   "featured": [
+    "/assets/images/profiles/profiles-1.jpg",
+    /*
     "/assets/images/featured-1.jpg",
     "/assets/images/featured-2.jpg",
     "/assets/images/featured-3.jpg",
     "/assets/images/featured-4.jpg",
     "/assets/images/featured-5.jpg"
+    */
   ],
   "processSteps": [
     {
@@ -35,76 +38,66 @@ export const alignersData = {
   ],
   "pricingTiers": [
     {
-      "title": "TIER 3",
-      "subtitle": "Complex Cases - $3,995",
-      "image": "/assets/images/pricing-1.jpg",
-      "alt": "Clear aligners in carry case",
-      "features": [
-        "25+ aligners",
-        "IPR",
-        "Attachments",
-        "Dental-grade whitening",
-        "3 rounds of refinements",
-        "Retainers"
-      ],
-      "columns": [
-        [
-          "25+ aligners",
-          "IPR",
-          "Attachments",
-          "Dental-grade whitening"
-        ],
-        [
-          "3 rounds of refinements",
-          "Retainers"
-        ]
-      ]
-    },
-    {
-      "title": "TIER 2",
-      "subtitle": "Standard Cases - $2,995",
-      "image": "/assets/images/pricing-2.jpg",
-      "alt": "Clear aligner carrying cases",
-      "features": [
-        "9-24 aligners",
-        "IPR",
-        "Attachments",
-        "2 rounds of refinements",
-        "Retainers",
-        "Dental-grade whitening"
-      ],
-      "columns": [
-        [
-          "9-24 aligners",
-          "IPR",
-          "Attachments"
-        ],
-        [
-          "2 rounds of refinements",
-          "Retainers",
-          "Dental-grade whitening"
-        ]
-      ]
-    },
-    {
-      "title": "TIER 1",
-      "subtitle": "Light Cases - $1,995",
+      "title": "TIER 1: Rs,22,999",
+      "subtitle": "Very Lite Cases",
       "image": "/assets/images/pricing-3.jpg",
-      "alt": "Clear aligners in carry case",
+      "alt": "Clear aligners in carry case - Tier 1",
       "features": [
-        "1-8 aligners",
-        "1 round of refinements",
-        "Retainers",
-        "Dental-grade whitening"
+        "Includes 1–10 aligners.",
+        "1 round of retainers.",
+        "IPR and Attachments."
       ],
       "columns": [
         [
-          "1-8 aligners",
-          "1 round of refinements"
+          "Includes 1–10 aligners.",
+          "1 round of retainers."
         ],
         [
-          "Retainers",
-          "Dental-grade whitening"
+          "IPR and Attachments."
+        ]
+      ]
+    },
+    {
+      "title": "TIER 2: Starting from Rs,43,999",
+      "subtitle": "Standard Cases",
+      "image": "/assets/images/pricing-2.jpg",
+      "alt": "Clear aligner carrying cases - Tier 2",
+      "features": [
+        "Includes 11–24 aligners.",
+        "1 round of refinements.",
+        "Post treatment 1 round of retainers.",
+        "IPR and Attachments."
+      ],
+      "columns": [
+        [
+          "Includes 11–24 aligners.",
+          "1 round of refinements."
+        ],
+        [
+          "Post treatment 1 round of retainers.",
+          "IPR and Attachments."
+        ]
+      ]
+    },
+    {
+      "title": "TIER 3: Starting from Rs,79,999",
+      "subtitle": "Very Complex Cases",
+      "image": "/assets/images/pricing-1.jpg",
+      "alt": "Clear aligners in carry case - Tier 3",
+      "features": [
+        "Includes Upto 48 aligners.",
+        "1 round of refinements.",
+        "Post treatment 1 round of retainers.",
+        "IPR and Attachments."
+      ],
+      "columns": [
+        [
+          "Includes Upto 48 aligners.",
+          "1 round of refinements."
+        ],
+        [
+          "Post treatment 1 round of retainers.",
+          "IPR and Attachments."
         ]
       ]
     }
@@ -113,77 +106,66 @@ export const alignersData = {
     {
       "feature": "Expert dentist involvement",
       "alignaa": true,
-      "linea": true,
       "braces": true,
       "atHome": false
     },
     {
       "feature": "Premium aligner material",
       "alignaa": true,
-      "linea": true,
       "braces": false,
       "atHome": false
     },
     {
       "feature": "Bespoke orthodontist-led plans",
       "alignaa": true,
-      "linea": true,
       "braces": true,
       "atHome": false
     },
     {
       "feature": "Professional 3D intraoral scans",
       "alignaa": true,
-      "linea": true,
       "braces": false,
       "atHome": false
     },
     {
       "feature": "AI-powered progress tracking",
       "alignaa": true,
-      "linea": true,
       "braces": false,
       "atHome": true
     },
     {
       "feature": "7-day local customer care",
       "alignaa": true,
-      "linea": true,
       "braces": false,
       "atHome": false
     },
     {
       "feature": "6-month est. treatment time",
       "alignaa": true,
-      "linea": true,
       "braces": false,
       "atHome": true
     },
     {
       "feature": "Retainer included for free",
       "alignaa": true,
-      "linea": true,
       "braces": false,
       "atHome": false
     },
     {
       "feature": "Access to the Alignaa app",
       "alignaa": true,
-      "linea": true,
       "braces": false,
       "atHome": false
     },
     {
       "feature": "Founded by dentists",
       "alignaa": true,
-      "linea": true,
       "braces": true,
       "atHome": false
     },
     {
       "feature": "Teeth whitening included for free",
       "alignaa": true,
-      "linea": true,
       "braces": false,
       "atHome": false
     }
@@ -469,7 +451,8 @@ export const alignersData = {
     {
       "image": "/assets/images/profiles/profiles-1.jpg",
       "alt": "Before and after Alignaa clear aligner treatment"
-    },
+    }
+    /*
     {
       "image": "/assets/images/profiles/profiles-2.jpg",
       "alt": "Before and after Alignaa clear aligner treatment"
@@ -510,133 +493,26 @@ export const alignersData = {
       "image": "/assets/images/profiles/profiles-11.jpg",
       "alt": "Before and after Alignaa clear aligner treatment"
     }
+    */
   ],
   "intraoralGallery": [
     {
       "image": "/assets/images/results-8.jpg",
       "name": "",
-      "caseInfo": "Case: Crowding / Duration: 9 months",
-      "caseHtml": "Case: Crowding<br/>Duration: 9 months"
+      // "caseInfo": "Case: Gap Closure / Duration: 8.5 months",
+      // "caseHtml": "Case: Gap Closure<br/>Duration: 8.5 months"
     },
     {
       "image": "/assets/images/results-3.jpg",
       "name": "",
-      "caseInfo": "Case: Crowding / Duration: 6 months",
-      "caseHtml": "Case: Crowding<br/>Duration: 6 months"
+      // "caseInfo": "Case: Crowding / Duration: 6 months",
+      // "caseHtml": "Case: Crowding<br/>Duration: 6 months"
     },
     {
       "image": "/assets/images/results-4.jpg",
       "name": "",
-      "caseInfo": "Case: Protrusion / Duration: 8 months",
-      "caseHtml": "Case: Protrusion<br/>Duration: 8 months"
-    },
-    {
-      "image": "/assets/images/results-5.jpg",
-      "name": "",
-      "caseInfo": "Case: Crowding / Duration: 7 months",
-      "caseHtml": "Case: Crowding<br/>Duration: 7 months"
-    },
-    {
-      "image": "/assets/images/results-7.jpg",
-      "name": "",
-      "caseInfo": "Case: Protrusion / Duration: 5 months",
-      "caseHtml": "Case: Protrusion<br/>Duration: 5 months"
-    },
-    {
-      "image": "/assets/images/results-1.jpg",
-      "name": "",
-      "caseInfo": "Case: Crowding / Duration: 7 months",
-      "caseHtml": "Case: Crowding<br/>Duration: 7 months"
-    },
-    {
-      "image": "/assets/images/results-2.jpg",
-      "name": "",
-      "caseInfo": "Case: Crooked Tooth / Duration: 6 months",
-      "caseHtml": "Case: Crooked Tooth<br/>Duration: 6 months"
-    },
-    {
-      "image": "/assets/images/results-6.jpg",
-      "name": "",
-      "caseInfo": "Case: Crooked Tooth / Duration: 6 months",
-      "caseHtml": "Case: Crooked Tooth<br/>Duration: 6 months"
-    },
-    {
-      "image": "/assets/images/results-9.jpg",
-      "name": "",
-      "caseInfo": "Case: Crowding / Duration: 9 months",
-      "caseHtml": "Case: Crowding<br/>Duration: 9 months"
-    },
-    {
-      "image": "/assets/images/results-10.jpg",
-      "name": "",
-      "caseInfo": "Case: Open Bite / Duration: 9 months",
-      "caseHtml": "Case: Open Bite<br/>Duration: 9 months"
-    },
-    {
-      "image": "/assets/images/results-11.jpg",
-      "name": "",
-      "caseInfo": "Case: Crowding / Duration: 6 months",
-      "caseHtml": "Case: Crowding<br/>Duration: 6 months"
-    },
-    {
-      "image": "/assets/images/results-12.jpg",
-      "name": "",
-      "caseInfo": "Case: Crowding / Duration: 7 months",
-      "caseHtml": "Case: Crowding<br/>Duration: 7 months"
-    },
-    {
-      "image": "/assets/images/results-13.jpg",
-      "name": "",
-      "caseInfo": "Case: Crowding / Duration: 9 months",
-      "caseHtml": "Case: Crowding<br/>Duration: 9 months"
-    },
-    {
-      "image": "/assets/images/results-14.jpg",
-      "name": "",
-      "caseInfo": "Case: Crowding / Duration: 9 months",
-      "caseHtml": "Case: Crowding<br/>Duration: 9 months"
-    },
-    {
-      "image": "/assets/images/results-15.jpg",
-      "name": "",
-      "caseInfo": "Case: Open Bite / Duration: 9 months",
-      "caseHtml": "Case: Open Bite<br/>Duration: 9 months"
-    },
-    {
-      "image": "/assets/images/results-16.jpg",
-      "name": "",
-      "caseInfo": "Case: Crowding / Duration: 7 months",
-      "caseHtml": "Case: Crowding<br/>Duration: 7 months"
-    },
-    {
-      "image": "/assets/images/results-17.jpg",
-      "name": "",
-      "caseInfo": "Case: Crowding / Duration: 9 months",
-      "caseHtml": "Case: Crowding<br/>Duration: 9 months"
-    },
-    {
-      "image": "/assets/images/results-18.jpg",
-      "name": "",
-      "caseInfo": "Case: Crowding / Duration: 9 months",
-      "caseHtml": "Case: Crowding<br/>Duration: 9 months"
-    },
-    {
-      "image": "/assets/images/results-19.jpg",
-      "name": "",
-      "caseInfo": "Case: Crowding / Duration: 9 months",
-      "caseHtml": "Case: Crowding<br/>Duration: 9 months"
-    },
-    {
-      "image": "/assets/images/results-20.jpg",
-      "name": "",
-      "caseInfo": "Case: Crowding / Duration: 6 months",
-      "caseHtml": "Case: Crowding<br/>Duration: 6 months"
-    },
-    {
-      "image": "/assets/images/results-21.jpg",
-      "name": "",
-      "caseInfo": "Case: Crowding / Duration: 7 months",
-      "caseHtml": "Case: Crowding<br/>Duration: 7 months"
+      // "caseInfo": "Case: Protrusion / Duration: 8 months",
+      // "caseHtml": "Case: Protrusion<br/>Duration: 8 months"
     }
   ],
   "socials": [

@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
 import CtaBlock from '../components/Buttons/CtaBlock';
+import SEO from '../components/SEO/SEO';
 
 const WHY_BLOCKS = [
   {
@@ -46,13 +47,20 @@ const WHY_BLOCKS = [
   },
 ];
 
-export default function WhyLinea() {
-  useEffect(() => {
-    document.title = 'Why Alignaa — Clear Aligners';
-  }, []);
-
+export default function WhyAlignaa() {
   return (
     <div className="page-why">
+      <SEO
+        title="Why Choose Alignaa Clear Aligners | Doctor-Led vs. At-Home Kits"
+        description="Why Alignaa? 100% dentist oversight, in-clinic 3D intraoral scans, IPR & attachments when needed, premium Zendura material, and zero hidden costs."
+        keywords="why alignaa, at home aligners vs dentist, doctor directed aligners, best clear aligner brand, orthodontist supervision, zendura aligners"
+        canonical="/aligners/why"
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Clear Aligners', url: '/aligners' },
+          { name: 'Why Alignaa', url: '/aligners/why' },
+        ]}
+      />
       <div
         className="block top-cover cover-why"
         style={{

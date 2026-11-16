@@ -1,5 +1,5 @@
 {
-  "name": "Linea-official-clone",
+  "name": "alignaa-official",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "framer-motion": "^12.4.7",
     "lucide-react": "^0.475.0",
     "react": "^19.0.0",
@@ -20,4 +21,3 @@
     "vite": "^6.2.0"
   }
 }
-
