@@ -173,7 +173,7 @@ export default function Footer() {
           letterSpacing: '0.5px',
           marginTop: '20px',
           paddingTop: '16px',
-          paddingBottom: '40px',
+          paddingBottom: '65px',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
