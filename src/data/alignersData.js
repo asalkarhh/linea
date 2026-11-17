@@ -151,24 +151,24 @@ export const alignersData = {
       "braces": false,
       "atHome": false
     },
-    {
-      "feature": "Access to the Alignaa app",
-      "alignaa": true,
-      "braces": false,
-      "atHome": false
-    },
+    // {
+    //   "feature": "Access to the Alignaa app",
+    //   "alignaa": true,
+    //   "braces": false,
+    //   "atHome": false
+    // },
     {
       "feature": "Founded by dentists",
       "alignaa": true,
       "braces": true,
       "atHome": false
     },
-    {
-      "feature": "Teeth whitening included for free",
-      "alignaa": true,
-      "braces": false,
-      "atHome": false
-    }
+    // {
+    //   "feature": "Teeth whitening included for free",
+    //   "alignaa": true,
+    //   "braces": false,
+    //   "atHome": false
+    // }
   ],
   "dentalCases": [
     {
@@ -544,27 +544,27 @@ export const alignersData = {
   "faqs": [
     {
       "question": "1. How much does Alignaa clear aligner treatment cost?",
-      "answerHtml": "<p itemprop=\"text\">Alignaa has three flat-rate pricing tiers: $1,995 for mild cases (Tier 1), $2,995 for standard cases (Tier 2), and $3,995 for complex cases (Tier 3). Around 90% of patients fall into Tier 2. Each tier includes your full set of aligners, 3D treatment plan, clinical fitting, attachments, IPR, midway scans, refinements, 7-day local support, access to the Alignaa app, AI-powered progress tracking, retainers and dental-grade teeth whitening.</p>"
+      "answerHtml": "<p itemprop=\"text\">The cost of Alignaa clear aligners is Rs. 22,999 for Tier 1 treatment, starting from Rs. 43,999 for Tier 2 treatment, or starting from Rs. 79,999 for Tier 3 treatment. Each tier includes your complete doctor-supervised clear aligners, 3D digital scan, attachments, IPR, refinements, retainers, and professional teeth whitening.</p>"
     },
     {
       "question": "2. Am I a candidate for clear aligners?",
-      "answerHtml": "<p itemprop=\"text\">Clear aligners can treat a wide range of alignment issues including crowding, spacing, front gaps, over jets, buck teeth, cross bites and open bites. The best way to find out is to complete a free smile quiz and attend a consultation with a Alignaa partner dentist, who will assess your teeth and oral health to confirm whether aligners are right for you.</p>"
+      "answerHtml": "<p itemprop=\"text\">Alignaa clear aligner treatment is a great alternative solution for both adults and teens looking for a way to improve their smile without the downsides to traditional orthodontic braces. Using state of the art innovations such as 3D modelling and computer aided design and manufacturing, we make it possible to fix minor to moderate teeth-alignment issues all while fitting in between your busy life schedules. To see if you are suitable, please fill out our Smile Survey and we will book you in with one of our Alignaa partner dentists for an assessment.</p>"
     },
     {
       "question": "3. How long does clear aligner treatment take?",
-      "answerHtml": "<p itemprop=\"text\">Most Alignaa treatments take between 6 and 12 months, though mild cases can be shorter. Treatment length depends on the complexity of your case and how consistently you wear your aligners. You'll typically start seeing visible changes after around 3 months.</p>"
+      "answerHtml": "<p itemprop=\"text\">The length of treatment depends on a few factors like how tricky your case is and how often you wear your aligners. On average, Alignaa aligner treatments take between 6 to 12 months, though you can start seeing results earlier.</p>"
     },
     {
       "question": "4. How is Alignaa different from at-home aligners?",
-      "answerHtml": "<p itemprop=\"text\">Alignaa treatment starts with an in-person dental exam, professional 3D scans and x-rays — not a self-taken impression kit. A licensed dentist, who you'll meet in person, is responsible for prescribing, performing and monitoring your treatment. They will fit your aligners and handle any clinical procedures. Between visits, Alignaa's clinical team monitors your progress remotely via the Alignaa app, with 7-day-a-week local support. This treatment method is far safer and more accurate that at-home treatments.</p>"
+      "answerHtml": "<p itemprop=\"text\">Alignaa's 100% dental oversight and supervision and attractive price differentiates Alignaa from Direct To Consumer brand models that lack critical dental oversight and supervision and other dentist directed clear aligner brands that can cost far more than Alignaa's clear aligners.</p>"
     },
     {
       "question": "5. Can I use my insurance for clear aligners?",
-      "answerHtml": "<p itemprop=\"text\">Because Alignaa treatment is administered in-person through a licensed dental practice, it's eligible for coverage under most dental insurance plans with orthodontic benefits. The amount you can claim depends on your plan. You can also typically pay using HSA or FSA funds</p>"
+      "answerHtml": "<p itemprop=\"text\">Alignaa offers a one-off payment, or a convenient payment plan. Because Alignaa treatment is administered in-person through a licensed dental practice, it is eligible for coverage under dental insurance plans with orthodontic benefits. The amount you can claim depends on your individual provider and plan.</p>"
     },
     {
       "question": "6. What are attachments and IPR?",
-      "answerHtml": "<p itemprop=\"text\">Attachments are small tooth-colored buttons that your dentist bonds to specific teeth. They give aligners extra grip to achieve more precise movements. IPR (interproximal reduction) is gentle reshaping between teeth to create small amounts of space for movement. Both are common, safe procedures performed by your dentist during treatment.</p>"
+      "answerHtml": "<p itemprop=\"text\">Your Alignaa clear aligner treatment may require attachments — small tooth-colored buttons bonded to teeth that act as handles, allowing the aligners to better “grip” the tooth for precise complex movement. IPR (interproximal reduction) is the gentle trimming of the sides of teeth in crowded cases to create the space required to straighten them. Both procedures are safe, quick, and performed in-clinic by your dentist.</p>"
     }
   ]
 };

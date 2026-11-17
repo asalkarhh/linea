@@ -818,7 +818,7 @@ export default function Aligners() {
         style={{ bottom: showBottomBar ? '0px' : '-50px' }}
       >
         <div className="bottom-bar-button">
-          <Link to="/aligners/quiz/">Book Your free scan Now</Link>
+          <Link to="/aligners/quiz/">Book free 3D scan</Link>
         </div>
         <button
           type="button"
@@ -826,7 +826,7 @@ export default function Aligners() {
           onClick={openBookNow}
           style={{ border: 0, borderRadius: 0 }}
         >
-          Book your free consultation now
+          Book free consultation
         </button>
       </div>
     </div>

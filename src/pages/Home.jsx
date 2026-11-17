@@ -1,10 +1,26 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO/SEO';
 import '../styles/home.css';
 
 export default function Home() {
   const videoRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== 'undefined' ? window.innerWidth < 700 : false
+  );
+
+  useEffect(() => {
+    const onResize = () => setIsMobile(window.innerWidth < 700);
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+
+  const videoSrc = isMobile
+    ? '/assets/videos/Alignaa_Vertical__Website_Hero_Comp.mp4'
+    : '/assets/videos/Alignaa_Wide_Website_Hero_Comp.mp4';
+  const posterSrc = isMobile
+    ? '/assets/images/alignaa-hero-mobile-poster.jpg'
+    : '/assets/images/alignaa-hero-wide-poster.jpg';
 
   useEffect(() => {
     const vid = videoRef.current;
@@ -16,7 +32,7 @@ export default function Home() {
     if (playPromise !== undefined) {
       playPromise.catch(() => {});
     }
-  }, []);
+  }, [videoSrc]);
 
   return (
     <div className="page-home">
@@ -30,16 +46,18 @@ export default function Home() {
         <section className="block home-section" id="aligners-cover">
           <video
             ref={videoRef}
+            key={videoSrc}
             autoPlay
             muted
             loop
             playsInline
             webkit-playsinline="true"
+            poster={posterSrc}
             className="home-video-bg"
             aria-label="Alignaa Clear Aligners hero video"
           >
             <source
-              src="/assets/videos/Alignaa_Wide_Website_Hero_Comp.mp4"
+              src={videoSrc}
               type="video/mp4"
             />
             Your browser does not support the video tag.
@@ -50,7 +68,7 @@ export default function Home() {
               to="/aligners/quiz/"
               className="home-cta-link home-cta-primary"
             >
-              Book Your free scan Now
+              Book free 3D scan
             </Link>
             <Link
               to="/aligners/"

@@ -185,7 +185,7 @@
 	}
 	.page-aligners .element-with-video-bg {
 		height: 100vh;
-		background-image: url(/assets/images/video-still-mobile.jpeg);
+		background-image: url(/assets/images/alignaa-hero-mobile-poster.jpg);
 		background-position: center;
 		background-size: cover;
 		position:relative;
@@ -596,9 +596,13 @@
 	}
 	.page-aligners .question-answer {
 		max-height: 0px;
-		transition: max-height 0.2s;
+		transition: max-height 0.3s ease, padding-bottom 0.2s ease;
 		overflow: hidden;
-		border-bottom: 1px solid #9b9a9d;
+		border-bottom: 0;
+	}
+	.page-aligners .question-answer.expanded {
+		max-height: 2000px;
+		padding-bottom: 15px;
 	}
 	.page-aligners .desktop-right-pad {
 		padding-right:0px;
@@ -609,7 +613,7 @@
 	@media screen and (min-width: 700px) {
 
 		.page-aligners .element-with-video-bg {
-			background-image: url(/assets/images/video-still.jpeg);
+			background-image: url(/assets/images/alignaa-hero-wide-poster.jpg);
 		}
 		.page-aligners .cover-video {
 			min-width: 177.9vh;
@@ -646,7 +650,7 @@
 			display:none;
 		}
 		.page-aligners .element-with-video-bg {
-			background-image: url(/assets/images/video-still.jpeg);
+			background-image: url(/assets/images/alignaa-hero-wide-poster.jpg);
 		}
 		
 		.page-aligners .mobile-column {

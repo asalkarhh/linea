@@ -17,8 +17,8 @@ export function HeroVideoBg({ onVisibilityCheck }) {
     ? '/assets/videos/Alignaa_Vertical__Website_Hero_Comp.mp4'
     : '/assets/videos/Alignaa_Wide_Website_Hero_Comp.mp4';
   const posterSrc = isMobile
-    ? '/assets/images/video-still-mobile.jpeg'
-    : '/assets/images/video-still.jpeg';
+    ? '/assets/images/alignaa-hero-mobile-poster.jpg'
+    : '/assets/images/alignaa-hero-wide-poster.jpg';
 
   useEffect(() => {
     const vid = videoRef.current;
@@ -317,7 +317,7 @@ export function VimeoShowcasePlayer({
         />
       ) : (
         <img
-          src={poster || '/assets/images/video-still.jpeg'}
+          src={poster || '/assets/images/alignaa-hero-wide-poster.jpg'}
           alt={title}
           style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
         />

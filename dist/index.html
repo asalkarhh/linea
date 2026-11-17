@@ -42,12 +42,14 @@
     />
     <meta name="twitter:image" content="https://www.alignaa.co/assets/images/home-veneers.jpg" />
 
-    <!-- Favicon & Icons -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=4" />
-    <link rel="shortcut icon" type="image/png" href="/assets/icons/favicon-32x32.png?v=4" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png?v=4" />
-    <link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/favicon-192x192.png?v=4" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png?v=4" />
+    <!-- Favicon & Google Search Icons (Compliant with Google Search 48px Multiple Rule) -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/assets/icons/favicon-48x48.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/favicon-192x192.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 
     <!-- Performance & Font Preloads -->
     <link rel="preload" href="/assets/fonts/LaNord-Regular.woff" as="font" type="font/woff" crossorigin />
@@ -136,7 +138,7 @@
   </head>
   <body>
     <!-- Initial Doctor-Grade Shell Preloader (Zero layout shift / Zero white flash) -->
-    <div id="initial-preloader" style="position:fixed;inset:0;z-index:9999999;display:flex;flex-direction:column;align-items:center;justify-content:center;background-color:#171718;background:radial-gradient(ellipse at 50% 45%, #232326 0%, #151516 100%);color:#ffffff;-webkit-font-smoothing:antialiased;">
+    <div id="initial-preloader" style="position:fixed;inset:0;z-index:9999999;display:flex;flex-direction:column;align-items:center;justify-content:center;background-color:#171718 !important;background:radial-gradient(ellipse at 50% 45%, #232326 0%, #151516 100%) !important;color:#ffffff;-webkit-font-smoothing:antialiased;">
       <div style="display:flex;flex-direction:column;align-items:center;text-align:center;user-select:none;">
         <div style="position:relative;width:68px;height:64px;display:flex;align-items:center;justify-content:center;">
           <img src="/assets/icons/marque-white.png" alt="Alignaa" style="width:52px;height:auto;filter:drop-shadow(0 0 14px rgba(255,255,255,0.28));" />

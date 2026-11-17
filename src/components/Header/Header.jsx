@@ -101,7 +101,7 @@ export default function Header({ menuOpen, onToggleMenu, selectorOpen }) {
                     lineHeight: '1.2',
                   }}
                 >
-                  Book your free consultation now
+                  Book free consultation
                 </button>
               </div>
             </li>

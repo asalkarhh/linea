@@ -29,8 +29,8 @@ export const faqCategories = [
       },
       {
         "question": "6. What are Alignaa clear aligners made of and what do they look like?",
-        "answerHtml": "<p>Alignaa clear aligners are made from Zendura, a medical-grade, FDA-cleared thermoplastic engineered specifically for clear aligner therapy. It contains no BPA, latex, or gluten, and is vegan-friendly. The aligners are compltely clear and conform snugly to your teeth, making them virtually invisible.</p>",
-        "plainText": "6. What are Alignaa clear aligners made of and what do they look like? Alignaa clear aligners are made from Zendura, a medical-grade, FDA-cleared thermoplastic engineered specifically for clear aligner therapy. It contains no BPA, latex, or gluten, and is vegan-friendly. The aligners are compltely clear and conform snugly to your teeth, making them virtually invisible."
+        "answerHtml": "<p>Alignaa clear aligners are made from Scheu Dental Duran+, a medical-grade, FDA-cleared thermoplastic engineered specifically for clear aligner therapy. It contains no BPA, latex, or gluten, and is vegan-friendly. The aligners are compltely clear and conform snugly to your teeth, making them virtually invisible.</p>",
+        "plainText": "6. What are Alignaa clear aligners made of and what do they look like? Alignaa clear aligners are made from Scheu Dental Duran+, a medical-grade, FDA-cleared thermoplastic engineered specifically for clear aligner therapy. It contains no BPA, latex, or gluten, and is vegan-friendly. The aligners are compltely clear and conform snugly to your teeth, making them virtually invisible."
       },
       {
         "question": "7. Do Alignaa clear aligners follow the contour of my gums?",

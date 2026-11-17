@@ -21,12 +21,19 @@ export default function FaqAccordion({
         const qId = `${idPrefix}-question-${idx}`;
 
         return (
-          <div key={qId} className="qa-wrap">
+          <div
+            key={qId}
+            className="qa-wrap"
+            style={{
+              borderTop: isFirst ? '1px solid #9b9a9d' : undefined,
+              borderBottom: !borderBottomLast && isLast ? 0 : '1px solid #9b9a9d',
+              marginBottom: !borderBottomLast && isLast ? '40px' : undefined,
+            }}
+          >
             <div
               className="question-wrap"
               id={qId}
               style={{
-                borderTop: isFirst ? '1px solid #9b9a9d' : undefined,
                 padding: 0,
               }}
             >
@@ -52,11 +59,19 @@ export default function FaqAccordion({
               role="region"
               aria-labelledby={qId}
               style={{
-                borderBottom: !borderBottomLast && isLast ? 0 : '1px solid #9b9a9d',
-                marginBottom: !borderBottomLast && isLast ? '40px' : undefined,
+                maxHeight: isOpen ? '1500px' : '0px',
+                overflow: 'hidden',
+                transition: 'max-height 0.35s ease, padding-bottom 0.25s ease',
+                paddingBottom: isOpen ? '16px' : '0px',
               }}
             >
-              <div dangerouslySetInnerHTML={{ __html: item.answerHtml }} />
+              <div
+                style={{
+                  opacity: isOpen ? 1 : 0,
+                  transition: 'opacity 0.25s ease',
+                }}
+                dangerouslySetInnerHTML={{ __html: item.answerHtml }}
+              />
             </div>
           </div>
         );

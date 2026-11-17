@@ -308,6 +308,18 @@
   }
 }
 
+/* Mobile Viewport Enforcement */
+@media screen and (max-width: 768px) {
+  .alignaa-preloader-root {
+    background-color: #171718 !important;
+    background-image: radial-gradient(ellipse at 50% 45%, #232326 0%, #151516 100%) !important;
+  }
+  .alignaa-route-curtain {
+    background: rgba(22, 22, 23, 0.85) !important;
+    background-image: none !important;
+  }
+}
+
 /* Reduced Motion preferences */
 @media (prefers-reduced-motion: reduce) {
   .alignaa-preloader-glow,
