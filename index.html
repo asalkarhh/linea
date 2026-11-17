@@ -49,6 +49,11 @@
     <link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/favicon-192x192.png?v=4" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png?v=4" />
 
+    <!-- Performance & Font Preloads -->
+    <link rel="preload" href="/assets/fonts/LaNord-Regular.woff" as="font" type="font/woff" crossorigin />
+    <link rel="preload" href="/assets/fonts/LaNord-Light.woff" as="font" type="font/woff" crossorigin />
+    <link rel="preload" href="/assets/icons/marque-white.png" as="image" />
+
     <!-- Organization & MedicalBusiness JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
@@ -130,6 +135,26 @@
     </script>
   </head>
   <body>
+    <!-- Initial Doctor-Grade Shell Preloader (Zero layout shift / Zero white flash) -->
+    <div id="initial-preloader" style="position:fixed;inset:0;z-index:9999999;display:flex;flex-direction:column;align-items:center;justify-content:center;background-color:#171718;background:radial-gradient(ellipse at 50% 45%, #232326 0%, #151516 100%);color:#ffffff;-webkit-font-smoothing:antialiased;">
+      <div style="display:flex;flex-direction:column;align-items:center;text-align:center;user-select:none;">
+        <div style="position:relative;width:68px;height:64px;display:flex;align-items:center;justify-content:center;">
+          <img src="/assets/icons/marque-white.png" alt="Alignaa" style="width:52px;height:auto;filter:drop-shadow(0 0 14px rgba(255,255,255,0.28));" />
+        </div>
+        <div style="font-family:'Nord',-apple-system,BlinkMacSystemFont,sans-serif;font-size:13px;font-weight:500;letter-spacing:0.36em;text-transform:uppercase;color:#ffffff;margin-top:18px;padding-left:0.36em;opacity:0.95;">ALIGNAA</div>
+        <div style="font-family:'Nord',-apple-system,BlinkMacSystemFont,sans-serif;font-size:8.5px;font-weight:400;letter-spacing:0.28em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-top:7px;padding-left:0.28em;">DOCTOR-DIRECTED CLEAR ALIGNERS</div>
+        <div style="position:relative;width:140px;height:2px;background:rgba(255,255,255,0.12);border-radius:2px;margin-top:24px;overflow:hidden;">
+          <div style="position:absolute;top:0;left:0;height:100%;width:40%;background:linear-gradient(90deg,rgba(255,255,255,0.4),#ffffff);border-radius:2px;box-shadow:0 0 8px rgba(255,255,255,0.7);animation:alignaaInitPulse 1.2s infinite ease-in-out;"></div>
+        </div>
+      </div>
+    </div>
+    <style>
+      @keyframes alignaaInitPulse {
+        0% { left: 0%; width: 25%; }
+        50% { left: 35%; width: 55%; }
+        100% { left: 75%; width: 25%; }
+      }
+    </style>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

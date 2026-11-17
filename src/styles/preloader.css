@@ -1,0 +1,325 @@
+/* ==========================================================================
+   Alignaa Doctor-Grade Preloader & Route Transition Styles
+   Bespoke clinical luxury aesthetic for dental and orthodontic professionals
+   ========================================================================== */
+
+/* Top Laser Progress Bar (Viewport Top) */
+.alignaa-top-laser-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2.5px;
+  z-index: 10000000;
+  pointer-events: none;
+  background: transparent;
+  overflow: hidden;
+}
+
+.alignaa-top-laser-fill {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0.95) 75%,
+    #ffffff 100%
+  );
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.95), 0 0 4px #ffffff;
+  border-radius: 0 2px 2px 0;
+  transition: width 0.28s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease;
+  will-change: width, opacity;
+}
+
+/* ==========================================================================
+   1. Initial Fullscreen Preloader (First Visit / Hard Refresh)
+   Pure luxury blackish/obsidian background
+   ========================================================================== */
+.alignaa-preloader-root {
+  position: fixed;
+  inset: 0;
+  z-index: 9999999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #171718;
+  background: radial-gradient(ellipse at 50% 45%, #232326 0%, #151516 100%);
+  color: #ffffff;
+  pointer-events: auto;
+  transition: opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform, filter;
+}
+
+.alignaa-preloader-root.preloader-exiting {
+  opacity: 0;
+  transform: scale(1.02);
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+.alignaa-preloader-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 30px 24px;
+  user-select: none;
+}
+
+/* Central Emblem with Ambient Breathing Glow */
+.alignaa-preloader-emblem-wrap {
+  position: relative;
+  width: 68px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.alignaa-preloader-glow {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+  animation: alignaaGlowPulse 2.4s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+.alignaa-preloader-emblem {
+  position: relative;
+  width: 52px;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 0 14px rgba(255, 255, 255, 0.28));
+  animation: alignaaEmblemFloat 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+}
+
+/* Brand Typography */
+.alignaa-preloader-brand {
+  font-family: var(--font-primary, 'Nord', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-top: 18px;
+  margin-bottom: 0;
+  padding-left: 0.36em; /* optical balance for letter-spacing */
+  opacity: 0.95;
+}
+
+.alignaa-preloader-sub {
+  font-family: var(--font-primary, 'Nord', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 8.5px;
+  font-weight: 400;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 7px;
+  margin-bottom: 0;
+  padding-left: 0.28em;
+}
+
+/* Precision Micro-Progress Bar */
+.alignaa-preloader-track {
+  position: relative;
+  width: 140px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 2px;
+  margin-top: 24px;
+  overflow: hidden;
+}
+
+.alignaa-preloader-fill {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0.95) 70%,
+    #ffffff 100%
+  );
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+  border-radius: 2px;
+  transition: width 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: width;
+}
+
+.alignaa-preloader-track::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -40%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.65), transparent);
+  animation: alignaaTrackShimmer 1.8s infinite linear;
+}
+
+/* ==========================================================================
+   2. Route Transition Veil (Every Page Change)
+   Ultra-smooth, doctor-grade subtle crossfade curtain
+   ========================================================================== */
+.alignaa-route-curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 999998;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(22, 22, 23, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+              visibility 0.22s;
+  will-change: opacity, backdrop-filter;
+}
+
+.alignaa-route-curtain.route-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.alignaa-route-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  user-select: none;
+  transform: translateY(0);
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.alignaa-route-curtain.route-active .alignaa-route-card {
+  animation: alignaaCardRise 0.3s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.alignaa-route-emblem-wrap {
+  width: 50px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.alignaa-route-emblem {
+  width: 42px;
+  height: auto;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+  animation: alignaaEmblemFloat 2s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+}
+
+.alignaa-route-sub {
+  font-family: var(--font-primary, 'Nord', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 14px;
+  padding-left: 0.32em;
+}
+
+.alignaa-route-track {
+  position: relative;
+  width: 100px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 2px;
+  margin-top: 14px;
+  overflow: hidden;
+}
+
+.alignaa-route-fill {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0.95) 75%,
+    #ffffff 100%
+  );
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+  border-radius: 2px;
+  transition: width 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: width;
+}
+
+.alignaa-route-track::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -40%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.7), transparent);
+  animation: alignaaTrackShimmer 1.4s infinite linear;
+}
+
+/* ==========================================================================
+   Keyframe Animations
+   ========================================================================== */
+@keyframes alignaaGlowPulse {
+  0% {
+    transform: scale(0.92);
+    opacity: 0.35;
+  }
+  100% {
+    transform: scale(1.15);
+    opacity: 0.75;
+  }
+}
+
+@keyframes alignaaEmblemFloat {
+  0% {
+    transform: scale(0.985) translateY(0);
+    opacity: 0.92;
+  }
+  100% {
+    transform: scale(1.015) translateY(-2px);
+    opacity: 1;
+  }
+}
+
+@keyframes alignaaTrackShimmer {
+  0% {
+    left: -40%;
+  }
+  100% {
+    left: 140%;
+  }
+}
+
+@keyframes alignaaCardRise {
+  0% {
+    opacity: 0.7;
+    transform: translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Reduced Motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .alignaa-preloader-glow,
+  .alignaa-preloader-emblem,
+  .alignaa-route-emblem,
+  .alignaa-preloader-track::after,
+  .alignaa-route-track::after {
+    animation: none !important;
+  }
+  .alignaa-preloader-root,
+  .alignaa-route-curtain,
+  .alignaa-top-laser-fill {
+    transition-duration: 0.1s !important;
+  }
+}

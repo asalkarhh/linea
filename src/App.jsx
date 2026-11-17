@@ -3,6 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { MotionConfig } from 'framer-motion';
 import { Analytics } from '@vercel/analytics/react';
 import { ModalProvider } from './context/ModalContext';
+import Preloader from './components/Preloader/Preloader';
 import AppRoutes from './routes/AppRoutes';
 
 function GlobalVideoScrollManager() {
@@ -85,6 +86,7 @@ export default function App() {
     <MotionConfig reducedMotion="user">
       <BrowserRouter>
         <ModalProvider>
+          <Preloader />
           <GlobalVideoScrollManager />
           <AppRoutes />
           <Analytics />

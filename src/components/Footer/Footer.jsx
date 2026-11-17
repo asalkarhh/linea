@@ -89,6 +89,15 @@ export default function Footer() {
                   Instagram
                 </a>
               </p>
+               <p>
+                <a
+                  href="https://www.facebook.com/profile.php?id=61596620851115"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Facebook
+                </a>
+              </p>
 
               <div style={{ marginTop: '28px' }}>
                 <h4

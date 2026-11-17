@@ -530,74 +530,27 @@ export function SocialsVideoPlayer({
   );
 }
 
-// Module 2 Dentist Guarantee block with video toggle
-export function GuaranteeVideoBlock({ activeMod2 }) {
-  const [playingVideo, setPlayingVideo] = useState(false);
-  const containerRef = useRef(null);
-
-  useEffect(() => {
-    const el = containerRef.current;
-    if (!el || typeof IntersectionObserver === 'undefined') return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) {
-            setPlayingVideo(false);
-          }
-        });
-      },
-      { threshold: 0 }
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
+// Module 2 Dentist Guarantee block - static image display (video and play button permanently removed)
+export function GuaranteeVideoBlock({ activeMod2 = 1 }) {
+  const imgSrc = activeMod2 === 2 ? '/assets/images/technology.jpg' : '/assets/images/dentist.jpg';
+  const altText =
+    activeMod2 === 2
+      ? 'Backed by advanced aligner technology'
+      : 'Dentist performing Alignaa Clear Aligner fitting';
 
   return (
-    <div ref={containerRef} className="mod-2-video-wrap" style={{ position: 'relative' }}>
-      {playingVideo ? (
-        <iframe
-          src="https://player.vimeo.com/video/724683619?autoplay=1&controls=0"
-          frameBorder="0"
-          allow="autoplay; fullscreen; picture-in-picture"
-          allowFullScreen
-          id="guarantee-video"
-          title="Alignaa Dentist Guarantee"
-          style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 }}
-        />
-      ) : (
-        <>
-          <img
-            alt="Dentist performing Alignaa Clear Aligner fitting"
-            id="guarantee-video"
-            src="/assets/images/dentist.jpg"
-            style={{ width: '100%', display: 'block', borderRadius: '5px' }}
-          />
-          <button
-            type="button"
-            className="play"
-            onClick={() => setPlayingVideo(true)}
-            aria-label="Play Alignaa Dentist Guarantee Video"
-            style={{ border: 0, borderRadius: 0 }}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="feather feather-play"
-            >
-              <polygon points="5 3 19 12 5 21 5 3" />
-            </svg>
-          </button>
-        </>
-      )}
+    <div className="mod-2-video-wrap" style={{ position: 'relative' }}>
+      <img
+        alt={altText}
+        id="guarantee-video"
+        src={imgSrc}
+        style={{
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          display: 'block',
+        }}
+      />
     </div>
   );
 }
