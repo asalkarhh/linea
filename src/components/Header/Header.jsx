@@ -4,14 +4,14 @@ import { useModals } from '../../context/ModalContext';
 
 export default function Header({ menuOpen, onToggleMenu, selectorOpen }) {
   const location = useLocation();
-  const { openBookNow, darkHeader, headerOpacity } = useModals();
+  const { openBookNow, darkHeader, headerOpacity, homeScrolled } = useModals();
 
   const path = location.pathname;
   const isHome = path === '/';
   const isAlignersSection = path.startsWith('/aligners');
 
-  // On /aligners/, header transitions from transparent to solid light (or dark over dark sections)
-  const useScrollHeader = path === '/aligners/' || path === '/aligners';
+  // On /aligners/ and /, header transitions from transparent to solid light (or dark over dark sections)
+  const useScrollHeader = path === '/aligners/' || path === '/aligners' || path === '/';
 
   const topStyle = {};
   if (useScrollHeader) {
@@ -28,6 +28,27 @@ export default function Header({ menuOpen, onToggleMenu, selectorOpen }) {
   }
 
   const barColor = useScrollHeader && darkHeader ? '#ffffff' : '#221f20';
+
+  const handleLogoClick = (e) => {
+    if (menuOpen && onToggleMenu) {
+      onToggleMenu();
+    }
+
+    if (isHome) {
+      // Stay on same page (e.g. from COMMON CASES) and smoothly scroll to the top section
+      e.preventDefault();
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    } else {
+      // If user has scrolled down on another page, smooth scroll to the top of that particular page
+      if (window.scrollY > 80) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+      } else {
+        // If already at the top, navigate to home and ensure top position
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+      }
+    }
+  };
 
   return (
     <header
@@ -58,20 +79,20 @@ export default function Header({ menuOpen, onToggleMenu, selectorOpen }) {
       </div>
 
       <div className="menu right">
-        <ul style={{ position: 'relative' }}>
-          {isHome && (
+        <ul style={{ position: 'relative', display: 'flex', alignItems: 'center', gap: '12px' }}>
+          {isHome && !homeScrolled && (
             <li>
               <a
                 href="https://alignaa-portal.com/en/login"
                 aria-label="Account login"
-                style={{ color: barColor }}
+                style={{ color: barColor, display: 'flex', alignItems: 'center' }}
               >
                 <User size={24} strokeWidth={2} />
               </a>
             </li>
           )}
 
-          {isAlignersSection && (
+          {(isAlignersSection || (isHome && homeScrolled)) && (
             <li>
               <div className="start-here top-start-here">
                 <button
@@ -111,6 +132,7 @@ export default function Header({ menuOpen, onToggleMenu, selectorOpen }) {
 
       <Link
         to="/"
+        onClick={handleLogoClick}
         aria-label="Alignaa Home"
         style={{
           width: '200px',
@@ -121,6 +143,9 @@ export default function Header({ menuOpen, onToggleMenu, selectorOpen }) {
           height: '100%',
           color: barColor,
           textDecoration: 'none',
+          position: 'relative',
+          zIndex: 10,
+          cursor: 'pointer',
         }}
       >
         <span
@@ -132,6 +157,7 @@ export default function Header({ menuOpen, onToggleMenu, selectorOpen }) {
             textTransform: 'uppercase',
             color: 'inherit',
             lineHeight: 1,
+            pointerEvents: 'none',
           }}
         >
           ALIGNAA

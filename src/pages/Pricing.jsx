@@ -225,7 +225,7 @@ export default function Pricing() {
         </div>
       </section>
 
-      {/* Google Reviews Carousel */}
+      {/* Google Reviews Carousel (Commented out)
       <SlideCarousel
         id="google-reviews"
         variant="overlay"
@@ -275,6 +275,7 @@ export default function Pricing() {
           </div>
         )}
       />
+      */}
 
       <CtaBlock
         title="Get Started Today"

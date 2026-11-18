@@ -9,15 +9,13 @@ export default function LargeMenu({ open, onClose }) {
   useEffect(() => {
     if (open) {
       document.body.style.overflow = 'hidden';
-    } else if (path !== '/') {
+    } else {
       document.body.style.overflow = 'initial';
     }
     return () => {
-      if (path !== '/') {
-        document.body.style.overflow = 'initial';
-      }
+      document.body.style.overflow = 'initial';
     };
-  }, [open, path]);
+  }, [open]);
 
   useEffect(() => {
     const handleKey = (e) => {

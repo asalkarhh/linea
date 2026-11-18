@@ -97,7 +97,7 @@ export default function MainLayout() {
         <div className="block main" onClick={handleInternalHtmlLinks}>
           <Outlet />
         </div>
-        {!isHome && <Footer />}
+        <Footer />
       </div>
 
       <LargeMenu open={menuOpen} onClose={() => setMenuOpen(false)} />

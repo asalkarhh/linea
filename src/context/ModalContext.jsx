@@ -8,6 +8,7 @@ export function ModalProvider({ children }) {
   const [infoModal, setInfoModal] = useState({ open: false, type: null, data: null });
   const [darkHeader, setDarkHeader] = useState(false);
   const [headerOpacity, setHeaderOpacity] = useState(1);
+  const [homeScrolled, setHomeScrolled] = useState(false);
 
   const openBookNow = useCallback(() => setBookNowOpen(true), []);
   const closeBookNow = useCallback(() => setBookNowOpen(false), []);
@@ -66,6 +67,8 @@ export function ModalProvider({ children }) {
         setDarkHeader,
         headerOpacity,
         setHeaderOpacity,
+        homeScrolled,
+        setHomeScrolled,
       }}
     >
       {children}

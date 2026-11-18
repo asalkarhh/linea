@@ -398,6 +398,18 @@ select:focus {
   text-decoration: underline;
 }
 
+.footer-developer {
+  width: 100%;
+  text-align: center;
+}
+
+@media screen and (min-width: 860px) {
+  .footer-developer {
+    width: auto;
+    text-align: right;
+  }
+}
+
 .row {
   display: flex;
   flex-direction: row;

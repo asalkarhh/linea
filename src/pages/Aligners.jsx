@@ -17,7 +17,7 @@ import CtaBlock from '../components/Buttons/CtaBlock';
 import ScrollReveal from '../components/ScrollAnimations/ScrollReveal';
 import '../styles/aligners.css';
 
-export default function Aligners() {
+export default function Aligners({ hideHero = false }) {
   const { openBookNow, openReviewModal, openLightbox, setDarkHeader, setHeaderOpacity } = useModals();
   const [activeMod2, setActiveMod2] = useState(1);
   const [showBottomBar, setShowBottomBar] = useState(false);
@@ -32,17 +32,19 @@ export default function Aligners() {
   const socialsRef = useRef(null);
 
   useEffect(() => {
-    document.title = 'Clear Aligners — Alignaa Official';
-  }, []);
+    if (!hideHero) {
+      document.title = 'Clear Aligners — Alignaa Official';
+    }
+  }, [hideHero]);
 
   useEffect(() => {
     const handleScroll = () => {
       const y = window.scrollY;
-      const winW = window.innerWidth || 1024;
-      setShowBottomBar(y >= 50 && y < winW ? true : y >= winW);
+      const heroThreshold = window.innerHeight || 800;
+      setShowBottomBar(y >= heroThreshold);
 
-      if (y < winW) {
-        const opacity = Math.min(1, (y * 6) / winW);
+      if (y < heroThreshold - 70) {
+        const opacity = Math.max(0, Math.min(1, (y - 50) / (heroThreshold - 120)));
         setDarkHeader(false);
         setHeaderOpacity(opacity);
       } else {
@@ -126,67 +128,71 @@ export default function Aligners() {
 
   return (
     <div className="page-aligners">
-      <SEO
-        title="Invisible Clear Aligners & Teeth Straightening Treatment | Alignaa"
-        description="Discover how Alignaa clear aligners work in India. Made with medical-grade Zendura polymer, customized 3D smile planning, and complete doctor supervision from start to finish."
-        keywords="clear aligners treatment, invisible teeth straightening, how clear aligners work, zendura aligners, orthodontic aligners India, clear aligner process"
-        canonical="/aligners"
-        breadcrumbs={[
-          { name: 'Home', url: '/' },
-          { name: 'Clear Aligners', url: '/aligners' },
-        ]}
-      />
+      {!hideHero && (
+        <SEO
+          title="Invisible Clear Aligners & Teeth Straightening Treatment | Alignaa"
+          description="Discover how Alignaa clear aligners work in India. Made with medical-grade Zendura polymer, customized 3D smile planning, and complete doctor supervision from start to finish."
+          keywords="clear aligners treatment, invisible teeth straightening, how clear aligners work, zendura aligners, orthodontic aligners India, clear aligner process"
+          canonical="/aligners"
+          breadcrumbs={[
+            { name: 'Home', url: '/' },
+            { name: 'Clear Aligners', url: '/aligners' },
+          ]}
+        />
+      )}
       {/* Module 1: Fullscreen Hero Video */}
-      <section
-        className="block element-with-video-bg"
-        style={{ position: 'relative', overflow: 'hidden', display: 'flex', justifyContent: 'center' }}
-      >
-        <HeroVideoBg />
-        <div
-          style={{
-            position: 'absolute',
-            top: 0,
-            bottom: 0,
-            left: 0,
-            right: 0,
-            backgroundColor: 'rgba(0,0,0,0.1)',
-          }}
+      {!hideHero && (
+        <section
+          className="block element-with-video-bg"
+          style={{ position: 'relative', overflow: 'hidden', display: 'flex', justifyContent: 'center' }}
         >
-          <div className="std-x-pad" style={{ position: 'absolute', bottom: '70px' }}>
-            <h1 className="hero-title" style={{ position: 'static' }}>
-              STRAIGHT TEETH
-              <br />
-              WITH ALIGNAA<sup>&reg;</sup>
-              <br />
-              CLEAR ALIGNERS
-            </h1>
-            <button
-              id="model-button"
-              type="button"
-              style={{
-                marginBottom: '20px',
-                fontSize: '20px',
-                fontWeight: 300,
-                textAlign: 'left',
-                padding: 0,
-              }}
-            >
-              <Link
-                to="/aligners/quiz/"
+          <HeroVideoBg />
+          <div
+            style={{
+              position: 'absolute',
+              top: 0,
+              bottom: 0,
+              left: 0,
+              right: 0,
+              backgroundColor: 'rgba(0,0,0,0.1)',
+            }}
+          >
+            <div className="std-x-pad" style={{ position: 'absolute', bottom: '70px' }}>
+              <h1 className="hero-title" style={{ position: 'static' }}>
+                STRAIGHT TEETH
+                <br />
+                WITH ALIGNAA<sup>&reg;</sup>
+                <br />
+                CLEAR ALIGNERS
+              </h1>
+              <button
+                id="model-button"
+                type="button"
                 style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  padding: '20px',
+                  marginBottom: '20px',
+                  fontSize: '20px',
+                  fontWeight: 300,
+                  textAlign: 'left',
+                  padding: 0,
                 }}
               >
-                <span>Am I a Candidate?</span>
-                <ChevronRight size={20} />
-              </Link>
-            </button>
+                <Link
+                  to="/aligners/quiz/"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    padding: '20px',
+                  }}
+                >
+                  <span>Am I a Candidate?</span>
+                  <ChevronRight size={20} />
+                </Link>
+              </button>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Intro Section */}
       <section

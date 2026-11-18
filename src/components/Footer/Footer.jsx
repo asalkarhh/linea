@@ -124,14 +124,16 @@ export default function Footer() {
                     width: '100%',
                   }}
                 >
-                  {/* Column 1: Row 1 - Google Pay */}
+                  {/* Column 1: Row 1 - Google Pay (Centered relative to RuPay below) */}
                   <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
-                    <img
-                      src="/assets/icons/gpay.png"
-                      alt="Google Pay"
-                      title="Google Pay"
-                      style={{ height: '20px', width: 'auto', display: 'block' }}
-                    />
+                    <div style={{ width: '56px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                      <img
+                        src="/assets/icons/gpay.png"
+                        alt="Google Pay"
+                        title="Google Pay"
+                        style={{ height: '20px', width: 'auto', display: 'block' }}
+                      />
+                    </div>
                   </div>
 
                   {/* Column 2: Row 1 - PhonePe */}
@@ -221,7 +223,7 @@ export default function Footer() {
         </div>
 
         {/* Right: Developed by Asalkar Techworks Pvt. Ltd. */}
-        <div style={{ textAlign: 'right' }}>
+        <div className="footer-developer">
           <p style={{ margin: 0, padding: 0 }}>
             Developed by{' '}
             <a href="https://www.asalkar.in/" target="_blank" rel="noopener noreferrer">
