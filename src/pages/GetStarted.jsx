@@ -131,6 +131,8 @@ function QuizVideoCard({ title, subtitle, videoSrc, posterSrc, isPlaying: contro
             objectFit: 'cover',
             display: 'block',
             cursor: 'pointer',
+            transform: videoSrc && videoSrc.includes('step-2') ? 'scale(1.46)' : 'none',
+            transformOrigin: '50% 20%',
           }}
         />
         {!isPlaying && (

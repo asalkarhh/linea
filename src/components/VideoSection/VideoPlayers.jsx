@@ -67,7 +67,7 @@ export function HeroVideoBg({ onVisibilityCheck }) {
   );
 }
 
-// Module 3 Process Step Video Player with scroll-based autoplay matching reference
+// Module 3 Process Step Video Player
 export function ProcessVideoPlayer({
   id,
   stepNumber,
@@ -77,55 +77,12 @@ export function ProcessVideoPlayer({
   isActive = false,
   title = '',
 }) {
+  const containerRef = useRef(null);
   const videoRef = useRef(null);
   const [playing, setPlaying] = useState(false);
+  const [hasStarted, setHasStarted] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const [useVimeo, setUseVimeo] = useState(false);
-
-  // Autoplay or pause when active step changes on scroll
-  useEffect(() => {
-    const vid = videoRef.current;
-    if (!vid) return;
-    if (isActive) {
-      vid.muted = true;
-      vid.defaultMuted = true;
-      vid.play().then(() => setPlaying(true)).catch(() => {});
-    } else {
-      vid.pause();
-      setPlaying(false);
-    }
-  }, [isActive]);
-
-  // Pause when scrolled outside viewport
-  useEffect(() => {
-    const vid = videoRef.current;
-    if (!vid || typeof IntersectionObserver === 'undefined') return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting && !vid.paused) {
-            vid.pause();
-            setPlaying(false);
-          }
-        });
-      },
-      { threshold: 0 }
-    );
-
-    observer.observe(vid);
-    return () => observer.disconnect();
-  }, []);
-
-  const togglePlay = () => {
-    const vid = videoRef.current;
-    if (!vid) return;
-    if (vid.paused) {
-      vid.play().then(() => setPlaying(true)).catch(() => {});
-    } else {
-      vid.pause();
-      setPlaying(false);
-    }
-  };
 
   const fallbackPoster =
     stepNumber === 2
@@ -134,8 +91,101 @@ export function ProcessVideoPlayer({
         ? '/assets/images/progress-step-3-poster.jpg'
         : '/assets/images/progress-step-1-poster.jpg';
 
+  const resetToStart = useCallback(() => {
+    const vid = videoRef.current;
+    if (vid) {
+      if (!vid.paused) {
+        vid.pause();
+      }
+      try {
+        vid.currentTime = 0;
+        vid.load();
+      } catch (_) {}
+    }
+    setPlaying(false);
+    setHasStarted(false);
+  }, []);
+
+  // Stop, rewind to 0:00, and restore pre-video poster image when scrolled outside viewport
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    // 1. IntersectionObserver on container element
+    let observer;
+    if (typeof IntersectionObserver !== 'undefined') {
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) {
+              resetToStart();
+            }
+          });
+        },
+        { threshold: 0 }
+      );
+      observer.observe(container);
+    }
+
+    // 2. Direct scroll/resize visibility check
+    const checkVisibility = () => {
+      const rect = container.getBoundingClientRect();
+      const isVisible = rect.bottom > 0 && rect.top < window.innerHeight;
+      if (!isVisible) {
+        resetToStart();
+      }
+    };
+
+    // 3. Listen to global process video reset event
+    const handleGlobalReset = () => {
+      resetToStart();
+    };
+
+    window.addEventListener('scroll', checkVisibility, { passive: true });
+    window.addEventListener('resize', checkVisibility);
+    window.addEventListener('alignaa:reset-process-videos', handleGlobalReset);
+
+    return () => {
+      if (observer) observer.disconnect();
+      window.removeEventListener('scroll', checkVisibility);
+      window.removeEventListener('resize', checkVisibility);
+      window.removeEventListener('alignaa:reset-process-videos', handleGlobalReset);
+    };
+  }, [resetToStart]);
+
+  const togglePlay = () => {
+    const vid = videoRef.current;
+    if (!vid) return;
+    if (vid.paused) {
+      vid.muted = true;
+      vid.defaultMuted = true;
+      if (!hasStarted) {
+        try {
+          vid.currentTime = 0;
+        } catch (_) {}
+      }
+      vid
+        .play()
+        .then(() => {
+          setHasStarted(true);
+          setPlaying(true);
+        })
+        .catch(() => {});
+    } else {
+      vid.pause();
+      setPlaying(false);
+    }
+  };
+
   return (
-    <div className="process-video-wrap" style={{ position: 'relative', overflow: 'hidden' }}>
+    <div
+      ref={containerRef}
+      className="process-video-wrap"
+      style={{ position: 'relative', overflow: 'hidden', cursor: 'pointer' }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onClick={togglePlay}
+    >
       {useVimeo ? (
         <iframe
           id={id}
@@ -147,55 +197,112 @@ export function ProcessVideoPlayer({
           style={{ width: '100%', height: '100%', display: 'block' }}
         />
       ) : (
-        <video
-          ref={videoRef}
-          id={id}
-          src={src}
-          poster={poster || fallbackPoster}
-          loop
-          muted
-          playsInline
-          webkit-playsinline="true"
-          preload="metadata"
-          onPlay={() => setPlaying(true)}
-          onPause={() => setPlaying(false)}
-          onError={() => setUseVimeo(true)}
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            display: 'block',
-            borderRadius: '10px 10px 0 0',
-          }}
-        />
+        <>
+          <video
+            ref={videoRef}
+            id={id}
+            src={src}
+            poster={poster || fallbackPoster}
+            loop={false}
+            muted
+            playsInline
+            webkit-playsinline="true"
+            preload="metadata"
+            onPlay={() => {
+              setHasStarted(true);
+              setPlaying(true);
+            }}
+            onPause={() => setPlaying(false)}
+            onEnded={resetToStart}
+            onError={() => setUseVimeo(true)}
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              display: 'block',
+              borderRadius: '10px 10px 0 0',
+              transform: stepNumber === 2 ? 'scale(1.46)' : 'none',
+              transformOrigin: '50% 20%',
+            }}
+          />
+          {!hasStarted && (
+            <img
+              src={poster || fallbackPoster}
+              alt={title || `Alignaa Process Step ${stepNumber}`}
+              id={id ? `${id}-poster` : undefined}
+              className="process-poster-img"
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                borderRadius: '10px 10px 0 0',
+                transform: stepNumber === 2 ? 'scale(1.46)' : 'none',
+                transformOrigin: '50% 20%',
+                zIndex: 1,
+                pointerEvents: 'none',
+              }}
+            />
+          )}
+        </>
       )}
 
       <button
         type="button"
         className="play"
-        onClick={togglePlay}
+        onClick={(e) => {
+          e.stopPropagation();
+          togglePlay();
+        }}
         aria-label={playing ? `Pause Step ${stepNumber}` : `Play Step ${stepNumber}`}
         style={{
-          opacity: playing ? 0 : 1,
-          pointerEvents: playing ? 'none' : 'auto',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          zIndex: 2,
+          opacity: playing ? (isHovered ? 1 : 0) : 1,
+          pointerEvents: playing ? (isHovered ? 'auto' : 'none') : 'auto',
           border: 0,
           borderRadius: 0,
+          transition: 'opacity 0.2s ease',
         }}
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="feather feather-play"
-        >
-          <polygon points="5 3 19 12 5 21 5 3" />
-        </svg>
+        {playing ? (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="feather feather-pause"
+          >
+            <rect x="6" y="4" width="4" height="16" />
+            <rect x="14" y="4" width="4" height="16" />
+          </svg>
+        ) : (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="feather feather-play"
+          >
+            <polygon points="5 3 19 12 5 21 5 3" />
+          </svg>
+        )}
       </button>
     </div>
   );

@@ -417,6 +417,10 @@
 		width:100%;
 		border-radius: 10px 10px 0px 0px;
 	}
+	.page-aligners #process2 {
+		transform: scale(1.46);
+		transform-origin: 50% 20%;
+	}
 	.page-aligners .socials-video-wrap {
 		position:relative;
 		height: calc((100vw - 100px) * 1.78);

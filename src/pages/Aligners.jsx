@@ -21,7 +21,6 @@ export default function Aligners() {
   const { openBookNow, openReviewModal, openLightbox, setDarkHeader, setHeaderOpacity } = useModals();
   const [activeMod2, setActiveMod2] = useState(1);
   const [showBottomBar, setShowBottomBar] = useState(false);
-  const [activeProcessStep, setActiveProcessStep] = useState(null);
   const [playingSocialId, setPlayingSocialId] = useState(null);
 
   const mod3Ref = useRef(null);
@@ -64,34 +63,32 @@ export default function Aligners() {
           y > socialsTop;
 
         setDarkHeader(isDark);
+      }
 
-        // Process step autoplay on scroll matching reference
-        const mod3El = mod3Ref.current;
-        if (mod3El) {
-          const rect = mod3El.getBoundingClientRect();
-          const topInView = rect.top;
-          const totalH = rect.height;
-          if (topInView < window.innerHeight * 0.75 && topInView + totalH > 100) {
-            const relY = Math.max(0, -topInView + 100);
-            const ratio = relY / totalH;
-            if (ratio < 0.35) {
-              setActiveProcessStep(1);
-            } else if (ratio < 0.7) {
-              setActiveProcessStep(2);
-            } else {
-              setActiveProcessStep(3);
+      // Stop and reset all Process videos to 0:00 with posters when section is outside visual window
+      const mod3El = mod3Ref.current;
+      if (mod3El) {
+        const rect = mod3El.getBoundingClientRect();
+        if (rect.bottom < 0 || rect.top > window.innerHeight) {
+          window.dispatchEvent(new CustomEvent('alignaa:reset-process-videos'));
+          const processVideos = mod3El.querySelectorAll('video');
+          processVideos.forEach((v) => {
+            if (!v.paused) {
+              v.pause();
             }
-          } else {
-            setActiveProcessStep(null);
-          }
+            try {
+              v.currentTime = 0;
+              v.load();
+            } catch (_) {}
+          });
         }
-        // Check if socials section went outside window on scroll
-        const socialsEl = socialsRef.current;
-        if (socialsEl) {
-          const sRect = socialsEl.getBoundingClientRect();
-          if (sRect.bottom < 0 || sRect.top > window.innerHeight) {
-            setPlayingSocialId((prev) => (prev !== null ? null : prev));
-          }
+      }
+      // Check if socials section went outside window on scroll
+      const socialsEl = socialsRef.current;
+      if (socialsEl) {
+        const sRect = socialsEl.getBoundingClientRect();
+        if (sRect.bottom < 0 || sRect.top > window.innerHeight) {
+          setPlayingSocialId((prev) => (prev !== null ? null : prev));
         }
       }
     };
@@ -370,7 +367,6 @@ export default function Aligners() {
                 src={step.localVideo}
                 poster={step.poster}
                 vimeoUrl={step.vimeoUrl}
-                isActive={activeProcessStep === step.step}
                 title={step.title}
               />
               <div className="process-details">
