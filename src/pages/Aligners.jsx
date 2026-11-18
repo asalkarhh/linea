@@ -602,11 +602,12 @@ export default function Aligners() {
         </div>
       </section>
 
-      {/* Reviews Carousel */}
+      {/* Reviews Carousel - Cloned reviews commented out until updated with real client reviews */}
       <div ref={reviewsRef}>
+        {/*
         <SlideCarousel
           id="reviews"
-          heading="4000+ HAPPY CLIENTS"
+          heading="Our Happy Client says:"
           sectionClassName="block has-slides dark-module std-y-pad"
           items={alignersData.reviews}
           desktopVisible={3}
@@ -630,30 +631,20 @@ export default function Aligners() {
                   >
                     {!rev.avatarImage && rev.abbrev}
                   </div>
-                  <a
-                    href="https://www.trustpilot.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ flexGrow: 1 }}
-                  >
+                  <div style={{ flexGrow: 1 }}>
                     {rev.name}
                     <br />
                     <div
                       className="flex vertical-center"
-                      style={{ justifyContent: 'space-between', width: '100%' }}
+                      style={{ gap: '4px', width: '100%', color: '#00b67a', fontSize: '15px' }}
                     >
-                      <img
-                        alt="Trustpilot review stars"
-                        src="/assets/icons/tp-5-stars.svg"
-                        style={{ height: '15px' }}
-                      />
-                      <img
-                        alt="Trustpilot logo"
-                        src="/assets/icons/trustpilot-logo.svg"
-                        style={{ height: '20px' }}
-                      />
+                      <span>★</span>
+                      <span>★</span>
+                      <span>★</span>
+                      <span>★</span>
+                      <span>★</span>
                     </div>
-                  </a>
+                  </div>
                 </div>
                 <div className="slide-description" style={{ marginTop: '12px' }}>
                   {rev.title && <h4>{rev.title}</h4>}
@@ -687,6 +678,7 @@ export default function Aligners() {
             </div>
           )}
         />
+        */}
       </div>
 
       {/* Results Section: Profile + Intraoral Carousels */}
@@ -763,7 +755,7 @@ export default function Aligners() {
           heading="CHECK OUT OUR SOCIALS"
           sectionClassName="block has-slides dark-module std-y-pad"
           items={alignersData.socials}
-          desktopVisible={3}
+          desktopVisible={2}
           tabletVisible={2}
           mobileVisible={1}
           renderSlide={(vid, idx) => (

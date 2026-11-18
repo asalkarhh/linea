@@ -348,7 +348,7 @@ export default function ForDentists() {
         </div>
       </section>
 
-      {/* Testimonial Quote & Patient Trustpilot Proof */}
+      {/* Testimonial Quote & Partner Proof */}
       <section className="block std-y-pad" style={{ backgroundColor: '#fff' }}>
         <div className="block std-x-pad" style={{ maxWidth: '1200px', margin: 'auto' }}>
           <h4
@@ -366,9 +366,11 @@ export default function ForDentists() {
             Partner practice
           </p>
 
+          {/* Cloned Patient Reviews & Trustpilot Section - Commented out until updated with real client reviews */}
+          {/*
           <div className="std-y-pad" />
 
-          <h2 style={{ textAlign: 'center' }}>4,000+ Patients Treated</h2>
+          <h2 style={{ textAlign: 'center' }}>Our Happy Clients say:</h2>
           <div
             className="flex vertical-center"
             style={{
@@ -390,7 +392,6 @@ export default function ForDentists() {
             style={{ margin: '16px 0', justifyContent: 'center', gap: '10px' }}
           >
             <span style={{ fontSize: '22px' }}>4.9 / 5</span>
-            <span style={{ fontSize: '14px', color: '#9b9a9d' }}>on Trustpilot</span>
           </div>
 
           <div className="flex vertical-center" style={{ gap: '20px' }}>
@@ -436,16 +437,7 @@ export default function ForDentists() {
               </div>
             ))}
           </div>
-
-          <a
-            href="https://www.trustpilot.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <button type="button" style={{ margin: '40px auto 20px auto', fontSize: '16px' }}>
-              View All Reviews on Trustpilot
-            </button>
-          </a>
+          */}
         </div>
       </section>
 

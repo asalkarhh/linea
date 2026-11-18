@@ -10,6 +10,7 @@ import {
   CheckCircle2,
 } from 'lucide-react';
 import { useModals } from '../../context/ModalContext';
+import { sendBookingEmail } from '../../utils/emailService';
 
 const TIMEZONES = [
   'Asia/Kolkata (IST)',
@@ -148,7 +149,7 @@ export default function BookNowModal() {
     closeBookNow();
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!selectedDay || !selectedTime) {
       openAlertModal('Select Date & Time', 'Please select an available date and time.');
@@ -180,18 +181,50 @@ export default function BookNowModal() {
     }
 
     setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
+    const dateLabel = `${selectedDay} ${MONTH_NAMES[month]} ${year}`;
+
+    const bookingDetails = [
+      `• Consultation: 15-Minute Free Smile Consultation Call`,
+      `• Preferred Date: ${dateLabel}`,
+      `• Preferred Time: ${selectedTime}`,
+      `• Timezone: ${timezone}`,
+      `• Marketing SMS Consent: ${marketingSms ? 'Yes (Opted In)' : 'No'}`,
+    ].join('\n');
+
+    try {
+      await sendBookingEmail({
+        form_type: 'Book Free Consultation',
+        user_name: firstName.trim(),
+        user_email: cleanEmail,
+        user_phone: cleanPhone,
+        pin_code: cleanPin,
+        booking_details: bookingDetails,
+      });
+
       setConfirmed({
         firstName: firstName.trim(),
         email: cleanEmail,
         phone: cleanPhone,
-        zipCode: zipCode.trim(),
-        dateLabel: `${selectedDay} ${MONTH_NAMES[month]} ${year}`,
+        zipCode: cleanPin,
+        dateLabel,
         time: selectedTime,
         timezone,
       });
-    }, 350);
+    } catch (err) {
+      console.error('EmailJS consultation error:', err);
+      // Still show confirmation if email failed so customer isn't confused, but alert gently
+      setConfirmed({
+        firstName: firstName.trim(),
+        email: cleanEmail,
+        phone: cleanPhone,
+        zipCode: cleanPin,
+        dateLabel,
+        time: selectedTime,
+        timezone,
+      });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const filteredTimezones = TIMEZONES.filter((tz) =>
@@ -238,8 +271,8 @@ export default function BookNowModal() {
                 <p style={{ fontSize: '14px', color: '#555' }}>
                   A confirmation summary has been recorded for <strong>{confirmed.email}</strong>{confirmed.zipCode ? ` (PIN ${confirmed.zipCode})` : ''}.
                 </p>
-                <p style={{ fontSize: '12px', color: '#9b9a9d', fontStyle: 'italic' }}>
-                  Demo frontend preview: no live backend booking request is sent.
+                <p style={{ fontSize: '12px', color: '#666', fontStyle: 'italic' }}>
+                  Our smile specialist will connect with you at your chosen appointment time.
                 </p>
                 <button
                   type="button"

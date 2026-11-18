@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ChevronRight, CheckCircle2, Phone, Calendar, Check, MessageSquare, Instagram } from 'lucide-react';
 import { quizSteps } from '../data/quizData';
 import { useModals } from '../context/ModalContext';
+import { sendBookingEmail } from '../utils/emailService';
 import SEO from '../components/SEO/SEO';
 import '../styles/quiz.css';
 
@@ -12,6 +13,7 @@ function QuizVideoCard({ title, subtitle, videoSrc, posterSrc, isPlaying: contro
 
   const isControlled = typeof controlledPlaying === 'boolean';
   const isPlaying = isControlled ? controlledPlaying : localPlaying;
+  const isStep2 = Boolean(videoSrc && videoSrc.includes('step-2'));
 
   useEffect(() => {
     const vid = videoRef.current;
@@ -113,7 +115,15 @@ function QuizVideoCard({ title, subtitle, videoSrc, posterSrc, isPlaying: contro
         <div style={{ fontWeight: '600', fontSize: '15px', color: '#221f20' }}>{title}</div>
         <div style={{ fontSize: '12px', color: '#777', marginTop: '2px' }}>{subtitle}</div>
       </div>
-      <div style={{ position: 'relative', width: '100%', height: '360px', backgroundColor: '#000' }}>
+      <div
+        style={{
+          position: 'relative',
+          width: '100%',
+          aspectRatio: '4 / 5',
+          backgroundColor: '#f8f8f8',
+          overflow: 'hidden',
+        }}
+      >
         <video
           ref={videoRef}
           src={videoSrc}
@@ -131,10 +141,29 @@ function QuizVideoCard({ title, subtitle, videoSrc, posterSrc, isPlaying: contro
             objectFit: 'cover',
             display: 'block',
             cursor: 'pointer',
-            transform: videoSrc && videoSrc.includes('step-2') ? 'scale(1.46)' : 'none',
+            transform: isStep2 ? 'scale(1.46)' : 'none',
             transformOrigin: '50% 20%',
           }}
         />
+        {!isPlaying && posterSrc && (
+          <img
+            src={posterSrc}
+            alt={title}
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              display: 'block',
+              transform: isStep2 ? 'scale(1.46)' : 'none',
+              transformOrigin: '50% 20%',
+              zIndex: 1,
+              pointerEvents: 'none',
+            }}
+          />
+        )}
         {!isPlaying && (
           <button
             type="button"
@@ -246,7 +275,7 @@ export default function GetStarted() {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!firstName.trim()) {
       openAlertModal('First Name Required', 'Please enter your first name.');
@@ -265,17 +294,60 @@ export default function GetStarted() {
     }
 
     setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
-      const complaint = answers[0]?.label || 'Alignment';
-      const severity = answers[1]?.label || answers[2]?.label || 'Moderate';
-      const estimatedTier =
-        severity === 'Mild'
-          ? 'Tier 1 (Rs,22,999)'
-          : severity === 'Severe'
-            ? 'Tier 3 (Starting from Rs,79,999)'
-            : 'Tier 2 (Starting from Rs,43,999)';
+    const complaint = answers[0]?.label || 'Alignment';
+    const severity = answers[1]?.label || answers[2]?.label || 'Moderate';
+    const estimatedTier =
+      severity === 'Mild'
+        ? 'Tier 1 (Rs,22,999)'
+        : severity === 'Severe'
+          ? 'Tier 3 (Starting from Rs,79,999)'
+          : 'Tier 2 (Starting from Rs,43,999)';
 
+    // Gather all answered quiz questions and user selections
+    const answeredStepIndices = Array.from(
+      new Set([
+        ...historyStack,
+        ...Object.keys(answers).map(Number).sort((a, b) => a - b),
+      ])
+    );
+
+    const quizQAList = answeredStepIndices
+      .map((stepIdx) => {
+        const step = quizSteps.find((s) => s.idx === stepIdx);
+        const question = step?.questions?.[0];
+        const answer = answers[stepIdx];
+        if (question && question.type === 'mc' && answer?.label) {
+          return `• ${question.title}\n  ➜ Selected: ${answer.label}`;
+        }
+        return null;
+      })
+      .filter(Boolean);
+
+    const scanDetails = [
+      `📋 QUIZ QUESTIONS & ANSWERS:`,
+      quizQAList.length > 0 ? quizQAList.join('\n\n') : '• No multiple-choice questions recorded',
+      ``,
+      `-----------------------------------`,
+      `📊 TREATMENT & CANDIDACY ESTIMATE:`,
+      `• Primary Concern: ${complaint}`,
+      `• Severity Level: ${severity}`,
+      `• Estimated Package: ${estimatedTier}`,
+    ].join('\n');
+
+    try {
+      await sendBookingEmail({
+        form_type: 'Book Free 3D Scan',
+        user_name: firstName.trim(),
+        user_email: cleanEmail,
+        user_phone: cleanPhone,
+        pin_code: zipCode.trim(),
+        booking_details: scanDetails,
+      });
+    } catch (err) {
+      console.error('EmailJS 3D scan booking error:', err);
+      // Fail gracefully so user still sees calculated result
+    } finally {
+      setSubmitting(false);
       setResult({
         firstName: firstName.trim(),
         email: cleanEmail,
@@ -285,7 +357,7 @@ export default function GetStarted() {
         estimatedTier,
       });
       window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-    }, 400);
+    }
   };
 
   return (

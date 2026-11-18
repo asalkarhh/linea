@@ -523,22 +523,10 @@ export const alignersData = {
       "poster": "/assets/images/socials-1-poster.jpg"
     },
     {
-      "id": "socials2",
-      "vimeoUrl": "https://player.vimeo.com/video/879364340?controls=0",
-      "localVideo": "/assets/videos/socials-2.mp4",
-      "poster": "/assets/images/socials-2-poster.jpg"
-    },
-    {
       "id": "socials3",
       "vimeoUrl": "https://player.vimeo.com/video/879366717?controls=0",
       "localVideo": "/assets/videos/socials-3.mp4",
       "poster": "/assets/images/socials-3-poster.jpg"
-    },
-    {
-      "id": "socials4",
-      "vimeoUrl": "https://player.vimeo.com/video/879363031?controls=0",
-      "localVideo": "/assets/videos/socials-4.mp4",
-      "poster": "/assets/images/socials-4-poster.jpg"
     }
   ],
   "faqs": [

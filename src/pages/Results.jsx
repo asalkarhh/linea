@@ -76,7 +76,8 @@ export default function Results() {
         </div>
       </div>
 
-      {/* Google Reviews Carousel */}
+      {/* Cloned Reviews Carousels - Commented out until updated with real client reviews */}
+      {/*
       <div style={{ paddingTop: '60px', backgroundColor: '#fff' }}>
         <SlideCarousel
           id="google-reviews"
@@ -94,19 +95,13 @@ export default function Results() {
                 <div className="slide-img">
                   <img src={rev.avatar} alt={rev.name} style={{ width: '100%' }} />
                 </div>
-                <a
-                  href="https://www.google.com/maps"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ float: 'right' }}
-                  aria-label="Google review"
-                >
+                <div style={{ float: 'right' }}>
                   <img
                     src="/assets/icons/google-g.svg"
                     alt="Google"
                     style={{ height: '24px' }}
                   />
-                </a>
+                </div>
                 <p style={{ fontWeight: 600, marginBottom: '4px' }}>{rev.name}</p>
                 <p style={{ fontSize: '12px', color: '#9b9a9d', marginTop: 0 }}>
                   {rev.timeAgo}
@@ -130,12 +125,11 @@ export default function Results() {
         />
       </div>
 
-      {/* Trustpilot Reviews Carousel */}
       <div style={{ paddingTop: '40px', backgroundColor: '#fff' }}>
         <SlideCarousel
-          id="trustpilot-reviews"
+          id="client-reviews"
           variant="overlay"
-          heading="4.9/5 on Trustpilot"
+          heading="Our Happy Clients say:"
           headingTag="h2"
           sectionClassName="block std-x-pad"
           items={resultsData.trustpilotReviews}
@@ -161,26 +155,9 @@ export default function Results() {
                 >
                   {!rev.avatarImage && rev.abbrev}
                 </div>
-                <a
-                  href="https://www.trustpilot.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ float: 'right' }}
-                  aria-label="Trustpilot review"
-                >
-                  <img
-                    src="/assets/icons/trustpilot-logo.svg"
-                    alt="Trustpilot"
-                    style={{ height: '24px' }}
-                  />
-                </a>
-                <p>{rev.name}</p>
-                <p>
-                  <img
-                    src="/assets/icons/tp-5-stars.svg"
-                    alt="5 stars"
-                    style={{ height: '15px' }}
-                  />
+                <p style={{ fontWeight: 600 }}>{rev.name}</p>
+                <p style={{ color: '#00b67a', fontSize: '16px' }}>
+                  ★★★★★
                 </p>
                 <div className="slide-description">
                   {rev.title && <h4>{rev.title}</h4>}
@@ -191,6 +168,7 @@ export default function Results() {
           )}
         />
       </div>
+      */}
 
       {/* Before & After Results Gallery */}
       <div style={{ paddingTop: '60px', paddingBottom: '80px', backgroundColor: '#fff' }}>

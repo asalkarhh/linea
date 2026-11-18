@@ -138,6 +138,10 @@ export default function Preloader() {
               <div className="alignaa-preloader-glow" />
               <img
                 src="/assets/icons/marque-white.png"
+                onError={(e) => {
+                  e.currentTarget.onerror = null;
+                  e.currentTarget.src = '/assets/images/whitelogo.png';
+                }}
                 alt="Alignaa Clear Aligners"
                 className="alignaa-preloader-emblem"
                 width={52}
@@ -167,6 +171,10 @@ export default function Preloader() {
           <div className="alignaa-route-emblem-wrap">
             <img
               src="/assets/icons/marque-white.png"
+              onError={(e) => {
+                e.currentTarget.onerror = null;
+                e.currentTarget.src = '/assets/images/whitelogo.png';
+              }}
               alt=""
               className="alignaa-route-emblem"
               width={42}

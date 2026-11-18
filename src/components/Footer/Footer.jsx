@@ -116,58 +116,73 @@ export default function Footer() {
                 <div
                   style={{
                     display: 'grid',
-                    gridTemplateColumns: 'repeat(3, auto)',
-                    columnGap: '18px',
-                    rowGap: '14px',
+                    gridTemplateColumns: 'repeat(3, 1fr)',
+                    rowGap: '16px',
+                    columnGap: '12px',
                     alignItems: 'center',
-                    justifyContent: 'start',
-                    justifyItems: 'start',
-                    marginTop: '16px',
+                    marginTop: '18px',
+                    width: '100%',
                   }}
                 >
-                  {/* Column 1: Row 1 */}
-                  <img
-                    src="/assets/icons/gpay.svg?v=3"
-                    alt="Google Pay"
-                    title="Google Pay"
-                    style={{ height: '18px', width: 'auto', display: 'block' }}
-                  />
-                  {/* Column 2: Row 1 */}
-                  <img
-                    src="/assets/icons/phonepe.svg?v=3"
-                    alt="PhonePe"
-                    title="PhonePe"
-                    style={{ height: '18px', width: 'auto', display: 'block' }}
-                  />
-                  {/* Column 3: Row 1 */}
-                  <img
-                    src="/assets/icons/upi.svg?v=3"
-                    alt="UPI"
-                    title="UPI"
-                    style={{ height: '15px', width: 'auto', display: 'block' }}
-                  />
+                  {/* Column 1: Row 1 - Google Pay */}
+                  <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
+                    <img
+                      src="/assets/icons/gpay.png"
+                      alt="Google Pay"
+                      title="Google Pay"
+                      style={{ height: '20px', width: 'auto', display: 'block' }}
+                    />
+                  </div>
 
-                  {/* Column 1: Row 2 */}
-                  <img
-                    src="/assets/icons/rupay.svg?v=3"
-                    alt="RuPay"
-                    title="RuPay"
-                    style={{ height: '15px', width: 'auto', display: 'block' }}
-                  />
-                  {/* Column 2: Row 2 */}
-                  <img
-                    src="/assets/icons/mastercard.png?v=3"
-                    alt="Mastercard"
-                    title="Mastercard"
-                    style={{ height: '30px', width: 'auto', display: 'block', justifySelf: 'center' }}
-                  />
-                  {/* Column 3: Row 2 */}
-                  <img
-                    src="/assets/icons/visa.png?v=3"
-                    alt="Visa"
-                    title="Visa"
-                    style={{ height: '15px', width: 'auto', display: 'block' }}
-                  />
+                  {/* Column 2: Row 1 - PhonePe */}
+                  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <img
+                      src="/assets/icons/phonepe.png"
+                      alt="PhonePe"
+                      title="PhonePe"
+                      style={{ height: '22px', width: 'auto', display: 'block' }}
+                    />
+                  </div>
+
+                  {/* Column 3: Row 1 - UPI */}
+                  <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
+                    <img
+                      src="/assets/icons/upi.png"
+                      alt="UPI"
+                      title="UPI"
+                      style={{ height: '16px', width: 'auto', display: 'block' }}
+                    />
+                  </div>
+
+                  {/* Column 1: Row 2 - RuPay */}
+                  <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
+                    <img
+                      src="/assets/icons/rupay.png"
+                      alt="RuPay"
+                      title="RuPay"
+                      style={{ height: '16px', width: 'auto', display: 'block' }}
+                    />
+                  </div>
+
+                  {/* Column 2: Row 2 - Mastercard */}
+                  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <img
+                      src="/assets/icons/mastercard.png"
+                      alt="Mastercard"
+                      title="Mastercard"
+                      style={{ height: '24px', width: 'auto', display: 'block' }}
+                    />
+                  </div>
+
+                  {/* Column 3: Row 2 - Visa */}
+                  <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
+                    <img
+                      src="/assets/icons/visa.png"
+                      alt="Visa"
+                      title="Visa"
+                      style={{ height: '16px', width: 'auto', display: 'block' }}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
