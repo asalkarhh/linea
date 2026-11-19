@@ -139,6 +139,38 @@
   #model-button {
     width: 70%;
   }
+
+  /* Why & About Page Blocks Vertical Centering */
+  .page-why .why-block,
+  .page-about .about-block {
+    display: flex;
+    align-items: center;
+    min-height: 33.5vw;
+  }
+
+  .page-why .why-block.reverse,
+  .page-about .about-block.reverse {
+    flex-direction: row-reverse;
+  }
+
+  .page-why .why-block .half,
+  .page-about .about-block .half {
+    float: none;
+  }
+
+  .page-why .why-block .square-35vw,
+  .page-about .about-block .square-35vw {
+    flex: 0 0 50%;
+    height: 33.5vw;
+  }
+
+  .page-why .why-block .why-text,
+  .page-about .about-block .about-text {
+    flex: 0 0 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 
 @media screen and (min-width: 1140px) {

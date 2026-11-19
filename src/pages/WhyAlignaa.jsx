@@ -115,21 +115,31 @@ export default function WhyAlignaa() {
       </div>
 
       {WHY_BLOCKS.map((blk) => (
-        <section key={blk.title} className="block" style={{ backgroundColor: '#fff' }}>
+        <section
+          key={blk.title}
+          className={`block why-block ${blk.reverseDesktop ? 'reverse' : ''}`}
+          style={{
+            backgroundColor: '#fff',
+            overflow: 'hidden',
+            clear: 'both',
+          }}
+        >
           <div
             className="half square-35vw"
             style={{
-              float: blk.reverseDesktop ? 'right' : undefined,
               backgroundImage: `url(${blk.image})`,
               backgroundPosition: blk.imagePos,
               backgroundRepeat: 'no-repeat',
               backgroundSize: 'cover',
+              position: 'relative',
+              zIndex: 1,
             }}
           />
-          <div className="half std-x-pad std-y-pad">
+          <div className="half std-x-pad std-y-pad why-text">
             <h1
               style={{
                 fontFamily: 'var(--font-primary)',
+                marginTop: 0,
                 paddingBottom: '20px',
                 borderBottom: '1px solid #221f20',
                 fontSize: '24px',
@@ -138,7 +148,13 @@ export default function WhyAlignaa() {
               {blk.title}
             </h1>
             {blk.paragraphs.map((p, i) => (
-              <p key={i} style={{ fontSize: '14px' }}>
+              <p
+                key={i}
+                style={{
+                  fontSize: '14px',
+                  marginBottom: i === blk.paragraphs.length - 1 ? 0 : undefined,
+                }}
+              >
                 {p}
               </p>
             ))}

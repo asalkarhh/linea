@@ -78,7 +78,7 @@ export default function Blog() {
                 <div
                   className="cover-image"
                   style={{
-                    backgroundImage: `url(${post.coverImage})`,
+                    backgroundImage: `url("${post.coverImage}")`,
                     borderRadius: '5px',
                   }}
                 />

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { CheckCircle2 } from 'lucide-react';
 import { useModals } from '../context/ModalContext';
+import { sendBookingEmail } from '../utils/emailService';
 import CtaBlock from '../components/Buttons/CtaBlock';
 import SEO from '../components/SEO/SEO';
 
@@ -23,7 +24,7 @@ export default function Contact() {
     }
   }, [searchParams]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!name.trim()) {
       openAlertModal('Name Required', 'Please enter your name.');
@@ -41,10 +42,37 @@ export default function Contact() {
     }
 
     setSending(true);
-    setTimeout(() => {
+
+    const reasonMap = {
+      new: 'New Inquiry',
+      existing: 'Existing Patient',
+      cp: 'Complaint',
+    };
+    const reasonLabel = reasonMap[reason] || (reason ? reason : 'General Inquiry');
+
+    const contactDetails = [
+      '• Application Source: Contact Page Form (/contact)',
+      `• Contact Reason: ${reasonLabel}`,
+      `• Full Name: ${name.trim()}`,
+      `• Email Address: ${cleanEmail}`,
+      `• Message Content:\n${message.trim()}`,
+    ].join('\n');
+
+    try {
+      await sendBookingEmail({
+        form_type: `Contact Inquiry (${reasonLabel})`,
+        user_name: name.trim(),
+        user_email: cleanEmail,
+        user_phone: 'N/A',
+        pin_code: 'N/A',
+        booking_details: contactDetails,
+      });
+    } catch (err) {
+      console.error('EmailJS contact form error:', err);
+    } finally {
       setSending(false);
       setSent(true);
-    }, 350);
+    }
   };
 
   return (
@@ -88,9 +116,6 @@ export default function Contact() {
               Thank you, <strong>{name}</strong>. Our customer care team has logged your{' '}
               {reason === 'cp' ? 'complaint' : reason === 'existing' ? 'patient inquiry' : 'inquiry'} and will reply to{' '}
               <strong>{email}</strong> within 48 hours.
-            </p>
-            <p style={{ fontSize: '12px', color: '#9b9a9d', fontStyle: 'italic' }}>
-              Frontend demo notice: no backend network request was transmitted.
             </p>
             <button
               type="button"

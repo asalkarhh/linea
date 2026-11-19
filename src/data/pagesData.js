@@ -11,7 +11,7 @@ export const pagesData = {
     },
     {
       "question": "3. What do patients pay for treatment?",
-      "answerHtml": "<p itemprop=\"text\">Treatment pricing for patients ranges from $1,995 to $3,995 depending on case complexity — significantly more accessible than traditional aligner fees, which helps with case acceptance. Patients can pay upfront or use a payment plan. Alignaa handles all billing and collections.</p>\n<p>Patients also frequently need adjacent services — cleanings, pre-treatment work, fixed retainers — which your practice bills directly at your own rates.</p>"
+      "answerHtml": "<p itemprop=\"text\">Treatment pricing for patients ranges from Rs. 22,999 to Rs. 79,999 depending on case complexity — significantly more accessible than traditional aligner fees, which helps with case acceptance. Patients can pay upfront or use a payment plan. Alignaa handles all billing and collections.</p>\n<p>Patients also frequently need adjacent services — cleanings, pre-treatment work, fixed retainers — which your practice bills directly at your own rates.</p>"
     },
     {
       "question": "4. Will this affect my existing aligner patients?",
@@ -19,7 +19,7 @@ export const pagesData = {
     },
     {
       "question": "5. Is Alignaa available in my area?",
-      "answerHtml": "<p itemprop=\"text\">We're actively onboarding practices near metro areas across the US. Apply and we'll confirm availability in your area — in many cases, strong partner interest helps us prioritize where we expand next.</p>"
+      "answerHtml": "<p itemprop=\"text\">We're actively onboarding practices near metro areas across India. Apply and we'll confirm availability in your area — in many cases, strong partner interest helps us prioritize where we expand next.</p>"
     },
     {
       "question": "6. What happens after I apply?",

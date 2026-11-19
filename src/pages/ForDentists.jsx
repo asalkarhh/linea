@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { CheckCircle2 } from 'lucide-react';
 import { pagesData } from '../data/pagesData';
 import { useModals } from '../context/ModalContext';
+import { sendBookingEmail } from '../utils/emailService';
 import FaqAccordion from '../components/Accordion/FaqAccordion';
 import SEO from '../components/SEO/SEO';
 import '../styles/partners.css';
@@ -16,13 +17,14 @@ export default function ForDentists() {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!fullName.trim()) {
       openAlertModal('Required Field', 'Please enter your full name.');
       return;
     }
-    if (!phone.trim()) {
+    const cleanPhone = phone.trim();
+    if (!cleanPhone) {
       openAlertModal('Required Field', 'Please enter your mobile number.');
       return;
     }
@@ -38,10 +40,31 @@ export default function ForDentists() {
     }
 
     setSubmitting(true);
-    setTimeout(() => {
+
+    const partnerDetails = [
+      '• Application Source: Partner Inquiry Form (For Dentists / Clinic Onboarding)',
+      `• Dentist / Contact Name: ${fullName.trim()}`,
+      `• Mobile Number: ${cleanPhone}`,
+      `• Email Address: ${cleanEmail}`,
+      `• Dental Practice Name: ${practiceName.trim()}`,
+      `• Practice Website URL: ${practiceUrl.trim() || 'Not Provided'}`,
+    ].join('\n');
+
+    try {
+      await sendBookingEmail({
+        form_type: 'Dentist Partner Application',
+        user_name: fullName.trim(),
+        user_email: cleanEmail,
+        user_phone: cleanPhone,
+        pin_code: 'N/A',
+        booking_details: partnerDetails,
+      });
+    } catch (err) {
+      console.error('EmailJS partner inquiry error:', err);
+    } finally {
       setSubmitting(false);
       setSubmitted(true);
-    }, 350);
+    }
   };
 
   return (
@@ -250,7 +273,7 @@ export default function ForDentists() {
                 textAlign: 'center',
               }}
             >
-              <h4 style={{ fontSize: '2em' }}>~$2,000</h4>
+              <h4 style={{ fontSize: '2em' }}>~₹25,000</h4>
               <p>Estimated revenue per patient</p>
               <p style={{ fontSize: '13px' }}>
                 Clinical fees + consultation, cleanings, and related care
@@ -268,7 +291,7 @@ export default function ForDentists() {
                 textAlign: 'center',
               }}
             >
-              <h4 style={{ fontSize: '2em' }}>$0</h4>
+              <h4 style={{ fontSize: '2em' }}>₹0</h4>
               <p>Cost to your practice</p>
               <p style={{ fontSize: '13px' }}>No marketing fees, no admin overhead</p>
             </div>
@@ -297,7 +320,7 @@ export default function ForDentists() {
               className="block"
               style={{ padding: '0 20px', width: '80%', maxWidth: '300px', textAlign: 'center' }}
             >
-              <h4 style={{ fontSize: '2em', margin: 0 }}>$7K–$10K+</h4>
+              <h4 style={{ fontSize: '2em', margin: 0 }}>₹75,000–₹1,00,000+</h4>
               <p style={{ marginBottom: '5px' }}>estimated lifetime value</p>
               <p style={{ fontSize: '15px', marginTop: '5px' }}>per retained aligner patient</p>
             </div>
@@ -478,9 +501,6 @@ export default function ForDentists() {
             </div>
             <p>
               Thanks, <strong>{fullName}</strong> from <strong>{practiceName}</strong>. Our clinical partnerships team will contact you at <strong>{email}</strong> or <strong>{phone}</strong> within 2 business days.
-            </p>
-            <p style={{ fontSize: '12px', color: '#9b9a9d', fontStyle: 'italic' }}>
-              Frontend demo notice: submission handled client-side without external API persistence.
             </p>
             <button
               type="button"
