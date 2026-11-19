@@ -115,7 +115,7 @@ export default function LargeMenu({ open, onClose }) {
 
 export function LocationSelector({ open, onDismiss }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [selected, setSelected] = useState('Australia');
+  const [selected, setSelected] = useState('India');
   const wrapRef = useRef(null);
 
   useEffect(() => {
@@ -149,25 +149,19 @@ export function LocationSelector({ open, onDismiss }) {
             <span
               onClick={(e) => {
                 e.stopPropagation();
-                setSelected('United States');
+                setSelected('India');
                 setDropdownOpen(false);
                 onDismiss();
               }}
             >
-              United States
+              India
             </span>
           </div>
         )}
       </div>
-      {selected === 'Australia' ? (
-        <a href="#dismiss" onClick={(e) => { e.preventDefault(); onDismiss(); }}>
-          <button type="button">Go</button>
-        </a>
-      ) : (
-        <button type="button" onClick={onDismiss}>
-          Go
-        </button>
-      )}
+      <button type="button" onClick={onDismiss}>
+        Go
+      </button>
     </div>
   );
 }

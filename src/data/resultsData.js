@@ -65,7 +65,7 @@ export const resultsData = {
       "avatarImage": "/assets/images/trustpilot-customer.png",
       "avatarBg": "",
       "title": "Alignaa is by far the best option for clear aligners",
-      "body": "If you are choosing a clear aligner treatment ... CHOOSE Alignaa. You'll be buying from an Australian company, that has a hybrid support model including a full dental assessment and 3D scan. You'll get in person and online support through your treatment so you won't risk shoddy otcomes i.e. cracked teeth due to a poor treatment plan. The customer support is incredible (all local). Alignaa are a tiny bit more expensive than the some other options, but in overall quality, outcomes and service they are by far the best value."
+      "body": "If you are choosing a clear aligner treatment ... CHOOSE Alignaa. You'll be buying from an Indian company, that has a hybrid support model including a full dental assessment and 3D scan. You'll get in person and online support through your treatment so you won't risk shoddy otcomes i.e. cracked teeth due to a poor treatment plan. The customer support is incredible (all local). Alignaa are a tiny bit more expensive than the some other options, but in overall quality, outcomes and service they are by far the best value."
     },
     {
       "name": "Jack",

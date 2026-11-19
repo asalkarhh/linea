@@ -14,6 +14,7 @@ export default function Contact() {
   const [reason, setReason] = useState(initialReason);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [couponCode, setCouponCode] = useState('');
   const [message, setMessage] = useState('');
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
@@ -55,6 +56,7 @@ export default function Contact() {
       `• Contact Reason: ${reasonLabel}`,
       `• Full Name: ${name.trim()}`,
       `• Email Address: ${cleanEmail}`,
+      `• Coupon Code: ${couponCode.trim() ? couponCode.trim().toUpperCase() : 'None'}`,
       `• Message Content:\n${message.trim()}`,
     ].join('\n');
 
@@ -65,6 +67,7 @@ export default function Contact() {
         user_email: cleanEmail,
         user_phone: 'N/A',
         pin_code: 'N/A',
+        coupon_code: couponCode.trim() ? couponCode.trim().toUpperCase() : 'None',
         booking_details: contactDetails,
       });
     } catch (err) {
@@ -123,6 +126,7 @@ export default function Contact() {
                 setSent(false);
                 setName('');
                 setEmail('');
+                setCouponCode('');
                 setMessage('');
               }}
               style={{ fontSize: '14px' }}
@@ -171,6 +175,22 @@ export default function Contact() {
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
+            </div>
+
+            <div>
+              <label htmlFor="contact_coupon">Coupon Code (Optional)</label>
+              <input
+                id="contact_coupon"
+                maxLength={30}
+                placeholder="Enter coupon code"
+                type="text"
+                value={couponCode}
+                onChange={(e) => setCouponCode(e.target.value.toUpperCase())}
+                style={{ textTransform: 'uppercase' }}
+              />
+              <p style={{ margin: '4px 0 16px 0', fontSize: '13px', color: '#666', fontStyle: 'italic' }}>
+                *Note: If you have a coupon code, you get a discount.
+              </p>
             </div>
 
             <div>

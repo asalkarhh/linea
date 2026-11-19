@@ -51,17 +51,10 @@ export default function MainLayout() {
     }
   }, [location.search, location.pathname, location.hash, navigate, openBookNow]);
 
-  // Respect Australian timezone regional banner logic from reference
+  // Regional banner logic
   useEffect(() => {
-    try {
-      const dismissed = sessionStorage.getItem('lloc') === 'us';
-      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
-      if (!dismissed && tz.includes('Australia/')) {
-        setSelectorOpen(true);
-      }
-    } catch {
-      // Ignore storage/Intl edge cases
-    }
+    // Keep selector banner disabled for unified domestic India presence
+    setSelectorOpen(false);
   }, []);
 
   const dismissSelector = () => {

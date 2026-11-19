@@ -28,6 +28,7 @@ function getFormattedTimestamp() {
  * @param {string} params.user_email - Customer Email
  * @param {string} params.user_phone - Customer Phone
  * @param {string} [params.pin_code] - Customer PIN / Postal Code
+ * @param {string} [params.coupon_code] - Coupon code if provided
  * @param {string} params.booking_details - Formatted multiline details
  * @returns {Promise<import('@emailjs/browser').EmailJSResponseStatus>}
  */
@@ -37,6 +38,7 @@ export async function sendBookingEmail({
   user_email,
   user_phone,
   pin_code = '',
+  coupon_code = '',
   booking_details = '',
 }) {
   if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
@@ -54,6 +56,7 @@ export async function sendBookingEmail({
     user_email,
     user_phone,
     pin_code: pin_code || 'N/A',
+    coupon_code: coupon_code.trim() || 'None',
     booking_details,
     timestamp: getFormattedTimestamp(),
   };

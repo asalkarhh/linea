@@ -61,6 +61,7 @@ export default function BookNowModal() {
   const [zipCode, setZipCode] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
+  const [couponCode, setCouponCode] = useState('');
   const [marketingSms, setMarketingSms] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [confirmed, setConfirmed] = useState(null);
@@ -188,6 +189,7 @@ export default function BookNowModal() {
       `• Preferred Date: ${dateLabel}`,
       `• Preferred Time: ${selectedTime}`,
       `• Timezone: ${timezone}`,
+      `• Coupon Code: ${couponCode.trim() ? couponCode.trim().toUpperCase() : 'None'}`,
       `• Marketing SMS Consent: ${marketingSms ? 'Yes (Opted In)' : 'No'}`,
     ].join('\n');
 
@@ -198,6 +200,7 @@ export default function BookNowModal() {
         user_email: cleanEmail,
         user_phone: cleanPhone,
         pin_code: cleanPin,
+        coupon_code: couponCode.trim() ? couponCode.trim().toUpperCase() : 'None',
         booking_details: bookingDetails,
       });
 
@@ -457,6 +460,20 @@ export default function BookNowModal() {
                         We&apos;ll text appointment reminders and rescheduling info to this number. Reply STOP to opt out.
                       </i>
                     </p>
+
+                    <div style={{ margin: '14px 0 6px 0' }}>
+                      <input
+                        type="text"
+                        id="book_coupon_code"
+                        placeholder="Coupon Code (Optional)"
+                        value={couponCode}
+                        onChange={(e) => setCouponCode(e.target.value.toUpperCase())}
+                        style={{ width: '100%', textTransform: 'uppercase' }}
+                      />
+                      <p style={{ margin: '6px 0 16px 0', fontSize: '13px', color: '#666', fontStyle: 'italic' }}>
+                        *Note: If you have a coupon code, you get a discount.
+                      </p>
+                    </div>
 
                     <div className="confirm-booking-details">
                       <b>Selected date and time: </b>

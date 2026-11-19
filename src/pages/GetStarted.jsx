@@ -217,6 +217,7 @@ export default function GetStarted() {
   const [firstName, setFirstName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
+  const [couponCode, setCouponCode] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [result, setResult] = useState(null);
 
@@ -332,6 +333,7 @@ export default function GetStarted() {
       `• Primary Concern: ${complaint}`,
       `• Severity Level: ${severity}`,
       `• Estimated Package: ${estimatedTier}`,
+      `• Coupon Code: ${couponCode.trim() ? couponCode.trim().toUpperCase() : 'None'}`,
     ].join('\n');
 
     try {
@@ -341,6 +343,7 @@ export default function GetStarted() {
         user_email: cleanEmail,
         user_phone: cleanPhone,
         pin_code: zipCode.trim(),
+        coupon_code: couponCode.trim() ? couponCode.trim().toUpperCase() : 'None',
         booking_details: scanDetails,
       });
     } catch (err) {
@@ -944,6 +947,24 @@ export default function GetStarted() {
                                     style={{ padding: 0, margin: 0, border: 0 }}
                                   />
                                 </div>
+                              </div>
+                            </div>
+
+                            <div className="question-wrap">
+                              <h4>Coupon Code (Optional)</h4>
+                              <div className="answers-wrap">
+                                <input
+                                  name="coupon"
+                                  type="text"
+                                  aria-label="Coupon Code (Optional)"
+                                  placeholder="Enter coupon code"
+                                  value={couponCode}
+                                  onChange={(e) => setCouponCode(e.target.value.toUpperCase())}
+                                  style={{ textTransform: 'uppercase' }}
+                                />
+                                <p style={{ margin: '6px 0 0 0', fontSize: '13px', color: '#666', fontStyle: 'italic' }}>
+                                  *Note: If you have a coupon code, you get a discount.
+                                </p>
                               </div>
                             </div>
 

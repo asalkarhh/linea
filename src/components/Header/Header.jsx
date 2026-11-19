@@ -1,10 +1,10 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Calendar, User } from 'lucide-react';
+import { Calendar } from 'lucide-react';
 import { useModals } from '../../context/ModalContext';
 
 export default function Header({ menuOpen, onToggleMenu, selectorOpen }) {
   const location = useLocation();
-  const { openBookNow, darkHeader, headerOpacity, homeScrolled } = useModals();
+  const { openBookNow, darkHeader, headerOpacity } = useModals();
 
   const path = location.pathname;
   const isHome = path === '/';
@@ -80,53 +80,39 @@ export default function Header({ menuOpen, onToggleMenu, selectorOpen }) {
 
       <div className="menu right">
         <ul style={{ position: 'relative', display: 'flex', alignItems: 'center', gap: '12px' }}>
-          {isHome && !homeScrolled && (
-            <li>
-              <a
-                href="https://alignaa-portal.com/en/login"
-                aria-label="Account login"
-                style={{ color: barColor, display: 'flex', alignItems: 'center' }}
+          <li>
+            <div className="start-here top-start-here">
+              <button
+                type="button"
+                className="header-book-mobile"
+                onClick={openBookNow}
+                aria-label="Book your free consultation"
+                style={{
+                  background: 'transparent',
+                  border: 'none',
+                  color: barColor,
+                  padding: '4px',
+                  cursor: 'pointer',
+                }}
               >
-                <User size={24} strokeWidth={2} />
-              </a>
-            </li>
-          )}
-
-          {(isAlignersSection || (isHome && homeScrolled)) && (
-            <li>
-              <div className="start-here top-start-here">
-                <button
-                  type="button"
-                  className="header-book-mobile"
-                  onClick={openBookNow}
-                  aria-label="Book consultation"
-                  style={{
-                    background: 'transparent',
-                    border: 'none',
-                    color: barColor,
-                    padding: '4px',
-                    cursor: 'pointer',
-                  }}
-                >
-                  <Calendar size={24} strokeWidth={2} />
-                </button>
-                <button
-                  type="button"
-                  className="header-book-desktop"
-                  onClick={openBookNow}
-                  style={{
-                    fontSize: '14px',
-                    padding: '6px 14px',
-                    whiteSpace: 'nowrap',
-                    cursor: 'pointer',
-                    lineHeight: '1.2',
-                  }}
-                >
-                  Book free consultation
-                </button>
-              </div>
-            </li>
-          )}
+                <Calendar size={24} strokeWidth={2} />
+              </button>
+              <button
+                type="button"
+                className="header-book-desktop"
+                onClick={openBookNow}
+                style={{
+                  fontSize: '14px',
+                  padding: '6px 14px',
+                  whiteSpace: 'nowrap',
+                  cursor: 'pointer',
+                  lineHeight: '1.2',
+                }}
+              >
+                Book your free consultation
+              </button>
+            </div>
+          </li>
         </ul>
       </div>
 
