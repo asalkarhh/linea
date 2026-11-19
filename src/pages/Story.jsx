@@ -100,7 +100,7 @@ export default function Story() {
             About
           </h1>
           <p style={{ fontSize: '14px' }}>
-            Alignaa is a premium clear aligner label founded in Melbourne, Australia by dentists, with an ambition to combine the efficiency and cost-effectiveness of direct-to-consumer aligners whilst still maintaining the same level of safety, dentist involvement and oversight as dentist-directed aligners.
+            Alignaa is a premium clear aligner label founded in India by ortho experts, with an ambition to combine the efficiency and cost-effectiveness of direct-to-consumer aligners whilst still maintaining the same level of safety, dentist involvement and oversight as dentist-directed aligners.
           </p>
           <p style={{ fontSize: '14px', marginBottom: 0 }}>
             When we decided to explore an invisible aligner brand, we wanted to do it in a very different way. We wanted to do more than just straighten people&rsquo;s teeth, we wanted to transform lives. We wanted to inspire self-confidence and empower people to truly express themselves. For us, each smile is unique, each smile tells a story and we wanted to play a part in shaping that. To do this we had to create a brand that was universally accessible, yet didn&rsquo;t sacrifice integrity.
