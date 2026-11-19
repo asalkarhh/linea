@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 const BASE_URL = 'https://www.alignaa.co';
-const DEFAULT_IMAGE = `${BASE_URL}/assets/images/home-veneers.jpg`;
+const DEFAULT_IMAGE = `${BASE_URL}/assets/images/aligner_and_case.jpg`;
 
 /**
  * Reusable SEO component for dynamic per-page metadata and JSON-LD structured data.
@@ -60,6 +60,9 @@ export default function SEO({
     setMeta('property', 'og:url', canonicalUrl);
     setMeta('property', 'og:type', ogType);
     setMeta('property', 'og:image', fullOgImage);
+    setMeta('property', 'og:image:secure_url', fullOgImage);
+    setMeta('property', 'og:image:type', 'image/jpeg');
+    setMeta('property', 'og:image:alt', 'Alignaa Clear Aligners');
     setMeta('property', 'og:site_name', 'Alignaa Clear Aligners');
     setMeta('property', 'og:locale', 'en_IN');
 

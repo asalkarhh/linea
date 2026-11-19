@@ -12,7 +12,7 @@ const pricingSchema = {
   '@context': 'https://schema.org',
   '@type': 'Product',
   name: 'Alignaa Clear Aligner Treatment',
-  image: 'https://www.alignaa.co/assets/images/home-veneers.jpg',
+  image: 'https://www.alignaa.co/assets/images/aligner_and_case.jpg',
   description: 'Doctor-directed clear aligners starting from ₹22,999 in India. High-precision 3D digital scans, custom Zendura aligners, retainers & refinements.',
   brand: {
     '@type': 'Brand',
