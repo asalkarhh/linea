@@ -447,22 +447,45 @@ select:focus {
 
 @media screen and (max-width: 860px) {
   .footer-bottom-bar {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    gap: 10px;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 12px;
+    column-gap: 12px;
+    padding-left: 24px;
+    padding-right: 24px;
     padding-bottom: 75px;
   }
 
-  .footer-bottom-left,
-  .footer-bottom-center,
+  .footer-bottom-left {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  .footer-bottom-center {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    text-align: right;
+    white-space: nowrap;
+  }
+
   .footer-bottom-right {
+    grid-column: 1 / -1;
+    grid-row: 2;
     justify-self: center;
     text-align: center;
     width: 100%;
     white-space: normal;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .footer-bottom-bar {
+    padding-left: 16px;
+    padding-right: 16px;
+    font-size: 11px;
   }
 }
 
