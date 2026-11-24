@@ -192,28 +192,14 @@ export default function Footer() {
         </div>
       </div>
 
-      <div
-        className="block small-font std-x-pad"
-        style={{
-          borderTop: '1px solid #9b9a9d',
-          letterSpacing: '0.5px',
-          marginTop: '20px',
-          paddingTop: '16px',
-          paddingBottom: '65px',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          flexWrap: 'wrap',
-          gap: '14px',
-        }}
-      >
+      <div className="footer-bottom-bar small-font std-x-pad">
         {/* Left: Terms | Privacy Policy */}
-        <div style={{ textAlign: 'left' }}>
+        <div className="footer-bottom-left">
           <Link to="/terms/">Terms</Link> | <Link to="/privacy/">Privacy Policy</Link>
         </div>
 
         {/* Center: Alignaa © 2026 */}
-        <div style={{ textAlign: 'center' }}>
+        <div className="footer-bottom-center">
           <p style={{ margin: 0, padding: 0 }}>
             <a href="https://www.alignaa.in/" target="_blank" rel="noopener noreferrer">
               Alignaa
@@ -223,7 +209,7 @@ export default function Footer() {
         </div>
 
         {/* Right: Developed by Asalkar Techworks Pvt. Ltd. */}
-        <div className="footer-developer">
+        <div className="footer-bottom-right footer-developer">
           <p style={{ margin: 0, padding: 0 }}>
             Developed by{' '}
             <a href="https://www.asalkar.in/" target="_blank" rel="noopener noreferrer">
