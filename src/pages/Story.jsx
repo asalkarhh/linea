@@ -99,7 +99,7 @@ export default function Story() {
           >
             About
           </h1>
-          <p style={{ fontSize: '14px' }}>
+          <p style={{ fontSize: '14px' }}> 
             Alignaa is a premium clear aligner label founded in India by Ortho experts, with an ambition to combine the efficiency and cost-effectiveness of direct-to-consumer aligners whilst still maintaining the same level of safety, dentist involvement and oversight as dentist-directed aligners.
           </p>
           <p style={{ fontSize: '14px', marginBottom: 0 }}>
