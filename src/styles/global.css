@@ -938,12 +938,37 @@ select:focus {
 }
 
 .book-now-image {
+  position: relative;
   height: 85vw;
   width: 100%;
   background-image: url('/assets/images/book-now.jpg');
   background-size: cover;
   background-position: center;
   border-radius: 0;
+}
+
+.book-now-close-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  min-width: 36px;
+  min-height: 36px;
+  padding: 0;
+  border-radius: 50%;
+  border: 0;
+  background-color: rgba(245, 245, 245, 0.9);
+  color: #221f20;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+}
+
+.book-now-close-button:hover {
+  background-color: #ffffff;
+  color: #221f20;
 }
 
 .book-now-form-wrap {

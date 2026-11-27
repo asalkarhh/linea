@@ -244,7 +244,19 @@ export default function BookNowModal() {
         aria-hidden={!bookNowOpen}
       >
         <div className="book-now-flex">
-          <div className="book-now-image" onClick={handleResetAndClose} />
+          <div className="book-now-image" onClick={handleResetAndClose}>
+            <button
+              type="button"
+              className="book-now-close-button"
+              onClick={(e) => {
+                e.stopPropagation();
+                handleResetAndClose();
+              }}
+              aria-label="Close booking overlay"
+            >
+              <X size={20} aria-hidden="true" />
+            </button>
+          </div>
           <div className="book-now-form-wrap" ref={formWrapRef}>
             <div style={{ display: 'flex', alignItems: 'center' }}>
               <button

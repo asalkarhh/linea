@@ -38,7 +38,7 @@ export const alignersData = {
   ],
   "pricingTiers": [
     {
-      "title": "TIER 1: Rs,22,999",
+      "title": "TIER 1: Starting from Rs,22,999",
       "subtitle": "Very Lite Cases",
       "image": "/assets/images/pricing-3.jpg",
       "alt": "Clear aligners in carry case - Tier 1",
