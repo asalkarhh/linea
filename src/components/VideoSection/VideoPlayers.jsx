@@ -5,65 +5,133 @@ export function HeroVideoBg({ onVisibilityCheck }) {
   const [isMobile, setIsMobile] = useState(
     typeof window !== 'undefined' ? window.innerWidth < 700 : false
   );
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(() =>
+    typeof window !== 'undefined' && typeof window.matchMedia === 'function'
+      ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      : false
+  );
+  const [saveData, setSaveData] = useState(() =>
+    typeof navigator !== 'undefined' && navigator.connection
+      ? Boolean(navigator.connection.saveData)
+      : false
+  );
+  const [videoFailed, setVideoFailed] = useState(false);
+  const [videoStarted, setVideoStarted] = useState(false);
   const videoRef = useRef(null);
 
   useEffect(() => {
     const onResize = () => setIsMobile(window.innerWidth < 700);
     window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
+
+    const motionQuery =
+      typeof window !== 'undefined' && typeof window.matchMedia === 'function'
+        ? window.matchMedia('(prefers-reduced-motion: reduce)')
+        : null;
+    const onMotionChange = (e) => setPrefersReducedMotion(e.matches);
+    if (motionQuery) {
+      if (motionQuery.addEventListener) {
+        motionQuery.addEventListener('change', onMotionChange);
+      } else if (motionQuery.addListener) {
+        motionQuery.addListener(onMotionChange);
+      }
+    }
+
+    const conn = typeof navigator !== 'undefined' ? navigator.connection : null;
+    const onConnChange = () => setSaveData(Boolean(conn?.saveData));
+    if (conn && conn.addEventListener) {
+      conn.addEventListener('change', onConnChange);
+    }
+
+    return () => {
+      window.removeEventListener('resize', onResize);
+      if (motionQuery) {
+        if (motionQuery.removeEventListener) {
+          motionQuery.removeEventListener('change', onMotionChange);
+        } else if (motionQuery.removeListener) {
+          motionQuery.removeListener(onMotionChange);
+        }
+      }
+      if (conn && conn.removeEventListener) {
+        conn.removeEventListener('change', onConnChange);
+      }
+    };
   }, []);
 
   const videoSrc = isMobile
-    ? '/assets/videos/Alignaa_Vertical__Website_Hero_Comp.mp4'
+    ? '/assets/videos/Linea_Vertical__Website_Hero_Comp.mp4'
     : '/assets/videos/Alignaa_Wide_Website_Hero_Comp.mp4';
   const posterSrc = isMobile
     ? '/assets/images/alignaa-hero-mobile-poster.jpg'
     : '/assets/images/alignaa-hero-wide-poster.jpg';
 
+  const showPosterOnly = prefersReducedMotion || saveData || videoFailed;
+
+  useEffect(() => {
+    setVideoFailed(false);
+    setVideoStarted(false);
+  }, [videoSrc]);
+
   useEffect(() => {
     const vid = videoRef.current;
-    if (!vid) return;
 
-    // Guarantee browser autoplay by enforcing muted DOM properties
-    vid.muted = true;
-    vid.defaultMuted = true;
-    const playPromise = vid.play();
-    if (playPromise !== undefined) {
-      playPromise.catch(() => {});
+    if (!showPosterOnly && vid) {
+      // Guarantee browser autoplay by enforcing muted DOM properties
+      vid.muted = true;
+      vid.defaultMuted = true;
+      const playPromise = vid.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {});
+      }
     }
 
     const onScroll = () => {
       const scrollY = window.scrollY;
       const winH = window.innerHeight || 800;
-      if (scrollY < winH) {
-        if (vid.paused) vid.play().catch(() => {});
-      } else {
-        if (!vid.paused) vid.pause();
+      if (!showPosterOnly && vid) {
+        if (scrollY < winH) {
+          if (vid.paused) vid.play().catch(() => {});
+        } else {
+          if (!vid.paused) vid.pause();
+        }
       }
       if (onVisibilityCheck) onVisibilityCheck(scrollY);
     };
 
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
-  }, [videoSrc, onVisibilityCheck]);
+  }, [videoSrc, showPosterOnly, onVisibilityCheck]);
 
   return (
-    <video
-      ref={videoRef}
-      key={videoSrc}
-      autoPlay
-      muted
-      loop
-      playsInline
-      webkit-playsinline="true"
-      poster={posterSrc}
-      className="video-element jquery-background-video cover-video"
-      aria-label="Alignaa Clear Aligners hero background video"
-      style={{ objectFit: 'cover' }}
-    >
-      <source src={videoSrc} type="video/mp4" />
-      Your browser does not support this feature
-    </video>
+    <>
+      {!showPosterOnly && (
+        <video
+          ref={videoRef}
+          key={videoSrc}
+          autoPlay
+          muted
+          loop
+          playsInline
+          webkit-playsinline="true"
+          poster={posterSrc}
+          className="video-element jquery-background-video cover-video"
+          aria-label="Alignaa Clear Aligners hero background video"
+          style={{ objectFit: 'cover' }}
+          onPlaying={() => setVideoStarted(true)}
+          onError={() => setVideoFailed(true)}
+        >
+          <source src={videoSrc} type="video/mp4" onError={() => setVideoFailed(true)} />
+          Your browser does not support this feature
+        </video>
+      )}
+      {(showPosterOnly || !videoStarted) && (
+        <img
+          src={posterSrc}
+          alt="Alignaa Clear Aligners hero"
+          className="video-element cover-video"
+          style={{ objectFit: 'cover', pointerEvents: 'none' }}
+        />
+      )}
+    </>
   );
 }
 

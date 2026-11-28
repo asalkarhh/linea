@@ -12,6 +12,18 @@ export default function Home() {
   const [isMobile, setIsMobile] = useState(
     typeof window !== 'undefined' ? window.innerWidth < 700 : false
   );
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(() =>
+    typeof window !== 'undefined' && typeof window.matchMedia === 'function'
+      ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      : false
+  );
+  const [saveData, setSaveData] = useState(() =>
+    typeof navigator !== 'undefined' && navigator.connection
+      ? Boolean(navigator.connection.saveData)
+      : false
+  );
+  const [videoFailed, setVideoFailed] = useState(false);
+  const [videoStarted, setVideoStarted] = useState(false);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -27,20 +39,58 @@ export default function Home() {
     const onBeforeUnload = () => window.scrollTo(0, 0);
     window.addEventListener('resize', onResize);
     window.addEventListener('beforeunload', onBeforeUnload);
+
+    const motionQuery =
+      typeof window !== 'undefined' && typeof window.matchMedia === 'function'
+        ? window.matchMedia('(prefers-reduced-motion: reduce)')
+        : null;
+    const onMotionChange = (e) => setPrefersReducedMotion(e.matches);
+    if (motionQuery) {
+      if (motionQuery.addEventListener) {
+        motionQuery.addEventListener('change', onMotionChange);
+      } else if (motionQuery.addListener) {
+        motionQuery.addListener(onMotionChange);
+      }
+    }
+
+    const conn = typeof navigator !== 'undefined' ? navigator.connection : null;
+    const onConnChange = () => setSaveData(Boolean(conn?.saveData));
+    if (conn && conn.addEventListener) {
+      conn.addEventListener('change', onConnChange);
+    }
+
     return () => {
       window.removeEventListener('resize', onResize);
       window.removeEventListener('beforeunload', onBeforeUnload);
+      if (motionQuery) {
+        if (motionQuery.removeEventListener) {
+          motionQuery.removeEventListener('change', onMotionChange);
+        } else if (motionQuery.removeListener) {
+          motionQuery.removeListener(onMotionChange);
+        }
+      }
+      if (conn && conn.removeEventListener) {
+        conn.removeEventListener('change', onConnChange);
+      }
     };
   }, [setHomeScrolled]);
 
   const videoSrc = isMobile
-    ? '/assets/videos/Alignaa_Vertical__Website_Hero_Comp.mp4'
+    ? '/assets/videos/Linea_Vertical__Website_Hero_Comp.mp4'
     : '/assets/videos/Alignaa_Wide_Website_Hero_Comp.mp4';
   const posterSrc = isMobile
     ? '/assets/images/alignaa-hero-mobile-poster.jpg'
     : '/assets/images/alignaa-hero-wide-poster.jpg';
 
+  const showPosterOnly = prefersReducedMotion || saveData || videoFailed;
+
   useEffect(() => {
+    setVideoFailed(false);
+    setVideoStarted(false);
+  }, [videoSrc]);
+
+  useEffect(() => {
+    if (showPosterOnly) return;
     const vid = videoRef.current;
     if (!vid) return;
 
@@ -50,7 +100,7 @@ export default function Home() {
     if (playPromise !== undefined) {
       playPromise.catch(() => {});
     }
-  }, [videoSrc]);
+  }, [videoSrc, showPosterOnly]);
 
   // Track scroll position to pause offscreen video and switch hero to Image 2 once user explores
   useEffect(() => {
@@ -65,7 +115,7 @@ export default function Home() {
       }
 
       // Pause hero video when deep in content sheet to conserve resources
-      if (vid) {
+      if (vid && !showPosterOnly) {
         if (scrollY > winH) {
           if (!vid.paused) vid.pause();
         } else {
@@ -75,7 +125,7 @@ export default function Home() {
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [setHomeScrolled]);
+  }, [setHomeScrolled, showPosterOnly]);
 
   const scrollToContent = () => {
     const target = document.getElementById('aligners-main-content');
@@ -95,21 +145,32 @@ export default function Home() {
 
       {/* Hero Cover (Sticky 100vh Window) */}
       <section className="home-hero-cover" id="home-hero-cover">
-        <video
-          ref={videoRef}
-          key={videoSrc}
-          autoPlay
-          muted
-          loop
-          playsInline
-          webkit-playsinline="true"
-          poster={posterSrc}
-          className="home-hero-video-bg"
-          aria-label="Alignaa Clear Aligners hero video"
-        >
-          <source src={videoSrc} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        {!showPosterOnly && (
+          <video
+            ref={videoRef}
+            key={videoSrc}
+            autoPlay
+            muted
+            loop
+            playsInline
+            webkit-playsinline="true"
+            poster={posterSrc}
+            className="home-hero-video-bg"
+            aria-label="Alignaa Clear Aligners hero video"
+            onPlaying={() => setVideoStarted(true)}
+            onError={() => setVideoFailed(true)}
+          >
+            <source src={videoSrc} type="video/mp4" onError={() => setVideoFailed(true)} />
+            Your browser does not support the video tag.
+          </video>
+        )}
+        {(showPosterOnly || !videoStarted) && (
+          <img
+            src={posterSrc}
+            alt="Alignaa Clear Aligners hero"
+            className="home-hero-video-bg"
+          />
+        )}
         <div className="home-hero-overlay" />
 
         {!homeScrolled ? (
