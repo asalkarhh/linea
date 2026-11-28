@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 // Hero video background with mobile/desktop source switching and reliable autoplay
 export function HeroVideoBg({ onVisibilityCheck }) {
@@ -74,92 +74,108 @@ export function ProcessVideoPlayer({
   src,
   poster,
   vimeoUrl,
-  isActive = false,
   title = '',
 }) {
   const containerRef = useRef(null);
   const videoRef = useRef(null);
+  const pendingPlayRef = useRef(false);
+  const [videoMounted, setVideoMounted] = useState(false);
+  const [showPoster, setShowPoster] = useState(true);
   const [playing, setPlaying] = useState(false);
-  const [hasStarted, setHasStarted] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
   const [useVimeo, setUseVimeo] = useState(false);
 
-  const fallbackPoster =
-    stepNumber === 2
+  const posterSrc =
+    poster ||
+    (stepNumber === 2
       ? '/assets/images/progress-step-2-poster.jpg'
       : stepNumber === 3
         ? '/assets/images/progress-step-3-poster.jpg'
-        : '/assets/images/progress-step-1-poster.jpg';
+        : '/assets/images/progress-step-1-poster.jpg');
 
-  const resetToStart = useCallback(() => {
-    const vid = videoRef.current;
-    if (vid) {
-      if (!vid.paused) {
-        vid.pause();
-      }
-      try {
-        vid.currentTime = 0;
-        vid.load();
-      } catch (_) {}
-    }
+  const handleMediaError = () => {
     setPlaying(false);
-    setHasStarted(false);
-  }, []);
-
-  // Stop, rewind to 0:00, and restore pre-video poster image when scrolled outside viewport
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    // 1. IntersectionObserver on container element
-    let observer;
-    if (typeof IntersectionObserver !== 'undefined') {
-      observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) {
-              resetToStart();
-            }
-          });
-        },
-        { threshold: 0 }
-      );
-      observer.observe(container);
+    setShowPoster(true);
+    if (vimeoUrl) {
+      setUseVimeo(true);
     }
+  };
 
-    // 2. Direct scroll/resize visibility check
-    const checkVisibility = () => {
-      const rect = container.getBoundingClientRect();
-      const isVisible = rect.bottom > 0 && rect.top < window.innerHeight;
-      if (!isVisible) {
-        resetToStart();
-      }
-    };
-
-    // 3. Listen to global process video reset event
-    const handleGlobalReset = () => {
-      resetToStart();
-    };
-
-    window.addEventListener('scroll', checkVisibility, { passive: true });
-    window.addEventListener('resize', checkVisibility);
-    window.addEventListener('alignaa:reset-process-videos', handleGlobalReset);
-
-    return () => {
-      if (observer) observer.disconnect();
-      window.removeEventListener('scroll', checkVisibility);
-      window.removeEventListener('resize', checkVisibility);
-      window.removeEventListener('alignaa:reset-process-videos', handleGlobalReset);
-    };
-  }, [resetToStart]);
-
-  const togglePlay = () => {
+  // Start playback once the video element mounts from a user-initiated Play click
+  useEffect(() => {
+    if (!videoMounted || useVimeo || !pendingPlayRef.current) return;
     const vid = videoRef.current;
     if (!vid) return;
+
+    pendingPlayRef.current = false;
+    vid.muted = true;
+    vid.defaultMuted = true;
+    vid
+      .play()
+      .then(() => {
+        setShowPoster(false);
+        setPlaying(true);
+      })
+      .catch((err) => {
+        if (err && err.name === 'NotAllowedError') {
+          setPlaying(false);
+          setShowPoster(true);
+          return;
+        }
+        if (vid.error || (err && err.name === 'NotSupportedError')) {
+          handleMediaError();
+        }
+      });
+  }, [videoMounted, useVimeo, vimeoUrl]);
+
+  // Pause an active clip when it leaves the viewport without reloading or autoplaying on return
+  useEffect(() => {
+    if (!videoMounted || useVimeo) return;
+    const container = containerRef.current;
+    if (!container || typeof IntersectionObserver === 'undefined') return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            const vid = videoRef.current;
+            if (vid && !vid.paused) {
+              vid.pause();
+              setPlaying(false);
+            }
+          }
+        });
+      },
+      { threshold: 0 }
+    );
+
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, [videoMounted, useVimeo]);
+
+  const togglePlay = () => {
+    if (useVimeo) return;
+
+    if (!videoMounted) {
+      if (!src) {
+        if (vimeoUrl) {
+          setUseVimeo(true);
+        }
+        return;
+      }
+      pendingPlayRef.current = true;
+      setVideoMounted(true);
+      return;
+    }
+
+    const vid = videoRef.current;
+    if (!vid) return;
+
     if (vid.paused) {
       vid.muted = true;
       vid.defaultMuted = true;
-      if (!hasStarted) {
+      if (vid.ended || showPoster) {
         try {
           vid.currentTime = 0;
         } catch (_) {}
@@ -167,10 +183,18 @@ export function ProcessVideoPlayer({
       vid
         .play()
         .then(() => {
-          setHasStarted(true);
+          setShowPoster(false);
           setPlaying(true);
         })
-        .catch(() => {});
+        .catch((err) => {
+          if (err && err.name === 'NotAllowedError') {
+            setPlaying(false);
+            return;
+          }
+          if (vid.error || (err && err.name === 'NotSupportedError')) {
+            handleMediaError();
+          }
+        });
     } else {
       vid.pause();
       setPlaying(false);
@@ -181,7 +205,7 @@ export function ProcessVideoPlayer({
     <div
       ref={containerRef}
       className="process-video-wrap"
-      style={{ position: 'relative', overflow: 'hidden', cursor: 'pointer' }}
+      style={{ position: 'relative', overflow: 'hidden', cursor: useVimeo ? 'default' : 'pointer' }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={togglePlay}
@@ -198,36 +222,47 @@ export function ProcessVideoPlayer({
         />
       ) : (
         <>
-          <video
-            ref={videoRef}
-            id={id}
-            src={src}
-            poster={poster || fallbackPoster}
-            loop={false}
-            muted
-            playsInline
-            webkit-playsinline="true"
-            preload="metadata"
-            onPlay={() => {
-              setHasStarted(true);
-              setPlaying(true);
-            }}
-            onPause={() => setPlaying(false)}
-            onEnded={resetToStart}
-            onError={() => setUseVimeo(true)}
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              display: 'block',
-              borderRadius: '10px 10px 0 0',
-              transform: stepNumber === 2 ? 'scale(1.46)' : 'none',
-              transformOrigin: '50% 20%',
-            }}
-          />
-          {!hasStarted && (
+          {videoMounted && (
+            <video
+              ref={videoRef}
+              id={id}
+              src={src}
+              poster={posterSrc}
+              loop={false}
+              muted
+              playsInline
+              webkit-playsinline="true"
+              preload="metadata"
+              onPlay={() => {
+                setShowPoster(false);
+                setPlaying(true);
+              }}
+              onPause={() => setPlaying(false)}
+              onEnded={() => {
+                const vid = videoRef.current;
+                if (vid) {
+                  try {
+                    vid.currentTime = 0;
+                  } catch (_) {}
+                }
+                setPlaying(false);
+                setShowPoster(true);
+              }}
+              onError={handleMediaError}
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                display: 'block',
+                borderRadius: '10px 10px 0 0',
+                transform: stepNumber === 2 ? 'scale(1.46)' : 'none',
+                transformOrigin: '50% 20%',
+              }}
+            />
+          )}
+          {showPoster && (
             <img
-              src={poster || fallbackPoster}
+              src={posterSrc}
               alt={title || `Alignaa Process Step ${stepNumber}`}
               id={id ? `${id}-poster` : undefined}
               className="process-poster-img"
@@ -249,61 +284,70 @@ export function ProcessVideoPlayer({
         </>
       )}
 
-      <button
-        type="button"
-        className="play"
-        onClick={(e) => {
-          e.stopPropagation();
-          togglePlay();
-        }}
-        aria-label={playing ? `Pause Step ${stepNumber}` : `Play Step ${stepNumber}`}
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          zIndex: 2,
-          opacity: playing ? (isHovered ? 1 : 0) : 1,
-          pointerEvents: playing ? (isHovered ? 'auto' : 'none') : 'auto',
-          border: 0,
-          borderRadius: 0,
-          transition: 'opacity 0.2s ease',
-        }}
-      >
-        {playing ? (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="feather feather-pause"
-          >
-            <rect x="6" y="4" width="4" height="16" />
-            <rect x="14" y="4" width="4" height="16" />
-          </svg>
-        ) : (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="feather feather-play"
-          >
-            <polygon points="5 3 19 12 5 21 5 3" />
-          </svg>
-        )}
-      </button>
+      {!useVimeo && (
+        <button
+          type="button"
+          className="play"
+          onClick={(e) => {
+            e.stopPropagation();
+            togglePlay();
+          }}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
+          aria-label={playing ? `Pause Step ${stepNumber}` : `Play Step ${stepNumber}`}
+          aria-pressed={playing}
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            zIndex: 2,
+            opacity: playing ? (isHovered || isFocused ? 1 : 0) : 1,
+            pointerEvents: playing ? (isHovered || isFocused ? 'auto' : 'none') : 'auto',
+            border: 0,
+            borderRadius: 0,
+            transition: 'opacity 0.2s ease',
+          }}
+        >
+          {playing ? (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="feather feather-pause"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <rect x="6" y="4" width="4" height="16" />
+              <rect x="14" y="4" width="4" height="16" />
+            </svg>
+          ) : (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="feather feather-play"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <polygon points="5 3 19 12 5 21 5 3" />
+            </svg>
+          )}
+        </button>
+      )}
     </div>
   );
 }

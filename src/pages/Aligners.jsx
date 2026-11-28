@@ -67,24 +67,6 @@ export default function Aligners({ hideHero = false }) {
         setDarkHeader(isDark);
       }
 
-      // Stop and reset all Process videos to 0:00 with posters when section is outside visual window
-      const mod3El = mod3Ref.current;
-      if (mod3El) {
-        const rect = mod3El.getBoundingClientRect();
-        if (rect.bottom < 0 || rect.top > window.innerHeight) {
-          window.dispatchEvent(new CustomEvent('alignaa:reset-process-videos'));
-          const processVideos = mod3El.querySelectorAll('video');
-          processVideos.forEach((v) => {
-            if (!v.paused) {
-              v.pause();
-            }
-            try {
-              v.currentTime = 0;
-              v.load();
-            } catch (_) {}
-          });
-        }
-      }
       // Check if socials section went outside window on scroll
       const socialsEl = socialsRef.current;
       if (socialsEl) {

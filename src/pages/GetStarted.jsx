@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { flushSync } from 'react-dom';
 import { Link } from 'react-router-dom';
 import { ChevronRight, CheckCircle2, Phone, Calendar, Check, MessageSquare, Instagram } from 'lucide-react';
 import { quizSteps } from '../data/quizData';
@@ -9,6 +10,7 @@ import '../styles/quiz.css';
 
 function QuizVideoCard({ title, subtitle, videoSrc, posterSrc, isPlaying: controlledPlaying, onTogglePlay }) {
   const videoRef = useRef(null);
+  const [videoMounted, setVideoMounted] = useState(false);
   const [localPlaying, setLocalPlaying] = useState(false);
 
   const isControlled = typeof controlledPlaying === 'boolean';
@@ -35,6 +37,7 @@ function QuizVideoCard({ title, subtitle, videoSrc, posterSrc, isPlaying: contro
 
   // Pause when scrolled outside viewport
   useEffect(() => {
+    if (!videoMounted) return;
     const vid = videoRef.current;
     if (!vid || typeof IntersectionObserver === 'undefined') return;
 
@@ -56,9 +59,16 @@ function QuizVideoCard({ title, subtitle, videoSrc, posterSrc, isPlaying: contro
 
     observer.observe(vid);
     return () => observer.disconnect();
-  }, [isControlled, onTogglePlay]);
+  }, [videoMounted, isControlled, onTogglePlay]);
 
   const togglePlay = () => {
+    if (!videoMounted) {
+      if (!videoSrc) return;
+      flushSync(() => {
+        setVideoMounted(true);
+      });
+    }
+
     const vid = videoRef.current;
     if (!vid) return;
     if (vid.paused) {
@@ -124,27 +134,29 @@ function QuizVideoCard({ title, subtitle, videoSrc, posterSrc, isPlaying: contro
           overflow: 'hidden',
         }}
       >
-        <video
-          ref={videoRef}
-          src={videoSrc}
-          poster={posterSrc}
-          loop
-          playsInline
-          webkit-playsinline="true"
-          preload="metadata"
-          onClick={togglePlay}
-          onPause={handlePause}
-          onPlay={handlePlay}
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            display: 'block',
-            cursor: 'pointer',
-            transform: isStep2 ? 'scale(1.46)' : 'none',
-            transformOrigin: '50% 20%',
-          }}
-        />
+        {videoMounted && (
+          <video
+            ref={videoRef}
+            src={videoSrc}
+            poster={posterSrc}
+            loop
+            playsInline
+            webkit-playsinline="true"
+            preload="metadata"
+            onClick={togglePlay}
+            onPause={handlePause}
+            onPlay={handlePlay}
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              display: 'block',
+              cursor: 'pointer',
+              transform: isStep2 ? 'scale(1.46)' : 'none',
+              transformOrigin: '50% 20%',
+            }}
+          />
+        )}
         {!isPlaying && posterSrc && (
           <img
             src={posterSrc}
